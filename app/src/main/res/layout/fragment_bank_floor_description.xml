@@ -84,6 +84,7 @@
                         android:paddingLeft="@dimen/dp_10"
                         android:paddingRight="@dimen/dp_10"
                         android:paddingTop="@dimen/dp_5"
+                        android:singleLine="true"
                         android:textColor="@color/common_grey_text_color"
                         android:textSize="@dimen/sp_18" />
 

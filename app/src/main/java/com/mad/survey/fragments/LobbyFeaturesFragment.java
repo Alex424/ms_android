@@ -2,6 +2,7 @@ package com.mad.survey.fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ public class LobbyFeaturesFragment extends BaseFragment implements View.OnClickL
 
     private TextView txtSubTitle;
     private EditText edtSpecialFeatures, edtIntegralCommunication;
+    private boolean icFocus = false;
 
     public static LobbyFeaturesFragment newInstance(){
         LobbyFeaturesFragment fragment = new LobbyFeaturesFragment();
@@ -44,6 +46,16 @@ public class LobbyFeaturesFragment extends BaseFragment implements View.OnClickL
         txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         edtSpecialFeatures = (EditText) parent.findViewById(R.id.edtSpecialFeatures);
         edtIntegralCommunication = (EditText) parent.findViewById(R.id.edtIntegralCommunication);
+        edtIntegralCommunication.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // code to execute when EditText loses focus
+                    icFocus = true;
+                    Log.d(getClass().getName(), "Integral Communication Focus: Focus ON");
+                }
+            }
+        });
 
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
         parent.findViewById(R.id.btnNext).setOnClickListener(this);
@@ -69,9 +81,16 @@ public class LobbyFeaturesFragment extends BaseFragment implements View.OnClickL
     }
 
     private void goToNext(){
+        String specialFeatures = edtSpecialFeatures.getText().toString();
+        String integralCommunication = edtIntegralCommunication.getText().toString();
 
-        MADSurveyApp.getInstance().getLobbyData().setSpecialFeature(edtSpecialFeatures.getText().toString());
-        MADSurveyApp.getInstance().getLobbyData().setSpecialCommunicationOption(edtIntegralCommunication.getText().toString());
+        if (integralCommunication.equals("") && !icFocus){
+            edtIntegralCommunication.requestFocus();
+            return;
+        }
+
+        MADSurveyApp.getInstance().getLobbyData().setSpecialFeature(specialFeatures);
+        MADSurveyApp.getInstance().getLobbyData().setSpecialCommunicationOption(integralCommunication);
         lobbyDataHandler.update(MADSurveyApp.getInstance().getLobbyData());
         ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_LOBBY_NOTES, "lobby_notes");
 

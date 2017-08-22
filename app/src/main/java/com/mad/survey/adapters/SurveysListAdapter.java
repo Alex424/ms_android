@@ -104,7 +104,7 @@ public class SurveysListAdapter extends BaseAdapter{
 			holder.txtStatus.setTextColor(ctx.getResources().getColor(R.color.white));
 			holder.txtStatus.setText(ctx.getResources().getString(R.string.submitted));
 		}else {
-			holder.txtStatus.setTextColor(ctx.getResources().getColor(R.color.common_grey_text_color));
+			holder.txtStatus.setTextColor(ctx.getResources().getColor(R.color.red_color1));
 			holder.txtStatus.setText(ctx.getResources().getString(R.string.not_submitted));
 		}
 

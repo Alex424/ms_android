@@ -1,6 +1,7 @@
 package com.mad.survey.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +15,14 @@ import com.mad.survey.adapters.EditBankListAdapter;
 import com.mad.survey.adapters.EditLobbyListAdapter;
 import com.mad.survey.dialogs.ItemDeleteConfirmDialog;
 import com.mad.survey.dialogs.ItemDeleteDialog;
+import com.mad.survey.dialogs.MadCommonAlertDialog;
 import com.mad.survey.listeners.OnFragmentResumedListener;
 import com.mad.survey.models.BankData;
 import com.mad.survey.models.CarData;
 import com.mad.survey.models.InteriorCarData;
 import com.mad.survey.models.LobbyData;
 import com.mad.survey.models.ProjectData;
+import com.mad.survey.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +65,21 @@ public class EditBankListFragment extends BaseFragment implements View.OnClickLi
 
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
         parent.findViewById(R.id.btnAdd).setOnClickListener(this);
+
+        if (flag > 0) openInstructionDlg();
+    }
+
+    private MadCommonAlertDialog dlg;
+    private void openInstructionDlg(){
+        dlg = new MadCommonAlertDialog(getActivity(), getString(R.string.instruction), "", "", getString(R.string.instruction_select_bank_for_edit), new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.btnOK) {
+                    dlg.dismiss();
+                }
+            }
+        });
+        dlg.show();
     }
 
     private void updateUIs(){

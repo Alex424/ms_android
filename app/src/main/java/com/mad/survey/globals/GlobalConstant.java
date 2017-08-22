@@ -58,7 +58,7 @@ public class GlobalConstant {
 	public static final String HALLSTATION_CONCRETE = "Concrete";
 	public static final String HALLSTATION_BRICK = "Brick";
 	public static final String HALLSTATION_MARBLE = "Marble";
-	public static final String HALLSTATION_GRANIT = "Granit";
+	public static final String HALLSTATION_GRANIT = "Granite";
 	public static final String HALLSTATION_GLASS = "Glass";
 	public static final String HALLSTATION_TILE = "Tile";
 	public static final String HALLSTATION_METAL = "Metal";
@@ -79,7 +79,7 @@ public class GlobalConstant {
 	public static final String FLOORING_PORCELAIN = "Porcelain";
 	public static final String FLOORING_RUBBER_TILES = "Rubber Tiles";
 	public static final String FLOORING_MARBLE = "Marble";
-	public static final String FLOORING_GRANIT = "Granit";
+	public static final String FLOORING_GRANIT = "Granite";
 	public static final String TYPE_OF_CEILING_FRAME_CEILING = "Ceiling Mounted";
 	public static final String TYPE_OF_CEILING_FRAME_WALL = "Wall Mounted";
 	public static final String TYPE_OF_CEILING_MOUNTING_TYPE_BOLTED = "Bolted";
