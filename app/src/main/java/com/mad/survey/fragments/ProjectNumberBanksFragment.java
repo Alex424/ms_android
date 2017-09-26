@@ -30,6 +30,16 @@ public class ProjectNumberBanksFragment extends BaseFragment implements View.OnC
                              Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.fragment_project_number_banks, container, false);
 
+        // Go to next screen if non-relative items is surveying
+        if (MADSurveyApp.getInstance().getProjectData().getHallStations() == 0 &&
+        MADSurveyApp.getInstance().getProjectData().getHallLanterns() == 0 &&
+        MADSurveyApp.getInstance().getProjectData().getCops() == 0 &&
+        MADSurveyApp.getInstance().getProjectData().getCabInteriors() == 0 &&
+        MADSurveyApp.getInstance().getProjectData().getHallEntrances() == 0
+        ){
+            setBankNumAndGoNext(0);
+        }
+
         initView(parent);
         updateUIs();
 
@@ -69,6 +79,10 @@ public class ProjectNumberBanksFragment extends BaseFragment implements View.OnC
             return;
         }
 
+        setBankNumAndGoNext(numBanks);
+    }
+
+    private void setBankNumAndGoNext(int numBanks){
         MADSurveyApp.getInstance().setBankNum(0);
         MADSurveyApp.getInstance().getProjectData().setNumBanks(numBanks);
         projectDataHandler.update(MADSurveyApp.getInstance().getProjectData());

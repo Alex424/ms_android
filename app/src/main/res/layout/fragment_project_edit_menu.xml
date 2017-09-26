@@ -219,7 +219,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
-                            android:text="@string/edit_lantern"
+                            android:text="@string/hall_lanterns"
                             android:textColor="@color/white"
                             android:textSize="@dimen/sp_20" />
 
@@ -262,7 +262,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
-                            android:text="@string/edit_elevator_cars"
+                            android:text="@string/cops"
                             android:textColor="@color/white"
                             android:textSize="@dimen/sp_20" />
 
@@ -402,7 +402,7 @@
             android:textSize="@dimen/sp_18" />
 
         <TextView
-            android:id="@+id/btnNext"
+            android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -412,10 +412,10 @@
             android:drawableRight="@drawable/ic_grey_right_indicator"
             android:gravity="center"
             android:padding="@dimen/dp_5"
-            android:text="@string/next"
+            android:text="@string/submit"
             android:textColor="@color/common_grey_text_color"
             android:textSize="@dimen/sp_18"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </RelativeLayout>
 

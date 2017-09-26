@@ -15,7 +15,7 @@ import android.widget.VideoView;
 import com.mad.survey.R;
 import com.mad.survey.preferences.AppPreference;
 
-public class HelpPhotoDialog extends Dialog {
+public class HelpPhotoDialog extends Dialog implements View.OnClickListener{
 	protected Context mContext;
 
     private int displayWidth;
@@ -79,21 +79,21 @@ public class HelpPhotoDialog extends Dialog {
         txtHelpTitle.setText(helpTitle);
 
 
-        findViewById(R.id.btnClose).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dismiss();
-                    }
-                });
+        findViewById(R.id.btnClose).setOnClickListener(this);
+        findViewById(R.id.layoutRoot).setOnClickListener(this);
+        findViewById(R.id.layoutPinchHelp).setOnClickListener(this);
+    }
 
-        findViewById(R.id.layoutPinchHelp).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        AppPreference.setSharedPrefValue(getContext(), AppPreference.PREF_KEY_PINCH_FIRST_TIME, true);
-                        pinchLayout.setVisibility(View.GONE);
-
-                    }});
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.btnClose:case R.id.layoutRoot:
+                dismiss();
+                break;
+            case R.id.layoutPinchHelp:
+                AppPreference.setSharedPrefValue(getContext(), AppPreference.PREF_KEY_PINCH_FIRST_TIME, true);
+                pinchLayout.setVisibility(View.GONE);
+                break;
+        }
     }
 }

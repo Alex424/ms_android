@@ -107,6 +107,7 @@ public class CarCopStyleFragment extends BaseFragment implements View.OnClickLis
         if(style.equals(GlobalConstant.COP_STYLE_APPLIED)) {
             MADSurveyApp.getInstance().getCopData().setSwingPanelHeight(0.0);
             MADSurveyApp.getInstance().getCopData().setSwingPanelWidth(0.0);
+            MADSurveyApp.getInstance().getCopData().setCoverAff(0.0);
             copDataHandler.update(MADSurveyApp.getInstance().getCopData());
             ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_CAR_COP_APPLIED_MEASUREMENTS, "car_cop_applied_measurements");
         }
@@ -116,6 +117,7 @@ public class CarCopStyleFragment extends BaseFragment implements View.OnClickLis
             MADSurveyApp.getInstance().getCopData().setCoverWidth(0.0);
             MADSurveyApp.getInstance().getCopData().setCoverHeight(0.0);
             MADSurveyApp.getInstance().getCopData().setCoverToOpening(0.0);
+            MADSurveyApp.getInstance().getCopData().setCoverAff(0.0);
             copDataHandler.update(MADSurveyApp.getInstance().getCopData());
             ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_CAR_COP_SWING_MEASUREMENTS, "car_cop_swing_measurements");
         }

@@ -114,7 +114,7 @@ public class LanternSameasMeasurementsFragment extends BaseFragment implements V
                 goToNext();
                 break;
             case R.id.btnHelp:
-                showHelpDialog(getActivity(), getString(R.string.help_title_lantern_pi), R.drawable.img_help_21_lantern_sameas_measurements_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+                showLanternHelpDialog(MADSurveyApp.getInstance().getLanternData().getDescriptor());
                 break;
         }
     }

@@ -1,6 +1,7 @@
 package com.mad.survey.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +11,20 @@ import android.widget.TextView;
 import com.mad.survey.MADSurveyApp;
 import com.mad.survey.R;
 import com.mad.survey.activities.BaseActivity;
+import com.mad.survey.dialogs.MadCommonAlertDialog;
 import com.mad.survey.globals.GlobalConstant;
 import com.mad.survey.listeners.OnFragmentResumedListener;
 import com.mad.survey.models.BankData;
 import com.mad.survey.models.InteriorCarData;
 import com.mad.survey.models.InteriorCarDoorData;
+import com.mad.survey.utils.Utils;
 
 public class InteriorCarOpeningFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
     private TextView txtCarNumber;
     private TextView txtSubTitle;
     private CheckBox chkYes,chkNo;
+    private MadCommonAlertDialog dlg;
 
     public static InteriorCarOpeningFragment newInstance(){
         InteriorCarOpeningFragment fragment = new InteriorCarOpeningFragment();
@@ -119,6 +123,23 @@ public class InteriorCarOpeningFragment extends BaseFragment implements View.OnC
         ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_SINGLE_SIDE_MEASUREMENTS, "interior_car_single_side_measurements");
     }
 
+
+    // This is for showing popup for BACK DOOR for EDIT MODE only
+    // Added by Alex 2017/09/18
+    private void openInstructionDlg(){
+        if (BaseActivity.TEMP_DOOR_STYLE_EDIT == 100) {
+            dlg = new MadCommonAlertDialog(getActivity(), getString(R.string.instruction), "", "", getString(R.string.instruction_car_interior_backdoor), new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (view.getId() == R.id.btnOK) {
+                        dlg.dismiss();
+                    }
+                }
+            });
+            dlg.show();
+        }
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -139,5 +160,12 @@ public class InteriorCarOpeningFragment extends BaseFragment implements View.OnC
     @Override
     public void onFragmentResumed() {
         updateUIs();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                openInstructionDlg();
+            }
+        }, 200);
+
     }
 }

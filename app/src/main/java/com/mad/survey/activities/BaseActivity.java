@@ -167,6 +167,7 @@ public class BaseActivity extends AppCompatActivity {
     public static int TEMP_OPENING = 1;         // 1: Center Opening, 2: Single Side
     public static int TEMP_DOOR_TYPE = 1;       // 2 Single Speed, 1: Two Speed Door
     public static int TEMP_DOOR_STYLE = 1;      // 1: Front Door , 2: Back Door
+    public static int TEMP_DOOR_STYLE_EDIT = -1;    //
 
     protected void onCreate(Bundle savedInstanceState) {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -298,6 +299,7 @@ public class BaseActivity extends AppCompatActivity {
             if (fragment instanceof OnFragmentResumedListener){
                 ((OnFragmentResumedListener) fragment).onFragmentResumed();
             }
+            Utils.hideKeyboard(this);
             break;
         }
     }

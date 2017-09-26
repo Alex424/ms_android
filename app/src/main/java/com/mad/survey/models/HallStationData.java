@@ -208,14 +208,14 @@ public class HallStationData extends BaseData implements Serializable {
             jsonArray.put(6, getJSON("screw_center_width", getScrewCenterWidth()+""));
             jsonArray.put(7, getJSON("screw_center_height", getScrewCenterHeight()+""));
             jsonArray.put(8, getJSON("bottom_of_plate_aff", getAffValue()+""));
-            jsonArray.put(9,getJSON("uuid",getUuid()));
-            jsonArray.put(10,getJSON("sameas",getSameAs()));
-            jsonArray.put(11, getJSON("notes",getNotes()));
+            //jsonArray.put(9,getJSON("uuid",getUuid()));
+            //jsonArray.put(10,getJSON("sameas",getSameAs()));
+            jsonArray.put(9, getJSON("notes",getNotes()));
 
             int i;
             for (i = 0; i < getPhotosList().size(); i++){
                 PhotoData photoData = getPhotosList().get(i);
-                jsonArray.put(i+12, photoData.getPostJSON(i + 1));
+                jsonArray.put(i+10, photoData.getPostJSON(i + 1));
             }
 
 

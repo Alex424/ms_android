@@ -53,6 +53,7 @@ public class ProjectEditFragment extends BaseFragment implements View.OnClickLis
         parent.findViewById(R.id.cabInterior).setOnClickListener(this);
 
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
+        parent.findViewById(R.id.btnSubmit).setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +61,9 @@ public class ProjectEditFragment extends BaseFragment implements View.OnClickLis
         switch (v.getId()) {
             case R.id.btnBack:
                 getActivity().onBackPressed();
+                break;
+            case R.id.btnSubmit:
+                ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_SUBMIT_PROJECT, "submit_project");
                 break;
             case R.id.projectInfo:
                 ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_PROJECT_DETAILS, "project_details");

@@ -402,11 +402,21 @@ public class ProjectPhotosFragment extends BaseFragment implements View.OnClickL
 
         }
         else if(photoType == GlobalConstant.PROJECT_PHOTO_TYPE_CAR_INTERIOR){
+            BaseActivity.TEMP_DOOR_STYLE_EDIT = -1;
                 InteriorCarData interiorCarData = MADSurveyApp.getInstance().getInteriorCarData();
                 if(interiorCarData.getIsThereBackDoor() == 1) {
                     // front door
-                    if(BaseActivity.TEMP_DOOR_STYLE == 1)
-                        ((BaseActivity) getActivity()).replaceFragment(nextFragmentId, nextFragmentTag);
+                    if(BaseActivity.TEMP_DOOR_STYLE == 1){
+                        if (interiorCarData.getBackDoorId() > 0){
+                            // modified by Alex 2017/09/18
+                            // Just go through the existing backdoor data, not going to unique/same as front door screen
+                            BaseActivity.TEMP_DOOR_STYLE_EDIT = 100;
+                            BaseActivity.TEMP_DOOR_STYLE = 2;
+                            ((BaseActivity) getActivity()).backToSpecificFragment("interior_car_opening");
+                        }else{
+                            ((BaseActivity) getActivity()).replaceFragment(nextFragmentId, nextFragmentTag);
+                        }
+                    }
                         // back door
                     else if(BaseActivity.TEMP_DOOR_STYLE == 2)
                         ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_BACK_WALL, "interior_car_back_wall");

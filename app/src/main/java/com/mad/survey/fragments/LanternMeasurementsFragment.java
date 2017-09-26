@@ -176,7 +176,7 @@ public class LanternMeasurementsFragment extends BaseFragment implements View.On
                 goToNext();
                 break;
             case R.id.btnHelp:
-                showHelpDialog(getActivity(), getString(R.string.help_title_lantern_pi), R.drawable.img_help_23_lantern_measurements_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+                showLanternHelpDialog(MADSurveyApp.getInstance().getLanternData().getDescriptor());
                 break;
         }
     }

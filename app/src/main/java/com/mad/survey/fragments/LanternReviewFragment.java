@@ -180,7 +180,7 @@ public class LanternReviewFragment extends BaseFragment implements View.OnClickL
                 goToNext();
                 break;
             case R.id.btnHelp:
-                showHelpDialog(getActivity(), getString(R.string.help_title_lantern_pi), R.drawable.img_help_21_lantern_review_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+                showLanternHelpDialog(MADSurveyApp.getInstance().getLanternData().getDescriptor());
                 break;
             case R.id.edtDescription:
                 goToLanternDescription();

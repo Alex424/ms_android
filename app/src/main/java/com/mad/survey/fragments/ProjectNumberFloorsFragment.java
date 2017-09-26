@@ -30,6 +30,16 @@ public class ProjectNumberFloorsFragment extends BaseFragment implements View.On
                              Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.fragment_project_number_floors, container, false);
 
+        // Go to next screen if non-relative items is surveying
+        if (MADSurveyApp.getInstance().getProjectData().getHallStations() == 0 &&
+                MADSurveyApp.getInstance().getProjectData().getHallLanterns() == 0 &&
+                MADSurveyApp.getInstance().getProjectData().getCops() == 0 &&
+                MADSurveyApp.getInstance().getProjectData().getCabInteriors() == 0 &&
+                MADSurveyApp.getInstance().getProjectData().getHallEntrances() == 0
+                ){
+            setFloorNumAndGoNext(0);
+        }
+
         initView(parent);
         updateUIs();
 
@@ -69,6 +79,10 @@ public class ProjectNumberFloorsFragment extends BaseFragment implements View.On
             return;
         }
 
+        setFloorNumAndGoNext(numFloors);
+    }
+
+    private void setFloorNumAndGoNext(int numFloors){
         MADSurveyApp.getInstance().getProjectData().setNumFloors(numFloors);
         projectDataHandler.update(MADSurveyApp.getInstance().getProjectData());
         ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_PROJECT_NUMBER_LOBBY_PANELS, "project_number_lobby_panels");

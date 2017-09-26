@@ -27,6 +27,8 @@ import com.mad.survey.R;
 import com.mad.survey.activities.BaseActivity;
 import com.mad.survey.dialogs.CustomProgressDialog;
 import com.mad.survey.dialogs.HelpPhotoDialog;
+import com.mad.survey.dialogs.SurveyDeleteDialog;
+import com.mad.survey.dialogs.SurveyExitDialog;
 import com.mad.survey.globals.GlobalConstant;
 import com.mad.survey.models.PhotoData;
 import com.mad.survey.models.handlers.BankDataHandler;
@@ -92,7 +94,7 @@ public class BaseFragment extends Fragment {
 	}
 
 
-
+	SurveyExitDialog stopDlg;
 	public void setHeaderTitle(View root, String title){
 		if (!MADSurveyApp.getInstance().isEditMode()) {
 			((TextView) root.findViewById(R.id.txtHeaderTitle)).setText(title);
@@ -107,7 +109,21 @@ public class BaseFragment extends Fragment {
         root.findViewById(R.id.imgMADLogo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().finish();
+				stopDlg  = new SurveyExitDialog(getActivity(), MADSurveyApp.getInstance().getProjectData(), new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						switch(v.getId()){
+							case R.id.btnYes:
+								stopDlg.dismiss();
+								getActivity().finish();
+								break;
+							case R.id.btnNo:
+								stopDlg.dismiss();
+								break;
+						}
+					}
+				});
+				stopDlg.show();
             }
         });
 	}
@@ -183,5 +199,15 @@ public class BaseFragment extends Fragment {
 			return;
 		}
 		dialog.dismiss();
+	}
+
+	protected void showLanternHelpDialog(String descriptor){
+		if (descriptor.equals(GlobalConstant.LANTERN_LANTERN)){
+			showHelpDialog(getActivity(), getString(R.string.help_title_lantern_pi), R.drawable.img_help_21_lantern_only_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+		}else if (descriptor.equals(GlobalConstant.LANTERN_POSITION_INDICATOR)){
+			showHelpDialog(getActivity(), getString(R.string.help_title_lantern_pi), R.drawable.img_help_21_position_indicator_only, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+		}else if (descriptor.equals(GlobalConstant.LANTERN_PI_LANTERN_COMBO)){
+			showHelpDialog(getActivity(), getString(R.string.help_title_lantern_pi), R.drawable.img_help_21_lantern_pi_combo_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+		}
 	}
 }

@@ -12,7 +12,7 @@
     <string name="edit_elevator_banks">Elevator Banks</string>
     <string name="edit_elevator_cars">Elevator Cars</string>
     <string name="edit_cab_interior">Cab Interiors</string>
-    <string name="edit_hall_entrance">Hall Entrance</string>
+    <string name="edit_hall_entrance">Hall Entrances</string>
     <string name="edit_hall_station">Hall Stations</string>
     <string name="edit_lantern">Lantern/PI</string>
 
@@ -115,6 +115,7 @@
 
     <string name="confirm_submit_desc">Are you sure you want to submit this project?</string>
     <string name="confirm_submit_result">This project is successfully submitted</string>
+    <string name="confirm_exit_survey">Are you sure you want to stop and go to the main menu?</string>
 
     <string name="delete">Delete</string>
     <string name="delete_lower">delete</string>
@@ -142,6 +143,7 @@
     <string name="floor_n_identifier_edit_title">Floor - %1$s</string>
 
     <string name="hall_entrance">Hall Entrance</string>
+    <string name="hall_entrances">Hall Entrances</string>
     <string name="hall_lanterns">Hall Lanterns</string>
     <string name="hall_stations">Hall Stations</string>
     <string name="hall_stations_number_identifier">Hall Stations (Number - Identifier)</string>
@@ -203,6 +205,7 @@
     <string name="instruction_go_to_top_floor">Go to the top floor and start entering data for each Hall Station and Lantern per floor.</string>
     <string name="instruction_go_to_top_floor_entrance">Go to the top floor and start entering data for each Hall Entrance.</string>
     <string name="instruction_select_bank_for_edit">Add a new bank or select one of existing banks you would like to add an item into.</string>
+    <string name="instruction_car_interior_backdoor">Now you will go through for the back door information screens.</string>
 
     <string name="interior_car_weight">Car Weight</string>
     <string name="interior_car_flooring">Car Interior Flooring</string>
@@ -212,7 +215,7 @@
     <string name="interior_car_marble">Marble</string>
     <string name="interior_car_granit">Granite</string>
     <string name="interior_car_tiller_cover">Car Interior Tiller/Cover</string>
-    <string name="interior_floor_height">Floor Height off The Car above Sill</string>
+    <string name="interior_floor_height">Floor Height of The Car above Sill</string>
     <string name="interior_car_ceiling">Car Interior Ceiling</string>
     <string name="interior_car_ceiling_exhaust_fan">Exhaust Fan</string>
     <string name="interior_car_ceiling_exhaust_fan_location">Exhaust Fan Location</string>

@@ -29,6 +29,12 @@ public class ProjectNumberLobbyPanelsFragment extends BaseFragment implements Vi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.fragment_project_number_lobby_panels, container, false);
+
+        // Go to next screen if non-relative items is surveying
+        if (MADSurveyApp.getInstance().getProjectData().getLobbyPanels() == 0){
+            setLobbyPanelNumAndGoNext(0);
+        }
+
         initView(parent);
         updateUIs();
 
@@ -68,6 +74,10 @@ public class ProjectNumberLobbyPanelsFragment extends BaseFragment implements Vi
             return;
         }
 
+        setLobbyPanelNumAndGoNext(numLobbyPanels);
+    }
+
+    private void setLobbyPanelNumAndGoNext(int numLobbyPanels){
         MADSurveyApp.getInstance().getProjectData().setNumLobbyPanels(numLobbyPanels);
         projectDataHandler.update(MADSurveyApp.getInstance().getProjectData());
 

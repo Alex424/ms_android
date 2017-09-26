@@ -25,6 +25,7 @@ public class CarCopNameFragment extends BaseFragment implements View.OnClickList
     private TextView txtCarNumber;
     private EditText edtCopName;
     private CopData copData;
+    private CopData firstCopData = null;
 
     public static CarCopNameFragment newInstance(){
         CarCopNameFragment fragment = new CarCopNameFragment();
@@ -81,8 +82,19 @@ public class CarCopNameFragment extends BaseFragment implements View.OnClickList
         if(copData != null){
             edtCopName.setText(copData.getCopName());
         }
-        else if(MADSurveyApp.getInstance().getCopNum() == 0)
-            edtCopName.setText("MAIN COP");
+        else{
+            if(MADSurveyApp.getInstance().getCopNum() == 0) {
+                edtCopName.setText("MAIN COP");
+            }else{
+                // make the first cops data as default
+                // modified 2017/09/05, alex
+                firstCopData = copDataHandler.get(MADSurveyApp.getInstance().getProjectData().getId(),
+                        MADSurveyApp.getInstance().getBankNum(),
+                        MADSurveyApp.getInstance().getCarNum(),
+                        0);
+                edtCopName.setText(firstCopData.getCopName());
+            }
+        }
 
 
     }
@@ -100,6 +112,27 @@ public class CarCopNameFragment extends BaseFragment implements View.OnClickList
                     MADSurveyApp.getInstance().getCarNum(),
                     MADSurveyApp.getInstance().getCopNum(),
                     copName);
+
+            if (firstCopData != null){
+                // data copy from the first cop data
+                // modified 2017/09/05, alex
+
+                copData.setOptions(firstCopData.getOptions());
+                copData.setReturnHinging(firstCopData.getReturnHinging());
+                // for applied measurements
+                copData.setReturnPanelWidth(firstCopData.getReturnPanelWidth());
+                copData.setReturnPanelHeight(firstCopData.getReturnPanelHeight());
+                copData.setCoverWidth(firstCopData.getCoverWidth());
+                copData.setCoverHeight(firstCopData.getCoverHeight());
+                copData.setCoverToOpening(firstCopData.getCoverToOpening());
+                copData.setCoverAff(firstCopData.getCoverAff());
+                // for swing measurements
+                copData.setSwingPanelWidth(firstCopData.getSwingPanelWidth());
+                copData.setSwingPanelHeight(firstCopData.getSwingPanelHeight());
+                copData.setCoverAff(firstCopData.getCoverAff());
+                // notes and photos
+                copData.setNotes(firstCopData.getNotes());
+            }
         }
         copData.setCopName(copName);
         MADSurveyApp.getInstance().setCopData(copData);

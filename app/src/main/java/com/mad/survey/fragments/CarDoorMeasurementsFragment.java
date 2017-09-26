@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -93,6 +94,10 @@ public class CarDoorMeasurementsFragment extends BaseFragment implements View.On
             edtBackStrikeJambWidth.setVisibility(View.INVISIBLE);
             btnCopyFromFrontDoor.setVisibility(View.INVISIBLE);
             txtBackDoor.setVisibility(View.INVISIBLE);
+
+            edtFrontStrikeJambWidth.setNextFocusDownId(0);
+            edtFrontStrikeJambWidth.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
         }else if(carData.getIsThereRearDoor() == 1){
             isThereBackDoor = true;
             edtBackOpeningHeight.setVisibility(View.VISIBLE);
@@ -106,6 +111,10 @@ public class CarDoorMeasurementsFragment extends BaseFragment implements View.On
                 edtBackStrikeJambWidth.setText(carData.getRearDoorStrikeJambWidth() + "");
             if(carData.getRearDoorOpeningHeight()>0)
                 edtBackOpeningHeight.setText(carData.getRearDoorOpeningHeight()+"");
+
+
+            edtFrontStrikeJambWidth.setNextFocusDownId(R.id.edtBackOpeningHeight);
+            edtBackStrikeJambWidth.setImeOptions(EditorInfo.IME_ACTION_DONE);
         }
         if(carData.getFrontDoorOpeningHeight()>0)
             edtFrontOpeningHeight.setText(carData.getFrontDoorOpeningHeight() + "");

@@ -246,13 +246,13 @@ public class LanternData extends  BaseData implements Serializable {
             jsonArray.put(8, getJSON("screw_center_height", getScrewCenterHeight()+""));
             jsonArray.put(9, getJSON("space_available_width", getSpaceAvailableWidth()+""));
             jsonArray.put(10, getJSON("space_available_height", getSpaceAvailableHeight()+""));
-            jsonArray.put(11,getJSON("uuid",getUuid()));
-            jsonArray.put(12,getJSON("sameas",getSameAs()));
-            jsonArray.put(13, getJSON("notes",getNotes()));
+            //jsonArray.put(11,getJSON("uuid",getUuid()));
+            //jsonArray.put(12,getJSON("sameas",getSameAs()));
+            jsonArray.put(11, getJSON("notes",getNotes()));
             int i;
             for (i = 0; i < getPhotosList().size(); i++){
                 PhotoData photoData = getPhotosList().get(i);
-                jsonArray.put(i+14, photoData.getPostJSON(i + 1));
+                jsonArray.put(i+12, photoData.getPostJSON(i + 1));
             }
 
 
