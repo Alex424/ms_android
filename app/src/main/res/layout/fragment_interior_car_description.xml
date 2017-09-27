@@ -55,17 +55,40 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
+                        android:tag="@string/edit_subtitle_hidden_tag"
                         android:text="Car 1 of N"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/sp_20"
-                        android:tag="@string/edit_subtitle_hidden_tag"/>
+                        android:textSize="@dimen/sp_20" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/elevator_interior"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_20" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/dp_8"
+                    android:paddingLeft="@dimen/common_content_horizontal_padding"
+                    android:paddingRight="@dimen/common_content_horizontal_padding"
+                    android:paddingTop="@dimen/dp_8">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:paddingBottom="@dimen/dp_5"
-                        android:paddingTop="@dimen/dp_5"
                         android:text="@string/car_unique_desc"
                         android:textColor="@color/white"
                         android:textSize="@dimen/common_header_subtitle_size"
