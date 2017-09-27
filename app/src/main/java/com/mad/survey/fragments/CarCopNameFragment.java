@@ -92,7 +92,8 @@ public class CarCopNameFragment extends BaseFragment implements View.OnClickList
                         MADSurveyApp.getInstance().getBankNum(),
                         MADSurveyApp.getInstance().getCarNum(),
                         0);
-                edtCopName.setText(firstCopData.getCopName());
+                //edtCopName.setText(firstCopData.getCopName());
+                edtCopName.setText("AUX COP" + MADSurveyApp.getInstance().getCopNum());
             }
         }
 
