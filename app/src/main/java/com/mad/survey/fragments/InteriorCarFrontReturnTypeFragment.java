@@ -52,6 +52,8 @@ public class InteriorCarFrontReturnTypeFragment extends BaseFragment implements 
         parent.findViewById(R.id.btnOther).setOnClickListener(this);
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
         parent.findViewById(R.id.btnNext).setOnClickListener(this);
+
+        setBackdoorTitle(parent);
     }
 
     private void updateUIs(){

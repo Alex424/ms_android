@@ -67,7 +67,8 @@
                         android:paddingTop="@dimen/dp_5"
                         android:text="@string/interior_car_front_opening"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/sp_18" />
+                        android:textSize="@dimen/sp_18"
+                        android:id="@+id/txtDoorDirection"/>
 
                 </LinearLayout>
 

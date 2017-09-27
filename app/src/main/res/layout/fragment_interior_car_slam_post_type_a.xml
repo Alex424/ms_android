@@ -14,9 +14,9 @@
         android:layout_weight="1">
 
         <ScrollView
+            android:id="@+id/contentScroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/contentScroll">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,14 +43,14 @@
                     android:background="@color/white" />
 
                 <LinearLayout
+                    android:id="@+id/layoutPromptTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/dp_8"
                     android:paddingLeft="@dimen/common_content_horizontal_padding"
                     android:paddingRight="@dimen/common_content_horizontal_padding"
-                    android:paddingTop="@dimen/dp_8"
-                    android:id="@+id/layoutPromptTitle">
+                    android:paddingTop="@dimen/dp_8">
 
                     <TextView
                         android:id="@+id/txtCarNumber"
@@ -62,6 +62,7 @@
                         android:textSize="@dimen/sp_20" />
 
                     <TextView
+                        android:id="@+id/txtDoorDirection"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"

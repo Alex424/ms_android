@@ -57,6 +57,8 @@ public class InteriorCarSlamPostTypeOtherFragment extends BaseFragment implement
                 Utils.showKeyboard(getActivity(), true, edtDescription);
             }
         });
+
+        setBackdoorTitle(parent);
     }
 
     private void updateUIs(){

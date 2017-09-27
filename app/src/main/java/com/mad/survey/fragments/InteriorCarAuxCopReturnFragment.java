@@ -66,6 +66,7 @@ public class InteriorCarAuxCopReturnFragment extends BaseFragment implements Vie
         });
 
         setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_aux_cop_return), true, true);
+        setBackdoorTitle(parent);
     }
 
     private void updateUIs() {

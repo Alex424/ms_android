@@ -21,6 +21,7 @@ import com.mad.survey.utils.Utils;
 
 public class InteriorCarOpeningFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
+    private View parent;
     private TextView txtCarNumber;
     private TextView txtSubTitle;
     private CheckBox chkYes,chkNo;
@@ -34,7 +35,7 @@ public class InteriorCarOpeningFragment extends BaseFragment implements View.OnC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View parent = inflater.inflate(R.layout.fragment_interior_car_opening, container, false);
+        parent = inflater.inflate(R.layout.fragment_interior_car_opening, container, false);
 
         initView(parent);
         updateUIs();
@@ -160,6 +161,8 @@ public class InteriorCarOpeningFragment extends BaseFragment implements View.OnC
     @Override
     public void onFragmentResumed() {
         updateUIs();
+        setBackdoorTitle(parent);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

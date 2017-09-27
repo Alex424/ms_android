@@ -62,6 +62,7 @@ public class InteriorCarSingleSideReturnMeasurementsBFragment extends BaseFragme
         });
 
         setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_car_single_side_return_measurements), true, true);
+        setBackdoorTitle(parent);
     }
 
     private void updateUIs(){

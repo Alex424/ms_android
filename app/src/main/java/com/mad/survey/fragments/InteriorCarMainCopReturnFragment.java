@@ -66,6 +66,7 @@ public class InteriorCarMainCopReturnFragment extends BaseFragment implements Vi
         });
 
         setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_main_cop_return), true, true);
+        setBackdoorTitle(parent);
     }
 
     private void updateUIs(){

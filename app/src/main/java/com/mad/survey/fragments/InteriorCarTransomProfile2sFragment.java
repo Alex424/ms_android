@@ -63,6 +63,7 @@ public class InteriorCarTransomProfile2sFragment extends BaseFragment implements
         });
 
         setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_car_transom_profile), true, true);
+        setBackdoorTitle(parent);
     }
 
     private void updateUIs(){

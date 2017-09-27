@@ -167,6 +167,28 @@ public class BaseFragment extends Fragment {
         });
 	}
 
+	protected void setBackdoorTitle(View parent){
+        doChangeDoorTitleAndDescription((TextView)parent.findViewById(R.id.txtDoorDirection));
+        doChangeDoorTitleAndDescription((TextView)parent.findViewById(R.id.txtDoorDescription));
+        doChangeDoorTitleAndDescription((TextView)parent.findViewById(R.id.txtHeaderSubTitle2));
+	}
+
+    private void doChangeDoorTitleAndDescription(TextView txtView){
+        if (txtView == null) return;
+
+        String title = txtView.getText().toString();
+        if (BaseActivity.TEMP_DOOR_STYLE == 2) {
+            title = title.replace("Front", "Back");
+            title = title.replace("front", "back");
+            title = title.replace("FRONT", "BACK");
+        } else if (BaseActivity.TEMP_DOOR_STYLE == 1) {
+            title = title.replace("Back", "Front");
+            title = title.replace("back", "front");
+            title = title.replace("BACK", "FRONT");
+        }
+        txtView.setText(title);
+    }
+
     // Function to hide the sub titles that shows the 1 of N labels, in only the edit-mode case
     // 2017/08/11
     private void hideSubtitleViewsForEditMode(View root){

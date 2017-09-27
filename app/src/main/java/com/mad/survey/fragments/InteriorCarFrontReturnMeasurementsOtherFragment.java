@@ -56,6 +56,8 @@ public class InteriorCarFrontReturnMeasurementsOtherFragment extends BaseFragmen
                 Utils.showKeyboard(getActivity(), true, edtDescription);
             }
         });
+
+        setBackdoorTitle(parent);
     }
 
     private void updateUIs(){
