@@ -20,7 +20,6 @@ import com.mad.survey.utils.Utils;
 
 public class CarSeperatePIMeasurementsFragment extends BaseFragment implements View.OnClickListener {
 
-    private TextView txtSubTitle;
     private TextView txtCarNumber;
     private EditText edtQuantityPerCar, edtCoverWidth, edtCoverHeight, edtCoverDepth;
     private EditText edtCoverScrewCenterWidth, edtCoverScrewCenterHeight, edtSpaceAvailableWidth, edtSpaceAvailableHeight;
@@ -44,7 +43,6 @@ public class CarSeperatePIMeasurementsFragment extends BaseFragment implements V
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         edtQuantityPerCar = (EditText) parent.findViewById(R.id.edtQuantityPerCar);
         edtCoverWidth = (EditText) parent.findViewById(R.id.edtCoverWidth);
@@ -65,6 +63,8 @@ public class CarSeperatePIMeasurementsFragment extends BaseFragment implements V
                 Utils.showKeyboard(getActivity(), true, edtQuantityPerCar);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.cops), getString(R.string.sub_title_car_seperatepi_measurements), true, true);
     }
 
     private void updateUIs(){

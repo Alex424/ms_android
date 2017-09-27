@@ -143,6 +143,8 @@
     <string name="floor_n_identifier_edit_title">Floor - %1$s</string>
 
     <string name="hall_entrance">Hall Entrance</string>
+    <string name="hall_entrance_door_type">Hall Entrance Door Type</string>
+    <string name="hall_entrance_door_opening_direction">Hall Entrance Door opening direction from inside looking at the door</string>
     <string name="hall_entrances">Hall Entrances</string>
     <string name="hall_lanterns">Hall Lanterns</string>
     <string name="hall_stations">Hall Stations</string>
@@ -288,6 +290,8 @@
     <string name="interior_car_front_return_only">Front Return</string>
     <string name="interior_car_hall_front_return_measurements">Car Hall Front Return Measurements</string>
     <string name="interior_car_hall_transom_measurements_center">Car Hall Transom Measurements Center</string>
+    <string name="interior_car_hall_transom_measurements_1s">Car Hall Transom Measurements 1S</string>
+    <string name="interior_car_hall_transom_measurements_2s">Car Hall Transom Measurements 2S</string>
     <string name="interior_car_hall_entrance_notes">Notes Cab Hall Entrance Frames</string>
     <string name="interior_car_hall_entrance_notes_desc">Please enter any special notes or comments about this Elevator Cab Hall entrance frames</string>
 
@@ -525,4 +529,36 @@
     <string name="done">Done</string>
     <string name="progress_msg_please_wait">Please wait…</string>
 
+
+    <string name="sub_title_transom_measurements_center">Transom Measurements Center</string>
+    <string name="sub_title_transom_measurements_1s">Transom Measurements 1S</string>
+    <string name="sub_title_transom_measurements_2s">Transom Measurements 2S</string>
+    <string name="sub_title_cop_applied_measurements">COP Applied Measurements</string>
+    <string name="sub_title_cop_swing_measurements">COP Swing Measurements</string>
+    <string name="sub_title_car_door_measurements">Car Door Measurements</string>
+    <string name="sub_title_handrail_measurements">Handrail Measurements</string>
+    <string name="sub_title_car_license">Car License</string>
+    <string name="sub_title_car_riding_lantern_measurements">Car Riding Lantern Measurements</string>
+    <string name="sub_title_car_seperatepi_measurements">Car Separate PI Measurements</string>
+    <string name="sub_title_hall_entrance_front_return_measurements">Front Return Measurements</string>
+    <string name="sub_title_hall_station">Hall Station</string>
+    <string name="sub_title_measurements">Measurements</string>
+    <string name="sub_title_review">Review</string>
+    <string name="sub_title_wall_material">Wall Material</string>
+    <string name="sub_title_description">Description</string>
+    <string name="sub_title_cab_interior">Cab Interior</string>
+    <string name="sub_title_aux_cop_return">AUX Cop Front Return</string>
+    <string name="sub_title_car_ceiling_frame_type">Type of Ceiling frame</string>
+    <string name="sub_title_car_center_measurements">Center Measurements</string>
+    <string name="sub_title_car_center_return_measurements">Center Front Return Measurements</string>
+    <string name="sub_title_car_flooring">Car Interior Flooring</string>
+    <string name="sub_title_main_cop_return">Main COP Front Return</string>
+    <string name="sub_title_car_single_side_measurements">Single Side Measurements</string>
+    <string name="sub_title_car_single_side_return_measurements">Single Side Front Return Measurements</string>
+    <string name="sub_title_car_slam_post_type_measurements">Front Door Slam Post Measurements</string>
+    <string name="sub_title_car_transom_measurements">Car Front TRANSOM Measurements</string>
+    <string name="sub_title_car_transom_profile">Car Front TRANSOM Profile</string>
+    <string name="sub_title_hall_lantern">Hall Lantern</string>
+    <string name="sub_title_lobby">Lobby Panel</string>
+    <string name="sub_title_project_details">Project Details</string>
 </resources>

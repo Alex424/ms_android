@@ -6,7 +6,7 @@
     android:clickable="true"
     android:orientation="vertical">
 
-    <include layout="@layout/view_common_header" />
+    <include layout="@layout/view_common_scroll_header" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,6 +14,7 @@
         android:layout_weight="1">
 
         <ScrollView
+            android:id="@+id/contentScroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -42,6 +43,7 @@
                     android:background="@color/white" />
 
                 <LinearLayout
+                    android:id="@+id/layoutPromptTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"

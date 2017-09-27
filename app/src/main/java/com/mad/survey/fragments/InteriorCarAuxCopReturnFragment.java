@@ -21,7 +21,6 @@ import com.mad.survey.utils.Utils;
 
 public class InteriorCarAuxCopReturnFragment extends BaseFragment implements View.OnClickListener, OnFragmentResumedListener {
 
-    private TextView txtSubTitle;
     private TextView txtCarNumber;
     private EditText edtWidth, edtHeight, edtLeft, edtRight, edtTop, edtBottom, edtThroat, edtReturn;
 
@@ -44,7 +43,6 @@ public class InteriorCarAuxCopReturnFragment extends BaseFragment implements Vie
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         edtWidth = (EditText) parent.findViewById(R.id.edtWidth);
         edtHeight = (EditText) parent.findViewById(R.id.edtHeight);
@@ -66,6 +64,8 @@ public class InteriorCarAuxCopReturnFragment extends BaseFragment implements Vie
                 Utils.showKeyboard(getActivity(), true, edtWidth);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_aux_cop_return), true, true);
     }
 
     private void updateUIs() {

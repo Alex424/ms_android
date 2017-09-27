@@ -21,7 +21,6 @@ import com.mad.survey.models.InteriorCarData;
 public class InteriorCarCeilingFrameTypeFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
     private TextView txtCarNumber;
-    private TextView txtSubTitle;
 
     private CheckBox chkCeilingMounted, chkWallMounted;
     private CheckBox chkBolted, chkWelded, chkOther;
@@ -48,7 +47,6 @@ public class InteriorCarCeilingFrameTypeFragment extends BaseFragment implements
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
 
         chkCeilingMounted = (CheckBox) parent.findViewById(R.id.chkCeilingMounted);
@@ -67,6 +65,8 @@ public class InteriorCarCeilingFrameTypeFragment extends BaseFragment implements
 
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
         parent.findViewById(R.id.btnNext).setOnClickListener(this);
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_car_ceiling_frame_type), true, true);
     }
 
     private void updateUIs(){

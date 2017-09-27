@@ -24,7 +24,6 @@ import com.mad.survey.utils.Utils;
 public class LanternMeasurementsFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
     private TextView txtFloorIdentifier, txtLanternPINo;
-    private TextView txtSubTitle;
     private EditText edtCoverWidth;
     private EditText edtCoverHeight;
     private EditText edtCoverDepth;
@@ -52,7 +51,6 @@ public class LanternMeasurementsFragment extends BaseFragment implements View.On
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtFloorIdentifier = (TextView) parent.findViewById(R.id.txtFloorIdentifier);
         txtLanternPINo = (TextView) parent.findViewById(R.id.txtLanternPINo);
         edtCoverWidth = (EditText) parent.findViewById(R.id.edtCoverWidth);
@@ -73,6 +71,8 @@ public class LanternMeasurementsFragment extends BaseFragment implements View.On
                 Utils.showKeyboard(getActivity(), true, edtCoverWidth);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_hall_lantern), getString(R.string.sub_title_measurements), true, true);
     }
 
     private void updateUIs(){

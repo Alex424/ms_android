@@ -14,11 +14,13 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +54,12 @@ public class BaseFragment extends Fragment {
 	public int TAKE_CAMERA = 52;
 	protected int displayWidth = 0;
 	protected int displayHeight = 0;
+
+    protected ScrollView contentScroll;
+    protected LinearLayout layoutPromptTitle;
+    protected TextView txtSubTitle;
+    protected TextView txtHeaderSubTitle1;
+    protected TextView txtHeaderSubTitle2;
 
 	protected ProjectDataHandler projectDataHandler;
 	protected PhotoDataHandler photoDataHandler;
@@ -93,6 +101,37 @@ public class BaseFragment extends Fragment {
 		hallEntranceDataHandler = new HallEntranceDataHandler(MADSurveyApp.getInstance().getDbHelper(),MADSurveyApp.getInstance().getDatabase());
 	}
 
+	int nPadding = 0;
+	public void setHeaderScrollConfiguration(View parent, String subTitle1, String subTitle2, final boolean subTitle1Visible, final boolean subTitle2Visible){
+		txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
+		contentScroll = (ScrollView) parent.findViewById(R.id.contentScroll);
+		layoutPromptTitle = (LinearLayout) parent.findViewById(R.id.layoutPromptTitle);
+		txtHeaderSubTitle1 = (TextView) parent.findViewById(R.id.txtHeaderSubTitle1);
+		txtHeaderSubTitle1.setText(subTitle1);
+		txtHeaderSubTitle2 = (TextView) parent.findViewById(R.id.txtHeaderSubTitle2);
+		txtHeaderSubTitle2.setText(subTitle2);
+
+		contentScroll.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+			@Override
+			public void onScrollChanged() {
+				int scrollY = contentScroll.getScrollY(); // For ScrollView
+				int scrollX = contentScroll.getScrollX(); // For HorizontalScrollView
+				// DO SOMETHING WITH THE SCROLL COORDINATES
+
+				if (nPadding == 0) nPadding = txtSubTitle.getHeight() + layoutPromptTitle.getHeight();
+
+				Log.d(getClass().getName(), "Padding:" + nPadding);
+
+				if (scrollY > nPadding){
+					txtHeaderSubTitle1.setVisibility(subTitle1Visible? View.VISIBLE:View.GONE);
+					txtHeaderSubTitle2.setVisibility(subTitle2Visible? View.VISIBLE:View.GONE);
+				}else{
+					txtHeaderSubTitle1.setVisibility(View.GONE);
+					txtHeaderSubTitle2.setVisibility(View.GONE);
+				}
+			}
+		});
+	}
 
 	SurveyExitDialog stopDlg;
 	public void setHeaderTitle(View root, String title){

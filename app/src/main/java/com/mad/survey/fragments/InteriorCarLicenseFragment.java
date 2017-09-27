@@ -19,15 +19,14 @@ import com.mad.survey.models.InteriorCarData;
 import com.mad.survey.utils.ConversionUtils;
 import com.mad.survey.utils.Utils;
 
-public class InteriorCarLicenseFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
+public class InteriorCarLicenseFragment extends BaseFragment implements View.OnClickListener, OnFragmentResumedListener {
 
-    private TextView txtSubTitle;
     private TextView txtCarNumber;
     private EditText edtInstallationNumber, edtCarCapacity, edtNoOfPeople;
     private TextView txtUnit;
     private EditText edtCarWeight;
 
-    public static InteriorCarLicenseFragment newInstance(){
+    public static InteriorCarLicenseFragment newInstance() {
         InteriorCarLicenseFragment fragment = new InteriorCarLicenseFragment();
         return fragment;
     }
@@ -43,10 +42,9 @@ public class InteriorCarLicenseFragment extends BaseFragment implements View.OnC
         return parent;
     }
 
-    private void initView(View parent){
+    private void initView(View parent) {
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         edtInstallationNumber = (EditText) parent.findViewById(R.id.edtInstallationNumber);
         edtCarCapacity = (EditText) parent.findViewById(R.id.edtCarCapacity);
@@ -65,55 +63,57 @@ public class InteriorCarLicenseFragment extends BaseFragment implements View.OnC
                 Utils.showKeyboard(getActivity(), true, edtInstallationNumber);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_car_license), true, true);
     }
 
-    private void updateUIs(){
+    private void updateUIs() {
         edtCarCapacity.setText("");
         edtCarWeight.setText("");
         edtInstallationNumber.setText("");
         edtNoOfPeople.setText("");
 
         BankData bankData = MADSurveyApp.getInstance().getBankData();
-        if (MADSurveyApp.getInstance().isEditMode()){
+        if (MADSurveyApp.getInstance().isEditMode()) {
             txtSubTitle.setText(getString(R.string.bank_description_n_edit_title, MADSurveyApp.getInstance().getBankData().getName()));
             txtCarNumber.setText(getString(R.string.car_number_n_edit_title, MADSurveyApp.getInstance().getInteriorCarData().getCarDescription()));
-        }else{
+        } else {
             txtSubTitle.setText(getString(R.string.bank_description_n_title, MADSurveyApp.getInstance().getBankNum() + 1, MADSurveyApp.getInstance().getBankData().getName()));
-            txtCarNumber.setText(getString(R.string.car_number_n_title, MADSurveyApp.getInstance().getInteriorCarNum()+1, bankData.getNumOfInteriorCar(),MADSurveyApp.getInstance().getInteriorCarData().getCarDescription()));
+            txtCarNumber.setText(getString(R.string.car_number_n_title, MADSurveyApp.getInstance().getInteriorCarNum() + 1, bankData.getNumOfInteriorCar(), MADSurveyApp.getInstance().getInteriorCarData().getCarDescription()));
         }
         InteriorCarData interiorCarData = MADSurveyApp.getInstance().getInteriorCarData();
 
-        if(interiorCarData.getCarCapacity()>0)
-            edtCarCapacity.setText(interiorCarData.getCarCapacity()+"");
-        if(interiorCarData.getCarWeight()>0)
-            edtCarWeight.setText(interiorCarData.getCarWeight()+"");
-        if(interiorCarData.getNumberOfPeople()>0)
-            edtNoOfPeople.setText(interiorCarData.getNumberOfPeople()+"");
+        if (interiorCarData.getCarCapacity() > 0)
+            edtCarCapacity.setText(interiorCarData.getCarCapacity() + "");
+        if (interiorCarData.getCarWeight() > 0)
+            edtCarWeight.setText(interiorCarData.getCarWeight() + "");
+        if (interiorCarData.getNumberOfPeople() > 0)
+            edtNoOfPeople.setText(interiorCarData.getNumberOfPeople() + "");
         txtUnit.setText(interiorCarData.getWeightScale());
         edtInstallationNumber.setText(interiorCarData.getInstallNumber());
     }
 
-    private void goToNext(){
+    private void goToNext() {
         double carCapacity = ConversionUtils.getDoubleFromEditText(edtCarCapacity);
         double carWeight = ConversionUtils.getDoubleFromEditText(edtCarWeight);
         int numberOfPeople = ConversionUtils.getIntegerFromEditText(edtNoOfPeople);
         String installNumber = edtInstallationNumber.getText().toString();
-        if(installNumber.equals("")){
+        if (installNumber.equals("")) {
             edtInstallationNumber.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_install_no), Toast.LENGTH_SHORT);
             return;
         }
-        if(carCapacity<=0){
+        if (carCapacity <= 0) {
             edtCarCapacity.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_capacity), Toast.LENGTH_SHORT);
             return;
         }
-        if(numberOfPeople<=0){
+        if (numberOfPeople <= 0) {
             edtNoOfPeople.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_number_people), Toast.LENGTH_SHORT);
             return;
         }
-        if(carWeight<=0){
+        if (carWeight <= 0) {
             edtCarWeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_weight), Toast.LENGTH_SHORT);
             return;
@@ -132,7 +132,8 @@ public class InteriorCarLicenseFragment extends BaseFragment implements View.OnC
     }
 
     CarUnitSelectDialog dlg;
-    private void goToSelectUnit(){
+
+    private void goToSelectUnit() {
         dlg = new CarUnitSelectDialog(getActivity(), this);
         dlg.show();
     }

@@ -6,7 +6,7 @@
     android:clickable="true"
     android:orientation="vertical">
 
-    <include layout="@layout/view_common_header" />
+    <include layout="@layout/view_common_scroll_header" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,6 +14,7 @@
         android:layout_weight="1">
 
         <ScrollView
+            android:id="@+id/contentScroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -50,24 +51,32 @@
                     android:paddingRight="@dimen/common_content_horizontal_padding"
                     android:paddingTop="@dimen/dp_8">
 
-                    <TextView
-                        android:id="@+id/txtCarNumber"
+                    <LinearLayout
+                        android:id="@+id/layoutPromptTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:text="Car 1 of N - Car Number"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/sp_20" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:paddingBottom="@dimen/dp_5"
-                        android:paddingTop="@dimen/dp_5"
-                        android:text="@string/interior_car_front_transom_profile"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/sp_18" />
+                        <TextView
+                            android:id="@+id/txtCarNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Car 1 of N - Car Number"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_20" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="@dimen/dp_5"
+                            android:paddingTop="@dimen/dp_5"
+                            android:text="@string/interior_car_front_transom_profile"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_18" />
+
+                    </LinearLayout>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -112,8 +121,8 @@
                             android:layout_height="@dimen/edit_box_height_small"
                             android:background="@drawable/bg_editbox_round"
                             android:gravity="center_vertical"
-                            android:maxLines="1"
                             android:inputType="numberDecimal"
+                            android:maxLines="1"
                             android:nextFocusDown="@+id/edtDepth"
                             android:paddingLeft="@dimen/dp_10"
                             android:paddingRight="@dimen/dp_10"
@@ -152,8 +161,8 @@
                             android:layout_height="@dimen/edit_box_height_small"
                             android:background="@drawable/bg_editbox_round"
                             android:gravity="center_vertical"
-                            android:maxLines="1"
                             android:inputType="numberDecimal"
+                            android:maxLines="1"
                             android:nextFocusDown="@+id/edtReturn"
                             android:paddingLeft="@dimen/dp_10"
                             android:paddingRight="@dimen/dp_10"
@@ -192,8 +201,8 @@
                             android:layout_height="@dimen/edit_box_height_small"
                             android:background="@drawable/bg_editbox_round"
                             android:gravity="center_vertical"
-                            android:maxLines="1"
                             android:inputType="numberDecimal"
+                            android:maxLines="1"
                             android:nextFocusDown="@+id/edtColonnade"
                             android:paddingLeft="@dimen/dp_10"
                             android:paddingRight="@dimen/dp_10"
@@ -232,8 +241,8 @@
                             android:layout_height="@dimen/edit_box_height_small"
                             android:background="@drawable/bg_editbox_round"
                             android:gravity="center_vertical"
-                            android:maxLines="1"
                             android:inputType="numberDecimal"
+                            android:maxLines="1"
                             android:nextFocusDown="@+id/edtColonnade2"
                             android:paddingLeft="@dimen/dp_10"
                             android:paddingRight="@dimen/dp_10"
@@ -273,8 +282,8 @@
                             android:background="@drawable/bg_editbox_round"
                             android:gravity="center_vertical"
                             android:imeOptions="actionDone"
-                            android:maxLines="1"
                             android:inputType="numberDecimal"
+                            android:maxLines="1"
                             android:paddingLeft="@dimen/dp_10"
                             android:paddingRight="@dimen/dp_10"
                             android:textColor="@color/common_grey_text_color"

@@ -22,7 +22,6 @@ import com.mad.survey.utils.Utils;
 
 public class CarLicenseFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
-    private TextView txtSubTitle;
     private TextView txtCarNumber;
     private EditText edtInstallationNumber, edtCarCapacity, edtNoOfPeople;
     private TextView txtUnit;
@@ -64,6 +63,8 @@ public class CarLicenseFragment extends BaseFragment implements View.OnClickList
                 Utils.showKeyboard(getActivity(), true, edtInstallationNumber);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.cops), getString(R.string.sub_title_car_license), true, true);
     }
 
     private void updateUIs(){

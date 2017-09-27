@@ -22,7 +22,6 @@ import com.mad.survey.utils.Utils;
 public class LobbyMeasurementsFragment extends BaseFragment implements View.OnClickListener ,OnFragmentResumedListener{
 
 
-    private TextView txtSubTitle;
     private EditText edtPanelWidth, edtPanelHeight, edtScrewCenterWidth, edtScrewCenterHeight;
 
     public static LobbyMeasurementsFragment newInstance(){
@@ -44,7 +43,6 @@ public class LobbyMeasurementsFragment extends BaseFragment implements View.OnCl
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         edtPanelWidth = (EditText) parent.findViewById(R.id.edtPanelWidth);
         edtPanelHeight = (EditText) parent.findViewById(R.id.edtPanelHeight);
         edtScrewCenterWidth = (EditText) parent.findViewById(R.id.edtCoverScrewCenterWidth);
@@ -60,6 +58,8 @@ public class LobbyMeasurementsFragment extends BaseFragment implements View.OnCl
                 Utils.showKeyboard(getActivity(), true, edtPanelWidth);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_lobby), getString(R.string.sub_title_measurements), true, true);
     }
 
     private void updateUIs(){

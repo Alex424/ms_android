@@ -23,7 +23,6 @@ import com.mad.survey.utils.Utils;
 public class InteriorCarCenterMeasurementsFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
     private TextView txtCarNumber;
-    private TextView txtSubTitle;
     private EditText edtWidth;
     private EditText edtHeight;
     private EditText edtSideWallMainWidth;
@@ -50,7 +49,6 @@ public class InteriorCarCenterMeasurementsFragment extends BaseFragment implemen
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
 
         edtWidth = (EditText) parent.findViewById(R.id.edtWidth);
@@ -71,6 +69,8 @@ public class InteriorCarCenterMeasurementsFragment extends BaseFragment implemen
                 Utils.showKeyboard(getActivity(), true, edtWidth);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_car_center_measurements), true, true);
     }
 
     private void updateUIs(){

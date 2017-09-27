@@ -21,7 +21,6 @@ import com.mad.survey.utils.ConversionUtils;
 public class HallStationReviewFragment extends BaseFragment implements View.OnClickListener, OnFragmentResumedListener {
 
     private TextView txtFloorIdentifier, txtHallStationDescriptor;
-    private TextView txtSubTitle;
     private TextView edtDescription;
     private TextView edtMounting;
     private TextView edtWallMaterial;
@@ -51,7 +50,6 @@ public class HallStationReviewFragment extends BaseFragment implements View.OnCl
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtFloorIdentifier = (TextView) parent.findViewById(R.id.txtFloorIdentifier);
         txtHallStationDescriptor = (TextView) parent.findViewById(R.id.txtHallStationDescriptor);
         edtDescription = (TextView) parent.findViewById(R.id.edtDescription);
@@ -69,6 +67,8 @@ public class HallStationReviewFragment extends BaseFragment implements View.OnCl
         edtDescription.setOnClickListener(this);
         edtMounting.setOnClickListener(this);
         edtWallMaterial.setOnClickListener(this);
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_hall_station), getString(R.string.sub_title_review), true, true);
     }
 
     private void updateUIs(){

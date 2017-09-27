@@ -20,7 +20,6 @@ import com.mad.survey.models.InteriorCarData;
 public class InteriorCarFlooringFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
     private TextView txtCarNumber;
-    private TextView txtSubTitle;
 
     private CheckBox chkCeramic, chkPorcelain;
     private CheckBox chkRubberTiles, chkMarble;
@@ -47,7 +46,6 @@ public class InteriorCarFlooringFragment extends BaseFragment implements View.On
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
 
         chkCeramic = (CheckBox) parent.findViewById(R.id.chkCeramic);
@@ -68,6 +66,8 @@ public class InteriorCarFlooringFragment extends BaseFragment implements View.On
 
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
         parent.findViewById(R.id.btnNext).setOnClickListener(this);
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_car_flooring), true, true);
     }
 
     private void updateUIs(){

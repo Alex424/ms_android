@@ -22,7 +22,6 @@ import com.mad.survey.utils.Utils;
 
 public class CarDoorMeasurementsFragment extends BaseFragment implements View.OnClickListener {
 
-    private TextView txtSubTitle;
     private TextView txtCarNumber;
     private EditText edtFrontOpeningHeight, edtBackOpeningHeight;
     private EditText edtFrontReturnJambWidth, edtBackReturnJambWidth;
@@ -49,7 +48,6 @@ public class CarDoorMeasurementsFragment extends BaseFragment implements View.On
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         edtFrontOpeningHeight = (EditText) parent.findViewById(R.id.edtFrontOpeningHeight);
         edtBackOpeningHeight = (EditText) parent.findViewById(R.id.edtBackOpeningHeight);
@@ -72,6 +70,8 @@ public class CarDoorMeasurementsFragment extends BaseFragment implements View.On
                 Utils.showKeyboard(getActivity(), true, edtFrontOpeningHeight);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.cops), getString(R.string.sub_title_car_door_measurements), true, true);
     }
 
     private void updateUIs(){

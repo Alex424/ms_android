@@ -49,7 +49,7 @@
 
     <dimen name="common_content_horizontal_padding">20dp</dimen>
     <dimen name="common_header_height">60dp</dimen>
-    <dimen name="common_header_title_size">22sp</dimen>
+    <dimen name="common_header_title_size">20sp</dimen>
     <dimen name="common_header_subtitle_size">20sp</dimen>
 
 </resources>

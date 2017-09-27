@@ -21,7 +21,6 @@ import com.mad.survey.models.ProjectData;
 public class LanternWallmaterialFragment extends BaseFragment implements View.OnClickListener ,OnFragmentResumedListener{
 
     private TextView txtFloorIdentifier, txtLanternPINo;
-    private TextView txtSubTitle;
 
     private CheckBox chkDrywall, chkPlaster;
     private CheckBox chkConcrete, chkBrick, chkMarble;
@@ -56,7 +55,6 @@ public class LanternWallmaterialFragment extends BaseFragment implements View.On
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtFloorIdentifier = (TextView) parent.findViewById(R.id.txtFloorIdentifier);
         txtLanternPINo = (TextView) parent.findViewById(R.id.txtLanternPINo);
 
@@ -88,6 +86,8 @@ public class LanternWallmaterialFragment extends BaseFragment implements View.On
 
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
         parent.findViewById(R.id.btnNext).setOnClickListener(this);
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_hall_lantern), getString(R.string.sub_title_wall_material), true, true);
     }
 
     private void updateUIs(){

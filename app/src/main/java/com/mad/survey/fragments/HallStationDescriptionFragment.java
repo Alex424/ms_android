@@ -21,7 +21,6 @@ import com.mad.survey.models.ProjectData;
 public class HallStationDescriptionFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
     private TextView txtFloorIdentifier, txtHallStationDescriptor;
-    private TextView txtSubTitle;
 
     private CheckBox chkTerminalHallStation, chkIntermediateHallStation;
     private CheckBox chkFireOperationStation, chkEPOStation, chkAccessStation;
@@ -55,7 +54,6 @@ public class HallStationDescriptionFragment extends BaseFragment implements View
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtFloorIdentifier = (TextView) parent.findViewById(R.id.txtFloorIdentifier);
         txtHallStationDescriptor = (TextView) parent.findViewById(R.id.txtHallStationDescriptor);
 
@@ -81,6 +79,8 @@ public class HallStationDescriptionFragment extends BaseFragment implements View
 
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
         parent.findViewById(R.id.btnNext).setOnClickListener(this);
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_hall_station), getString(R.string.sub_title_description), true, true);
     }
 
     private void updateUIs(){

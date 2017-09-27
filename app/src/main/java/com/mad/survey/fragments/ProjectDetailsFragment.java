@@ -64,6 +64,8 @@ public class ProjectDetailsFragment extends BaseFragment implements View.OnClick
         df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         calendar = (GregorianCalendar) GregorianCalendar.getInstance();
 
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_project_details), "", true, false);
+
     }
 
     private void updateUIs(){

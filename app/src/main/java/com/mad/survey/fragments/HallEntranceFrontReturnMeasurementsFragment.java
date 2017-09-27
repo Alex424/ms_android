@@ -23,7 +23,6 @@ import org.w3c.dom.Text;
 
 public class HallEntranceFrontReturnMeasurementsFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
-    private TextView txtSubTitle;
     private TextView txtCarNumber;
     private TextView txtFloorIdentifier;
     private EditText edtLA, edtLB, edtLC, edtLD;
@@ -49,7 +48,6 @@ public class HallEntranceFrontReturnMeasurementsFragment extends BaseFragment im
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         txtFloorIdentifier = (TextView) parent.findViewById(R.id.txtFloorIdentifier);
         edtLA = (EditText) parent.findViewById(R.id.edtLA);
@@ -73,6 +71,8 @@ public class HallEntranceFrontReturnMeasurementsFragment extends BaseFragment im
                 Utils.showKeyboard(getActivity(), true, edtLA);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.hall_entrance), getString(R.string.sub_title_hall_entrance_front_return_measurements), true, true);
     }
 
     private void updateUIs(){

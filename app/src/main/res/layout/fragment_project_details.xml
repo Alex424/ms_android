@@ -6,7 +6,7 @@
     android:clickable="true"
     android:orientation="vertical">
 
-    <include layout="@layout/view_common_header" />
+    <include layout="@layout/view_common_scroll_header" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,6 +14,7 @@
         android:layout_weight="1">
 
         <ScrollView
+            android:id="@+id/contentScroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -23,6 +24,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtSubTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
@@ -35,10 +37,17 @@
                     android:textSize="@dimen/common_header_subtitle_size"
                     android:textStyle="italic" />
 
-                <View
+                <LinearLayout
+                    android:id="@+id/layoutPromptTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_1"
-                    android:background="@color/white" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"
+                        android:background="@color/white" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -103,8 +112,8 @@
                         android:layout_marginTop="@dimen/dp_8"
                         android:background="@drawable/bg_editbox_round"
                         android:gravity="center_vertical"
-                        android:maxLines="1"
                         android:inputType="text"
+                        android:maxLines="1"
                         android:nextFocusDown="@+id/edtCompanyName"
                         android:paddingLeft="@dimen/dp_10"
                         android:paddingRight="@dimen/dp_10"
@@ -142,10 +151,10 @@
                         android:background="@drawable/bg_editbox_round"
                         android:gravity="center_vertical"
                         android:maxLines="1"
-                        android:singleLine="true"
                         android:nextFocusDown="@+id/edtCompanyContact"
                         android:paddingLeft="@dimen/dp_10"
                         android:paddingRight="@dimen/dp_10"
+                        android:singleLine="true"
                         android:textColor="@color/common_grey_text_color"
                         android:textSize="@dimen/sp_18" />
                 </LinearLayout>
@@ -208,6 +217,7 @@
                         android:text="@string/survey_date"
                         android:textColor="@color/white"
                         android:textSize="@dimen/sp_18" />
+
                     <TextView
                         android:id="@+id/edtSurveyDate"
                         android:layout_width="match_parent"
@@ -215,9 +225,9 @@
                         android:layout_marginTop="@dimen/dp_8"
                         android:background="@drawable/bg_editbox_round"
                         android:gravity="center_vertical"
-                        android:singleLine="true"
                         android:paddingLeft="@dimen/dp_10"
                         android:paddingRight="@dimen/dp_10"
+                        android:singleLine="true"
                         android:textColor="@color/common_grey_text_color"
                         android:textSize="@dimen/sp_18" />
 

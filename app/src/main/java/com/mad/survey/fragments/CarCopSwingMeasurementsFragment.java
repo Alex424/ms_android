@@ -21,7 +21,6 @@ import com.mad.survey.utils.Utils;
 
 public class CarCopSwingMeasurementsFragment extends BaseFragment implements View.OnClickListener,OnFragmentResumedListener {
 
-    private TextView txtSubTitle;
     private TextView txtCarNumber;
     private EditText edtSwingPanelWidth, edtSwingPanelHeight, edtAFFValue;
 
@@ -44,7 +43,6 @@ public class CarCopSwingMeasurementsFragment extends BaseFragment implements Vie
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         edtSwingPanelWidth = (EditText) parent.findViewById(R.id.edtSwingPanelWidth);
         edtSwingPanelHeight = (EditText) parent.findViewById(R.id.edtSwingPanelHeight);
@@ -61,6 +59,8 @@ public class CarCopSwingMeasurementsFragment extends BaseFragment implements Vie
                 Utils.showKeyboard(getActivity(), true, edtSwingPanelWidth);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.cops), getString(R.string.sub_title_cop_swing_measurements), true, true);
     }
 
     private void updateUIs(){

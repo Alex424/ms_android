@@ -21,7 +21,6 @@ import com.mad.survey.utils.Utils;
 
 public class CarRidingLanternMeasurementsFragment extends BaseFragment implements View.OnClickListener, OnFragmentResumedListener {
 
-    private TextView txtSubTitle;
     private TextView txtCarNumber;
     private EditText edtQuantityPerCar, edtCoverWidth, edtCoverHeight, edtCoverDepth;
     private EditText edtCoverScrewCenterWidth, edtCoverScrewCenterHeight;
@@ -45,7 +44,6 @@ public class CarRidingLanternMeasurementsFragment extends BaseFragment implement
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         edtQuantityPerCar = (EditText) parent.findViewById(R.id.edtQuantityPerCar);
         edtCoverWidth = (EditText) parent.findViewById(R.id.edtCoverWidth);
@@ -65,6 +63,8 @@ public class CarRidingLanternMeasurementsFragment extends BaseFragment implement
                 Utils.showKeyboard(getActivity(), true, edtQuantityPerCar);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.cops), getString(R.string.sub_title_car_riding_lantern_measurements), true, true);
     }
 
     private void updateUIs(){

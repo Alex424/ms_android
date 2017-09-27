@@ -20,7 +20,6 @@ import com.mad.survey.utils.Utils;
 
 public class CarMeasurementsFragment extends BaseFragment implements View.OnClickListener {
 
-    private TextView txtSubTitle;
     private TextView txtCarNumber;
     private EditText edtHeightFromFloor, edtDistanceFromWall, edtDistanceFromReturn;
 
@@ -43,7 +42,6 @@ public class CarMeasurementsFragment extends BaseFragment implements View.OnClic
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         edtHeightFromFloor = (EditText) parent.findViewById(R.id.edtHeightFromFloor);
         edtDistanceFromWall = (EditText) parent.findViewById(R.id.edtDistanceFromWall);
@@ -60,6 +58,8 @@ public class CarMeasurementsFragment extends BaseFragment implements View.OnClic
                 Utils.showKeyboard(getActivity(), true, edtHeightFromFloor);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.cops), getString(R.string.sub_title_handrail_measurements), true, true);
     }
 
     private void updateUIs(){

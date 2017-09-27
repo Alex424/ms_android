@@ -21,7 +21,6 @@ import com.mad.survey.models.ProjectData;
 public class HallStationWallmaterialFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
     private TextView txtFloorIdentifier, txtHallStationDescriptor;
-    private TextView txtSubTitle;
 
     private CheckBox chkDrywall, chkPlaster;
     private CheckBox chkConcrete, chkBrick, chkMarble;
@@ -57,7 +56,6 @@ public class HallStationWallmaterialFragment extends BaseFragment implements Vie
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtFloorIdentifier = (TextView) parent.findViewById(R.id.txtFloorIdentifier);
         txtHallStationDescriptor = (TextView) parent.findViewById(R.id.txtHallStationDescriptor);
 
@@ -89,6 +87,8 @@ public class HallStationWallmaterialFragment extends BaseFragment implements Vie
 
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
         parent.findViewById(R.id.btnNext).setOnClickListener(this);
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_hall_station), getString(R.string.sub_title_wall_material), true, true);
     }
 
     private void updateUIs(){

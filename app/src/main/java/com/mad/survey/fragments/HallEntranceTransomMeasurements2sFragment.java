@@ -21,7 +21,6 @@ import com.mad.survey.utils.Utils;
 
 public class HallEntranceTransomMeasurements2sFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
-    private TextView txtSubTitle;
     private TextView txtCarNumber;
     private TextView txtFloorIdentifier;
     private EditText edtA, edtB, edtC, edtD, edtE, edtF, edtG, edtH, edtI;
@@ -45,7 +44,6 @@ public class HallEntranceTransomMeasurements2sFragment extends BaseFragment impl
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         txtFloorIdentifier = (TextView) parent.findViewById(R.id.txtFloorIdentifier);
         edtA = (EditText) parent.findViewById(R.id.edtA);
@@ -68,6 +66,8 @@ public class HallEntranceTransomMeasurements2sFragment extends BaseFragment impl
                 Utils.showKeyboard(getActivity(), true, edtA);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.hall_entrance), getString(R.string.sub_title_transom_measurements_2s), true, true);
     }
 
     private void updateUIs(){

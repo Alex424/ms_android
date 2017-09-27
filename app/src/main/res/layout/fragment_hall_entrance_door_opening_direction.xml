@@ -75,7 +75,7 @@
                         android:gravity="center_vertical"
                         android:paddingBottom="@dimen/dp_5"
                         android:paddingTop="@dimen/dp_5"
-                        android:text="@string/interior_car_door_opening_direction"
+                        android:text="@string/hall_entrance_door_opening_direction"
                         android:textColor="@color/white"
                         android:textSize="@dimen/sp_18" />
 

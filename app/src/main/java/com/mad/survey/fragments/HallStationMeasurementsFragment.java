@@ -23,7 +23,6 @@ import com.mad.survey.utils.Utils;
 public class HallStationMeasurementsFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
 
     private TextView txtFloorIdentifier, txtHallStationDescriptor;
-    private TextView txtSubTitle;
     private EditText edtCoverWidth;
     private EditText edtCoverHeight;
     private EditText edtScrewCenterWidth;
@@ -49,7 +48,6 @@ public class HallStationMeasurementsFragment extends BaseFragment implements Vie
     private void initView(View parent){
         setHeaderTitle(parent, MADSurveyApp.getInstance().getProjectData().getName());
 
-        txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtFloorIdentifier = (TextView) parent.findViewById(R.id.txtFloorIdentifier);
         txtHallStationDescriptor = (TextView) parent.findViewById(R.id.txtHallStationDescriptor);
         edtCoverWidth = (EditText) parent.findViewById(R.id.edtCoverWidth);
@@ -68,6 +66,8 @@ public class HallStationMeasurementsFragment extends BaseFragment implements Vie
                 Utils.showKeyboard(getActivity(), true, edtCoverWidth);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_hall_station), getString(R.string.sub_title_measurements), true, true);
     }
 
     private void updateUIs(){
