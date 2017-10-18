@@ -561,4 +561,6 @@
     <string name="sub_title_hall_lantern">Hall Lantern</string>
     <string name="sub_title_lobby">Lobby Panel</string>
     <string name="sub_title_project_details">Project Details</string>
+
+    <string name="submit_email_report_desc">Email Report To Me</string>
 </resources>

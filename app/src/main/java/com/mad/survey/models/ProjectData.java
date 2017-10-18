@@ -285,7 +285,7 @@ public class ProjectData implements Serializable {
 			paramObject.put("platform", "Android");
 			paramObject.put("version", Utils.getVersionName(context));
 			paramObject.put("email", AppPreference.getStringPrefValue(context, AppPreference.PREF_KEY_YOUR_EMAIL));
-			paramObject.put("sendpdf", 1);
+			paramObject.put("sendpdf", AppPreference.getEmailReportPreference(context)? 1:0);
 			paramObject.put("file_name", getFileName(submitTimeForFileName));
 		}catch(Exception e){
 			e.printStackTrace();

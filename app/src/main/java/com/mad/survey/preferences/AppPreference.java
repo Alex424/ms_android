@@ -19,6 +19,7 @@ public class AppPreference {
 	public static final String PREF_KEY_UNITS_LABEL = "key_units_label";
 	public static final String PREF_KEY_FIRST_TIME = "key_first_time";
 	public static final String PREF_KEY_PINCH_FIRST_TIME = "key_pinch_first_time";
+	public static final String PREF_KEY_EMAIL_REPORT = "key_email_report";
 
 
 	public static SharedPreferences getPreferences(Context ctx) {
@@ -97,6 +98,14 @@ public class AppPreference {
 		SharedPreferences.Editor editor = getPreferences(ctx).edit();
 		editor.remove(key);
 		editor.commit();
+	}
+
+	public static void setEmailReportPreference(Context ctx, boolean bvalue){
+		setSharedPrefValue(ctx, PREF_KEY_EMAIL_REPORT, bvalue);
+	}
+
+	public static boolean getEmailReportPreference(Context ctx){
+		return getBooleanPrefValue(ctx, PREF_KEY_EMAIL_REPORT, true);
 	}
 
     //"setup":{"version":"1.0","user_name":"test","user_phone":"test","user_state":"test","user_email":"","user_company":"test"}
