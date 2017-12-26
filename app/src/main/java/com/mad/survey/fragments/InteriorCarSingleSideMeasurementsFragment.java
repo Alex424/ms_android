@@ -166,7 +166,7 @@ public class InteriorCarSingleSideMeasurementsFragment extends BaseFragment impl
                 goToNext();
                 break;
             case R.id.btnHelp:
-                showHelpDialog(getActivity(), getString(R.string.help_title_car_interior_measurements), R.drawable.img_help_44_interior_car_single_side_measurement_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+                showHelpDialog(getActivity(), getString(R.string.help_title_car_interior_measurements), R.drawable.img_help_interior_car_single_side_measurements, GlobalConstant.HELP_PHOTO_SIZE_RATE);
                 break;
         }
     }

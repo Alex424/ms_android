@@ -54,8 +54,8 @@ public class SubmitProjectFragment extends BaseFragment implements View.OnClickL
     private TextView txtBanksInfo, txtLobbyInfo, txtHallLanternsInfo, txtHallStationsInfo;
     private TextView txtCopsInfo, txtCarInteriorsInfo, txtHallEntranceInfo;
 
-    private static final String SERVER_URL  = "http://192.168.109.1/madsurvey2/";
-    //private static final String SERVER_URL  = "http://madfixtures.net/madsurvey2/";
+    //private static final String SERVER_URL  = "http://192.168.109.1/madsurvey2/";
+    private static final String SERVER_URL  = "http://madfixtures.net/madsurvey2/";
     //private static final String SERVER_URL  = "http://mypmpnow.com/madsurvey2/";
 
     private static AsyncHttpClient client = new AsyncHttpClient(true, 80, 443);

@@ -122,7 +122,7 @@ public class InteriorCarCeilingEscapeHatchLocationFragment extends BaseFragment 
                 goToNext();
                 break;
             case R.id.btnHelp:
-                showHelpDialog(getActivity(), getString(R.string.help_title_car_interior_ceiling), R.drawable.img_help_42_interior_car_ceiling_escape_hatch_location_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+                showHelpDialog(getActivity(), getString(R.string.help_title_car_interior_ceiling), R.drawable.img_help_interior_car_ceiling_escape_hatch_location, GlobalConstant.HELP_PHOTO_SIZE_RATE);
                 break;
         }
     }

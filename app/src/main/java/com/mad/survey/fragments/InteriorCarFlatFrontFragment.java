@@ -200,7 +200,7 @@ public class InteriorCarFlatFrontFragment extends BaseFragment implements View.O
                 goToNext();
                 break;
             case R.id.btnHelp:
-                showHelpDialog(getActivity(), getString(R.string.help_title_car_interior_measurements), R.drawable.img_help_103_interior_car_flat_front_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+                showHelpDialog(getActivity(), getString(R.string.help_title_car_interior_measurements), R.drawable.img_help_interior_car_flat_front, GlobalConstant.HELP_PHOTO_SIZE_RATE);
                 break;
         }
     }

@@ -121,7 +121,7 @@ public class InteriorCarLTransomFragment extends BaseFragment implements View.On
                 goToNext();
                 break;
             case R.id.btnHelp:
-                showHelpDialog(getActivity(), getString(R.string.help_title_car_interior_measurements), R.drawable.img_help_101_interior_car_l_transom_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+                showHelpDialog(getActivity(), getString(R.string.help_title_car_interior_measurements), R.drawable.img_help_interior_car_l_transom, GlobalConstant.HELP_PHOTO_SIZE_RATE);
                 break;
         }
     }

@@ -182,7 +182,7 @@ public class InteriorCarWallTypeFragment extends BaseFragment implements View.On
                 goToNext();
                 break;
             case R.id.btnHelp:
-                showHelpDialog(getActivity(), getString(R.string.help_title_wall_type), R.drawable.img_help_100_interior_car_wall_type_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+                showHelpDialog(getActivity(), getString(R.string.help_title_wall_type), R.drawable.img_help_interior_wall_type, GlobalConstant.HELP_PHOTO_SIZE_RATE);
                 break;
         }
     }

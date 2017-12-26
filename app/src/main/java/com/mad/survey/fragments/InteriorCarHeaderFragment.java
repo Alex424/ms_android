@@ -166,7 +166,7 @@ public class InteriorCarHeaderFragment extends BaseFragment implements View.OnCl
                 goToNext();
                 break;
             case R.id.btnHelp:
-                showHelpDialog(getActivity(), getString(R.string.help_title_car_interior_measurements), R.drawable.img_help_102_interior_car_header_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
+                showHelpDialog(getActivity(), getString(R.string.help_title_car_interior_measurements), R.drawable.img_help_interior_car_header, GlobalConstant.HELP_PHOTO_SIZE_RATE);
                 break;
         }
     }
