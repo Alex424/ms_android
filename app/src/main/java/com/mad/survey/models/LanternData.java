@@ -17,13 +17,13 @@ public class LanternData extends  BaseData implements Serializable {
     private String descriptor = "";
     private String mount = "";
     private String wallFinish = "";
-    private double width = 0,height = 0, depth = 0, screwCenterWidth = 0,screwCenterHeight = 0;
-    private double spaceAvailableWidth = 0 , spaceAvailableHeight = 0;
+    private double width = -1,height = -1, depth = -1, screwCenterWidth = -1,screwCenterHeight = -1;
+    private double spaceAvailableWidth = -1 , spaceAvailableHeight = -1;
     private int quantity = 0;
     private String notes = "";
     private String sameAs = "";
     private String uuid = "";
-    private double affValue = 0;
+    private double affValue = -1;
 
     public int getFloorNum() {
         return floorNum;
@@ -231,6 +231,9 @@ public class LanternData extends  BaseData implements Serializable {
         setUuid(cursor.getString(cursor.getColumnIndex("uuid")));
     }
 
+    public String getDoubleForJSON(double value){
+        return value < 0? "":(value + "");
+    }
 
     public JSONArray getPostJSON(){
         JSONArray jsonArray = new JSONArray();
@@ -239,13 +242,13 @@ public class LanternData extends  BaseData implements Serializable {
             jsonArray.put(1, getJSON("description", getDescriptor()));
             jsonArray.put(2, getJSON("mount", getMount()));
             jsonArray.put(3, getJSON("wall_finish", getWallFinish()));
-            jsonArray.put(4, getJSON("width", getWidth()+""));
-            jsonArray.put(5, getJSON("height", getHeight()+""));
-            jsonArray.put(6, getJSON("depth", getDepth()+""));
-            jsonArray.put(7, getJSON("screw_center_width", getScrewCenterWidth()+""));
-            jsonArray.put(8, getJSON("screw_center_height", getScrewCenterHeight()+""));
-            jsonArray.put(9, getJSON("space_available_width", getSpaceAvailableWidth()+""));
-            jsonArray.put(10, getJSON("space_available_height", getSpaceAvailableHeight()+""));
+            jsonArray.put(4, getJSON("width", getDoubleForJSON(getWidth())));
+            jsonArray.put(5, getJSON("height", getDoubleForJSON(getHeight())));
+            jsonArray.put(6, getJSON("depth", getDoubleForJSON(getDepth())));
+            jsonArray.put(7, getJSON("screw_center_width", getDoubleForJSON(getScrewCenterWidth())));
+            jsonArray.put(8, getJSON("screw_center_height", getDoubleForJSON(getScrewCenterHeight())));
+            jsonArray.put(9, getJSON("space_available_width", getDoubleForJSON(getSpaceAvailableWidth())));
+            jsonArray.put(10, getJSON("space_available_height", getDoubleForJSON(getSpaceAvailableHeight())));
             //jsonArray.put(11,getJSON("uuid",getUuid()));
             //jsonArray.put(12,getJSON("sameas",getSameAs()));
             jsonArray.put(11, getJSON("notes",getNotes()));

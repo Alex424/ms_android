@@ -3,6 +3,8 @@ package com.mad.survey.models;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import com.mad.survey.globals.GlobalConstant;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -14,81 +16,95 @@ public class InteriorCarDoorData extends  BaseData implements Serializable {
     private int interiorCarId = 0;
     private int doorStyle = 0;
 
+    private String wallType = "";
     private int centerOpening = 0;
-    private double width = 0 , height = 0,  sideWallMainWidth = 0,sideWallAuxWidth = 0;
-    private double doorOpeningWidth = 0 , doorOpeningHeight = 0;
-    private double returnSideWallDepth = 0 , slamSideWallDepth = 0 , slideWallWidth = 0;
+    private double width = -1 , height = -1,  sideWallMainWidth = -1,sideWallAuxWidth = -1;
+    private double doorOpeningWidth = -1 , doorOpeningHeight = -1;
+    private double returnSideWallDepth = -1 , slamSideWallDepth = -1 , slideWallWidth = -1;
     private String typeOfSlamPost = "";
     private String otherSlamPost = "";
-    private double slamPostMeasurementsA = 0;
-    private double slamPostMeasurementsB = 0;
-    private double slamPostMeasurementsC = 0;
-    private double slamPostMeasurementsD = 0;
-    private double slamPostMeasurementsE = 0;
-    private double slamPostMeasurementsF = 0;
-    private double slamPostMeasurementsG = 0;
-    private double slamPostMeasurementsH = 0;
+    private double slamPostMeasurementsA = -1;
+    private double slamPostMeasurementsB = -1;
+    private double slamPostMeasurementsC = -1;
+    private double slamPostMeasurementsD = -1;
+    private double slamPostMeasurementsE = -1;
+    private double slamPostMeasurementsF = -1;
+    private double slamPostMeasurementsG = -1;
+    private double slamPostMeasurementsH = -1;
 
     private String typeOfFrontReturn = "";
-    private double leftSideA = 0;
-    private double leftSideB = 0;
-    private double leftSideC = 0;
-    private double leftSideD = 0;
-    private double leftSideE = 0;
+    private double leftSideA = -1;
+    private double leftSideB = -1;
+    private double leftSideC = -1;
+    private double leftSideD = -1;
+    private double leftSideE = -1;
 
-    private double rightSideA = 0;
-    private double rightSideB = 0;
-    private double rightSideC = 0;
-    private double rightSideD = 0;
-    private double rightSideE = 0;
+    private double rightSideA = -1;
+    private double rightSideB = -1;
+    private double rightSideC = -1;
+    private double rightSideD = -1;
+    private double rightSideE = -1;
 
-    private double leftSideATypeB = 0;
-    private double leftSideBTypeB = 0;
-    private double leftSideCTypeB = 0;
+    private double leftSideATypeB = -1;
+    private double leftSideBTypeB = -1;
+    private double leftSideCTypeB = -1;
 
-    private double rightSideATypeB = 0;
-    private double rightSideBTypeB = 0;
-    private double rightSideCTypeB = 0;
+    private double rightSideATypeB = -1;
+    private double rightSideBTypeB = -1;
+    private double rightSideCTypeB = -1;
 
 
-    private double frontReturnMeasurementsHeight = 0;
+    private double frontReturnMeasurementsHeight = -1;
     private String otherFrontReturnMeasurements = "";
     private int carDoorType = 0;
     private int carDoorOpeningDirection = 0;
 
-    private double transomMeasurementsHeight = 0;
-    private double transomMeasurementsWidth = 0;
-    private double transomMeasurementsLeft = 0;
-    private double transomMeasurementsCenterLeft = 0;
-    private double transomMeasurementsCenterRight = 0;
-    private double transomMeasurementsRight = 0;
-    private double transomMeasurementsCenter = 0;
+    private double transomMeasurementsHeight = -1;
+    private double transomMeasurementsWidth = -1;
+    private double transomMeasurementsLeft = -1;
+    private double transomMeasurementsCenterLeft = -1;
+    private double transomMeasurementsCenterRight = -1;
+    private double transomMeasurementsRight = -1;
+    private double transomMeasurementsCenter = -1;
 
-    private double transomProfileHeight = 0;
-    private double transomProfileDepth = 0;
-    private double transomProfileReturn = 0;
-    private double transomProfileColonnade = 0;
-    private double transomProfileColonnade2 = 0;
+    private double transomProfileHeight = -1;
+    private double transomProfileDepth = -1;
+    private double transomProfileReturn = -1;
+    private double transomProfileColonnade = -1;
+    private double transomProfileColonnade2 = -1;
+
+    private double lTransomWidth = -1;
+    private double lTransomHeight = -1;
+    private double headerReturnHoistWay = -1;
+    private double headerThroat = -1;
+    private double headerWidth = -1;
+    private double headerHeight = -1;
+    private double headerReturnWall = -1;
+    private double flatFrontLeftWidth = -1;
+    private double flatFrontLeftHeight = -1;
+    private double flatFrontRightWidth = -1;
+    private double flatFrontRightHeight = -1;
+
 
     private String isThereNewCop = "";
 
-    private double mainCopWidth = 0;
-    private double mainCopHeight = 0;
-    private double mainCopLeft = 0;
-    private double mainCopRight = 0;
-    private double mainCopTop = 0;
-    private double mainCopBottom = 0;
-    private double mainCopThroat = 0;
-    private double mainCopReturn = 0;
+    private double mainCopWidth = -1;
+    private double mainCopHeight = -1;
+    private double mainCopLeft = -1;
+    private double mainCopRight = -1;
+    private double mainCopTop = -1;
+    private double mainCopBottom = -1;
+    private double mainCopThroat = -1;
+    private double mainCopReturn = -1;
 
-    private double auxCopWidth = 0;
-    private double auxCopHeight = 0;
-    private double auxCopLeft = 0;
-    private double auxCopRight = 0;
-    private double auxCopTop = 0;
-    private double auxCopBottom = 0;
-    private double auxCopThroat = 0;
-    private double auxCopReturn = 0;
+    private double auxCopWidth = -1;
+    private double auxCopHeight = -1;
+    private double auxCopLeft = -1;
+    private double auxCopRight = -1;
+    private double auxCopTop = -1;
+    private double auxCopBottom = -1;
+    private double auxCopThroat = -1;
+    private double auxCopReturn = -1;
 
     private String notes = "";
     private String uuid = "";
@@ -374,6 +390,94 @@ public class InteriorCarDoorData extends  BaseData implements Serializable {
 
     public void setTransomProfileColonnade2(double transomProfileColonnade2) {
         this.transomProfileColonnade2 = transomProfileColonnade2;
+    }
+
+    public double getlTransomWidth() {
+        return lTransomWidth;
+    }
+
+    public void setlTransomWidth(double lTransomWidth) {
+        this.lTransomWidth = lTransomWidth;
+    }
+
+    public double getlTransomHeight() {
+        return lTransomHeight;
+    }
+
+    public void setlTransomHeight(double lTransomHeight) {
+        this.lTransomHeight = lTransomHeight;
+    }
+
+    public double getHeaderReturnHoistWay() {
+        return headerReturnHoistWay;
+    }
+
+    public void setHeaderReturnHoistWay(double headerReturnHoistWay) {
+        this.headerReturnHoistWay = headerReturnHoistWay;
+    }
+
+    public double getHeaderThroat() {
+        return headerThroat;
+    }
+
+    public void setHeaderThroat(double headerThroat) {
+        this.headerThroat = headerThroat;
+    }
+
+    public double getHeaderWidth() {
+        return headerWidth;
+    }
+
+    public void setHeaderWidth(double headerWidth) {
+        this.headerWidth = headerWidth;
+    }
+
+    public double getHeaderHeight() {
+        return headerHeight;
+    }
+
+    public void setHeaderHeight(double headerHeight) {
+        this.headerHeight = headerHeight;
+    }
+
+    public double getHeaderReturnWall() {
+        return headerReturnWall;
+    }
+
+    public void setHeaderReturnWall(double headerReturnWall) {
+        this.headerReturnWall = headerReturnWall;
+    }
+
+    public double getFlatFrontLeftWidth() {
+        return flatFrontLeftWidth;
+    }
+
+    public void setFlatFrontLeftWidth(double flatFrontLeftWidth) {
+        this.flatFrontLeftWidth = flatFrontLeftWidth;
+    }
+
+    public double getFlatFrontLeftHeight() {
+        return flatFrontLeftHeight;
+    }
+
+    public void setFlatFrontLeftHeight(double flatFrontLeftHeight) {
+        this.flatFrontLeftHeight = flatFrontLeftHeight;
+    }
+
+    public double getFlatFrontRightWidth() {
+        return flatFrontRightWidth;
+    }
+
+    public void setFlatFrontRightWidth(double flatFrontRightWidth) {
+        this.flatFrontRightWidth = flatFrontRightWidth;
+    }
+
+    public double getFlatFrontRightHeight() {
+        return flatFrontRightHeight;
+    }
+
+    public void setFlatFrontRightHeight(double flatFrontRightHeight) {
+        this.flatFrontRightHeight = flatFrontRightHeight;
     }
 
     public double getMainCopWidth() {
@@ -703,12 +807,21 @@ public class InteriorCarDoorData extends  BaseData implements Serializable {
         this.uuid = uuid;
     }
 
+    public String getWallType() {
+        return wallType;
+    }
+
+    public void setWallType(String wallType) {
+        this.wallType = wallType;
+    }
+
     public ContentValues generateContentValuesFromObject() {
         ContentValues values = new ContentValues();
         values.put("projectId", getProjectId());
         values.put("interiorCarId", getInteriorCarId());
         values.put("doorStyle", getDoorStyle());
 
+        values.put("walltype", getWallType());
         values.put("centerOpening", getCenterOpening());
         values.put("width", getWidth());
         values.put("height", getHeight());
@@ -765,6 +878,17 @@ public class InteriorCarDoorData extends  BaseData implements Serializable {
         values.put("transomProfileReturn" , getTransomProfileReturn());
         values.put("transomProfileColonnade" , getTransomProfileColonnade());
         values.put("transomProfileColonnade2" , getTransomProfileColonnade2());
+        values.put("lTransomWidth", getlTransomWidth());
+        values.put("lTransomHeight", getlTransomHeight());
+        values.put("headerReturnHoistWay", getHeaderReturnHoistWay());
+        values.put("headerThroat", getHeaderThroat());
+        values.put("headerWidth", getHeaderWidth());
+        values.put("headerHeight", getHeaderHeight());
+        values.put("headerReturnWall", getHeaderReturnWall());
+        values.put("flatFrontLeftWidth", getFlatFrontLeftWidth());
+        values.put("flatFrontLeftHeight", getFlatFrontLeftHeight());
+        values.put("flatFrontRightWidth", getFlatFrontRightWidth());
+        values.put("flatFrontRightHeight", getFlatFrontRightHeight());
         values.put("isThereNewCop" , getIsThereNewCop());
         values.put("mainCopWidth" , getMainCopWidth());
         values.put("mainCopHeight" , getMainCopHeight());
@@ -799,6 +923,7 @@ public class InteriorCarDoorData extends  BaseData implements Serializable {
         setInteriorCarId(cursor.getInt(cursor.getColumnIndex("interiorCarId")));
         setDoorStyle(cursor.getInt(cursor.getColumnIndex("doorStyle")));
 
+        setWallType(cursor.getString(cursor.getColumnIndex("walltype")));
         setCenterOpening(cursor.getInt(cursor.getColumnIndex("centerOpening")));
         setWidth(cursor.getDouble(cursor.getColumnIndex("width")));
         setHeight(cursor.getDouble(cursor.getColumnIndex("height")));
@@ -859,6 +984,18 @@ public class InteriorCarDoorData extends  BaseData implements Serializable {
         setTransomProfileColonnade(cursor.getDouble(cursor.getColumnIndex("transomProfileColonnade")));
         setTransomProfileColonnade2(cursor.getDouble(cursor.getColumnIndex("transomProfileColonnade2")));
 
+        setlTransomWidth(cursor.getDouble(cursor.getColumnIndex("lTransomWidth")));
+        setlTransomHeight(cursor.getDouble(cursor.getColumnIndex("lTransomHeight")));
+        setHeaderReturnHoistWay(cursor.getDouble(cursor.getColumnIndex("headerReturnHoistWay")));
+        setHeaderThroat(cursor.getDouble(cursor.getColumnIndex("headerThroat")));
+        setHeaderWidth(cursor.getDouble(cursor.getColumnIndex("headerWidth")));
+        setHeaderHeight(cursor.getDouble(cursor.getColumnIndex("headerHeight")));
+        setHeaderReturnWall(cursor.getDouble(cursor.getColumnIndex("headerReturnWall")));
+        setFlatFrontLeftWidth(cursor.getDouble(cursor.getColumnIndex("flatFrontLeftWidth")));
+        setFlatFrontLeftHeight(cursor.getDouble(cursor.getColumnIndex("flatFrontLeftHeight")));
+        setFlatFrontRightWidth(cursor.getDouble(cursor.getColumnIndex("flatFrontRightWidth")));
+        setFlatFrontRightHeight(cursor.getDouble(cursor.getColumnIndex("flatFrontRightHeight")));
+
         setIsThereNewCop(cursor.getString(cursor.getColumnIndex("isThereNewCop")));
 
         setMainCopWidth(cursor.getDouble(cursor.getColumnIndex("mainCopWidth")));
@@ -886,86 +1023,111 @@ public class InteriorCarDoorData extends  BaseData implements Serializable {
         JSONArray jsonArray = new JSONArray();
         try {
             jsonArray.put(0, getJSON("opening", "1"));
-            jsonArray.put(1, getJSON("center_opening", getCenterOpening()==1?"YES":"NO"));
-            jsonArray.put(2, getJSON("width", getWidth()+""));
-            jsonArray.put(3, getJSON("height", getHeight()+""));
-            jsonArray.put(4, getJSON("side_wall_main_width", getCenterOpening()==1?getSideWallMainWidth()+"":"0.0"));
-            jsonArray.put(5, getJSON("side_wall_aux_width", getCenterOpening()==1?getSideWallAuxWidth()+"":"0.0"));
-            jsonArray.put(6, getJSON("return_side_wall_depth", getCenterOpening()==2?getReturnSideWallDepth()+"":"0.0"));
-            jsonArray.put(7, getJSON("slam_side_wall_depth", getCenterOpening()==2?getSlamSideWallDepth()+"":"0.0"));
-            jsonArray.put(8, getJSON("slide_wall_width", getCenterOpening()==2?getSlideWallWidth()+"":"0.0"));
-            jsonArray.put(9, getJSON("door_opening_width", getDoorOpeningWidth()+""));
-            jsonArray.put(10, getJSON("door_opening_height", getDoorOpeningHeight()+""));
-            jsonArray.put(11, getJSON("type_of_slam_post", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getTypeOfSlamPost():""));
-            jsonArray.put(12, getJSON("type_of_slam_post_image", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getTypeOfSlamPost():""));
-            jsonArray.put(13, getJSON("other_slam_post", getCenterOpening()==2&&getTypeOfSlamPost().equals("OTHER")?getOtherSlamPost():""));
-            jsonArray.put(14, getJSON("slam_post_measurements_A", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getSlamPostMeasurementsA()+"":"0.0"));
-            jsonArray.put(15, getJSON("slam_post_measurements_B", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getSlamPostMeasurementsB()+"":"0.0"));
-            jsonArray.put(16, getJSON("slam_post_measurements_C", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getSlamPostMeasurementsC()+"":"0.0"));
-            jsonArray.put(17, getJSON("slam_post_measurements_D", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")&&!getTypeOfSlamPost().equals("C")?getSlamPostMeasurementsD()+"":"0.0"));
-            jsonArray.put(18, getJSON("slam_post_measurements_E", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")&&!getTypeOfSlamPost().equals("C")?getSlamPostMeasurementsE()+"":"0.0"));
-            jsonArray.put(19, getJSON("slam_post_measurements_F", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")&&!getTypeOfSlamPost().equals("C")?getSlamPostMeasurementsF()+"":"0.0"));
-            jsonArray.put(20, getJSON("slam_post_measurements_G", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getSlamPostMeasurementsG()+"":"0.0"));
-            jsonArray.put(21, getJSON("slam_post_measurements_H", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getSlamPostMeasurementsH()+"":"0.0"));
-            jsonArray.put(22, getJSON("type_of_front_return", !getTypeOfFrontReturn().equals("OTHER")?getTypeOfFrontReturn():""));
 
-            jsonArray.put(23, getJSON("leftside_image", !getTypeOfFrontReturn().equals("OTHER")?getTypeOfFrontReturn():""));
+            // added by alex - 2017/12/15
+            jsonArray.put(1, getJSON("wall_type", getWallType()));
+            jsonArray.put(2, getJSON("notes", getNotes()));
 
-            jsonArray.put(24, getJSON("left_side_A", !getTypeOfFrontReturn().equals("OTHER")?getLeftSideA()+"":"0.0"));
-            jsonArray.put(25, getJSON("left_side_B", !getTypeOfFrontReturn().equals("OTHER")?getLeftSideB()+"":"0.0"));
-            jsonArray.put(26, getJSON("left_side_C", !getTypeOfFrontReturn().equals("OTHER")?getLeftSideC()+"":"0.0"));
-            jsonArray.put(27, getJSON("left_side_D", !getTypeOfFrontReturn().equals("OTHER")&&!getTypeOfFrontReturn().equals("B")?getLeftSideD()+"":"0.0"));
-            jsonArray.put(28, getJSON("left_side_E", !getTypeOfFrontReturn().equals("OTHER")&&!getTypeOfFrontReturn().equals("B")?getLeftSideE()+"":"0.0"));
+            jsonArray.put(3, getJSON("center_opening", getCenterOpening()==1?"YES":"NO"));
+            jsonArray.put(4, getJSON("width", getDoubleForJSON(getWidth())));
+            jsonArray.put(5, getJSON("height", getDoubleForJSON(getHeight())));
+            jsonArray.put(6, getJSON("side_wall_main_width", getCenterOpening()==1?getDoubleForJSON(getSideWallMainWidth()):""));
+            jsonArray.put(7, getJSON("side_wall_aux_width", getCenterOpening()==1?getDoubleForJSON(getSideWallAuxWidth()):""));
+            jsonArray.put(8, getJSON("return_side_wall_depth", getCenterOpening()==2?getDoubleForJSON(getReturnSideWallDepth()):""));
+            jsonArray.put(9, getJSON("slam_side_wall_depth", getCenterOpening()==2?getDoubleForJSON(getSlamSideWallDepth()):""));
 
-            jsonArray.put(29, getJSON("rightside_image", getCenterOpening()==1&&!getTypeOfFrontReturn().equals("OTHER")?getTypeOfFrontReturn():""));
+            // commented by alex - 2017/12/15
+            //jsonArray.put(8, getJSON("slide_wall_width", getCenterOpening()==2?getSlideWallWidth()+"":"0.0"));
 
-            jsonArray.put(30, getJSON("right_side_A", getCenterOpening()==1?getRightSideA()+"":"0.0"));
-            jsonArray.put(31, getJSON("right_side_B", getCenterOpening()==1?getRightSideB()+"":"0.0"));
-            jsonArray.put(32, getJSON("right_side_C", getCenterOpening()==1?getRightSideC()+"":"0.0"));
-            jsonArray.put(33, getJSON("right_side_D", getCenterOpening()==1&&!getTypeOfFrontReturn().equals("B")?getRightSideD()+"":"0.0"));
-            jsonArray.put(34, getJSON("right_side_E", getCenterOpening()==1&&!getTypeOfFrontReturn().equals("B")?getRightSideE()+"":"0.0"));
-            jsonArray.put(35, getJSON("front_return_measurements_height", !getTypeOfFrontReturn().equals("OTHER")?getFrontReturnMeasurementsHeight()+"":"0.0"));
-            jsonArray.put(36, getJSON("other_front_return_measurements", getTypeOfFrontReturn().equals("OTHER")?getOtherFrontReturnMeasurements():""));
+            jsonArray.put(10, getJSON("door_opening_width", getDoubleForJSON(getDoorOpeningWidth())));
+            jsonArray.put(11, getJSON("door_opening_height", getDoubleForJSON(getDoorOpeningHeight())));
+            jsonArray.put(12, getJSON("type_of_slam_post", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getTypeOfSlamPost():""));
+            jsonArray.put(13, getJSON("type_of_slam_post_image", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getTypeOfSlamPost():""));
+            jsonArray.put(14, getJSON("other_slam_post", getCenterOpening()==2&&getTypeOfSlamPost().equals("OTHER")?getOtherSlamPost():""));
+            jsonArray.put(15, getJSON("slam_post_measurements_A", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getDoubleForJSON(getSlamPostMeasurementsA()):""));
+            jsonArray.put(16, getJSON("slam_post_measurements_B", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getDoubleForJSON(getSlamPostMeasurementsB()):""));
+            jsonArray.put(17, getJSON("slam_post_measurements_C", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getDoubleForJSON(getSlamPostMeasurementsC()):""));
+            jsonArray.put(18, getJSON("slam_post_measurements_D", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")&&!getTypeOfSlamPost().equals("C")?getDoubleForJSON(getSlamPostMeasurementsD()):""));
+            jsonArray.put(19, getJSON("slam_post_measurements_E", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")&&!getTypeOfSlamPost().equals("C")?getDoubleForJSON(getSlamPostMeasurementsE()):""));
+            jsonArray.put(20, getJSON("slam_post_measurements_F", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")&&!getTypeOfSlamPost().equals("C")?getDoubleForJSON(getSlamPostMeasurementsF()):""));
+            jsonArray.put(21, getJSON("slam_post_measurements_G", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getDoubleForJSON(getSlamPostMeasurementsG()):""));
+            jsonArray.put(22, getJSON("slam_post_measurements_H", getCenterOpening()==2&&!getTypeOfSlamPost().equals("OTHER")?getDoubleForJSON(getSlamPostMeasurementsH()):""));
+            jsonArray.put(23, getJSON("type_of_front_return", !getTypeOfFrontReturn().equals("OTHER")?getTypeOfFrontReturn():""));
+
+            jsonArray.put(24, getJSON("leftside_image", !getTypeOfFrontReturn().equals("OTHER")?getTypeOfFrontReturn():""));
+
+            jsonArray.put(25, getJSON("left_side_A", !getTypeOfFrontReturn().equals("OTHER")?getDoubleForJSON(getLeftSideA()):""));
+            jsonArray.put(26, getJSON("left_side_B", !getTypeOfFrontReturn().equals("OTHER")?getDoubleForJSON(getLeftSideB()):""));
+            jsonArray.put(27, getJSON("left_side_C", !getTypeOfFrontReturn().equals("OTHER")?getDoubleForJSON(getLeftSideC()):""));
+            jsonArray.put(28, getJSON("left_side_D", !getTypeOfFrontReturn().equals("OTHER")&&!getTypeOfFrontReturn().equals("B")?getDoubleForJSON(getLeftSideD()):""));
+            jsonArray.put(29, getJSON("left_side_E", !getTypeOfFrontReturn().equals("OTHER")&&!getTypeOfFrontReturn().equals("B")?getDoubleForJSON(getLeftSideE()):""));
+
+            jsonArray.put(30, getJSON("rightside_image", getCenterOpening()==1&&!getTypeOfFrontReturn().equals("OTHER")?getTypeOfFrontReturn():""));
+
+            jsonArray.put(31, getJSON("right_side_A", getCenterOpening()==1?getDoubleForJSON(getRightSideA()):""));
+            jsonArray.put(32, getJSON("right_side_B", getCenterOpening()==1?getDoubleForJSON(getRightSideB()):""));
+            jsonArray.put(33, getJSON("right_side_C", getCenterOpening()==1?getDoubleForJSON(getRightSideC()):""));
+            jsonArray.put(34, getJSON("right_side_D", getCenterOpening()==1&&!getTypeOfFrontReturn().equals("B")?getDoubleForJSON(getRightSideD()):""));
+            jsonArray.put(35, getJSON("right_side_E", getCenterOpening()==1&&!getTypeOfFrontReturn().equals("B")?getDoubleForJSON(getRightSideE()):""));
+            jsonArray.put(36, getJSON("front_return_measurements_height", !getTypeOfFrontReturn().equals("OTHER")?getDoubleForJSON(getFrontReturnMeasurementsHeight()):""));
+            jsonArray.put(37, getJSON("other_front_return_measurements", getTypeOfFrontReturn().equals("OTHER")?getOtherFrontReturnMeasurements():""));
             String str = "";
             if(getCarDoorType() == 2)
                 str = "Single Speed";
             else if(getCarDoorType() == 1)
                 str = "Two Speed";
-            jsonArray.put(37, getJSON("car_door_type", str));
+            jsonArray.put(38, getJSON("car_door_type", str));
             str = "";
             if(getCarDoorOpeningDirection() == 1)
                 str = "Slides Open To Left";
             else if(getCarDoorOpeningDirection() == 2)
                 str = "Slides Open To Right";
-            jsonArray.put(38, getJSON("car_door_opening_direction",getCenterOpening()==2?str:""));
+            jsonArray.put(39, getJSON("car_door_opening_direction",getCenterOpening()==2?str:""));
 
-            jsonArray.put(39, getJSON("transom_image", getCarDoorType() == 2? "1s":"2s"));
+            jsonArray.put(40, getJSON("transom_image", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? (getCarDoorType() == 2? "1s":"2s"):""));
 
-            jsonArray.put(40, getJSON("transom_measurements_height", getTransomMeasurementsHeight()+""));
-            jsonArray.put(41, getJSON("transom_measurements_width", getTransomMeasurementsWidth()+""));
-            jsonArray.put(42, getJSON("transom_measurements_left", getTransomMeasurementsLeft()+""));
-            jsonArray.put(43, getJSON("transom_measurements_center_left", getCenterOpening()==1?getTransomMeasurementsCenterLeft() + "":"0.0"));
-            jsonArray.put(44, getJSON("transom_measurements_center", getCenterOpening()==2?getTransomMeasurementsCenter()+"":"0.0"));
-            jsonArray.put(45, getJSON("transom_measurements_center_right", getCenterOpening()==1?getTransomMeasurementsCenterRight()+"":"0.0"));
-            jsonArray.put(46, getJSON("transom_measurements_right", getTransomMeasurementsRight() + ""));
+            jsonArray.put(41, getJSON("transom_measurements_height", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getTransomMeasurementsHeight()):""));
+            jsonArray.put(42, getJSON("transom_measurements_width", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getTransomMeasurementsWidth()):""));
+            jsonArray.put(43, getJSON("transom_measurements_left", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getTransomMeasurementsLeft()):""));
+            jsonArray.put(44, getJSON("transom_measurements_center_left", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE) && getCenterOpening()==1?getDoubleForJSON(getTransomMeasurementsCenterLeft()):""));
+            jsonArray.put(45, getJSON("transom_measurements_center", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE) && getCenterOpening()==2?getDoubleForJSON(getTransomMeasurementsCenter()):""));
+            jsonArray.put(46, getJSON("transom_measurements_center_right", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE) && getCenterOpening()==1?getDoubleForJSON(getTransomMeasurementsCenterRight()):""));
+            jsonArray.put(47, getJSON("transom_measurements_right", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getTransomMeasurementsRight()):""));
 
-            jsonArray.put(47, getJSON("transom_profile_image", getCarDoorType() == 2? "1s":"2s"));
+            jsonArray.put(48, getJSON("transom_profile_image", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? (getCarDoorType() == 2? "1s":"2s"):""));
 
-            jsonArray.put(48, getJSON("transom_profile_height", getTransomProfileHeight()+""));
-            jsonArray.put(49, getJSON("transom_profile_depth", getTransomProfileDepth()+""));
-            jsonArray.put(50, getJSON("transom_profile_return", getTransomProfileReturn()+""));
-            jsonArray.put(51, getJSON("transom_profile_colonnade", getTransomProfileColonnade()+""));
-            jsonArray.put(52, getJSON("transom_profile_colonnade2", getCarDoorType()==1?getTransomProfileColonnade2()+"":"0.0"));
-            jsonArray.put(53, getJSON("is_there_new_cop", getIsThereNewCop()));
+            jsonArray.put(49, getJSON("transom_profile_height", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getTransomProfileHeight()):""));
+            jsonArray.put(50, getJSON("transom_profile_depth", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getTransomProfileDepth()):""));
+            jsonArray.put(51, getJSON("transom_profile_return", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getTransomProfileReturn()):""));
+            jsonArray.put(52, getJSON("transom_profile_colonnade", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getTransomProfileColonnade()):""));
+            jsonArray.put(53, getJSON("transom_profile_colonnade2", !getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE) && getCarDoorType()==1?getDoubleForJSON(getTransomProfileColonnade2()):""));
 
-            jsonArray.put(54, getJSON("cop_width", getIsThereNewCop().equals("YES")?"Main="+getMainCopWidth()+",Aux="+getAuxCopWidth():"0.0"));
-            jsonArray.put(55, getJSON("cop_height", getIsThereNewCop().equals("YES")?"Main="+getMainCopHeight()+",Aux="+getAuxCopHeight():"0.0"));
-            jsonArray.put(56, getJSON("cop_left", getIsThereNewCop().equals("YES")?"Main="+getMainCopLeft()+",Aux="+getAuxCopLeft():"0.0"));
-            jsonArray.put(57, getJSON("cop_right", getIsThereNewCop().equals("YES")?"Main="+getMainCopRight()+",Aux="+getAuxCopRight():"0.0"));
-            jsonArray.put(58, getJSON("cop_top", getIsThereNewCop().equals("YES")?"Main="+getMainCopTop()+",Aux="+getAuxCopTop():"0.0"));
-            jsonArray.put(59, getJSON("cop_bottom", getIsThereNewCop().equals("YES")?"Main="+getMainCopBottom()+",Aux="+getAuxCopBottom():"0.0"));
-            jsonArray.put(60, getJSON("cop_throat", getIsThereNewCop().equals("YES")?"Main="+getMainCopThroat()+",Aux="+getAuxCopThroat():"0.0"));
-            jsonArray.put(61, getJSON("cop_return", getIsThereNewCop().equals("YES")?"Main="+getMainCopReturn()+",Aux="+getAuxCopReturn():"0.0"));
+
+            // added by alex - 2017/12/15
+            // L-transom for only 5 Piece Wall Type
+            jsonArray.put(54, getJSON("l_transom_width", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getlTransomWidth()):""));
+            jsonArray.put(55, getJSON("l_transom_height", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getlTransomHeight()):""));
+            jsonArray.put(56, getJSON("return_hoist_way", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getHeaderReturnHoistWay()):""));
+            jsonArray.put(57, getJSON("header_throat", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getHeaderThroat()):""));
+            jsonArray.put(58, getJSON("header_width", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getHeaderWidth()):""));
+            jsonArray.put(59, getJSON("header_height", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getHeaderHeight()):""));
+            jsonArray.put(60, getJSON("header_return_wall", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getHeaderReturnWall()):""));
+            jsonArray.put(61, getJSON("flat_front_left_width", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getFlatFrontLeftWidth()):""));
+            jsonArray.put(62, getJSON("flat_front_left_height", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getFlatFrontLeftHeight()):""));
+            jsonArray.put(63, getJSON("flat_front_right_width", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getFlatFrontRightWidth()):""));
+            jsonArray.put(64, getJSON("flat_front_right_height", getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)? getDoubleForJSON(getFlatFrontRightHeight()):""));
+            // -------------------------------------------------------------------------------------
+
+            jsonArray.put(65, getJSON("is_there_new_cop", getIsThereNewCop()));
+
+            jsonArray.put(66, getJSON("cop_width", getIsThereNewCop().equals("YES")?"Main="+getDoubleForJSON(getMainCopWidth())+",Aux="+getDoubleForJSON(getAuxCopWidth()):""));
+            jsonArray.put(67, getJSON("cop_height", getIsThereNewCop().equals("YES")?"Main="+getDoubleForJSON(getMainCopHeight())+",Aux=" + getDoubleForJSON(getAuxCopHeight()):""));
+            jsonArray.put(68, getJSON("cop_left", getIsThereNewCop().equals("YES")?"Main="+getDoubleForJSON(getMainCopLeft())+",Aux=" + getDoubleForJSON(getAuxCopLeft()):""));
+            jsonArray.put(69, getJSON("cop_right", getIsThereNewCop().equals("YES")?"Main="+getDoubleForJSON(getMainCopRight())+",Aux=" + getDoubleForJSON(getAuxCopRight()):""));
+            jsonArray.put(70, getJSON("cop_top", getIsThereNewCop().equals("YES")?"Main="+getDoubleForJSON(getMainCopTop())+",Aux=" + getDoubleForJSON(getAuxCopTop()):""));
+            jsonArray.put(71, getJSON("cop_bottom", getIsThereNewCop().equals("YES")?"Main="+getDoubleForJSON(getMainCopBottom())+",Aux=" + getDoubleForJSON(getAuxCopBottom()):""));
+            jsonArray.put(72, getJSON("cop_throat", getIsThereNewCop().equals("YES")?"Main="+getDoubleForJSON(getMainCopThroat())+",Aux=" + getDoubleForJSON(getAuxCopThroat()):""));
+            jsonArray.put(73, getJSON("cop_return", getIsThereNewCop().equals("YES")?"Main="+getDoubleForJSON(getMainCopReturn())+",Aux=" + getDoubleForJSON(getAuxCopReturn()):""));
 
 /*
             jsonArray.put(48, getJSON("main_cop_width", getMainCopWidth()+""));
@@ -986,10 +1148,12 @@ public class InteriorCarDoorData extends  BaseData implements Serializable {
             jsonArray.put(63, getJSON("aux_cop_return", getAuxCopReturn()+""));
 */
 
-            for (int i = 0; i < getPhotosList().size(); i++){
+            // commented by alex 2017/11/25
+            /*for (int i = 0; i < getPhotosList().size(); i++){
                 PhotoData photoData = getPhotosList().get(i);
                 jsonArray.put(i+62, photoData.getPostJSON(i + 1));
-            }
+            }*/
+
 
 
         }catch(Exception e){

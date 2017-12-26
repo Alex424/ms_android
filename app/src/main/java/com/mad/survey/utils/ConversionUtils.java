@@ -286,14 +286,14 @@ public class ConversionUtils {
         try {
             String edtStr = edtText.getText().toString();
             if (edtStr.equals("")){
-                retValue = 0.0;
+                retValue = -1.0;
             } else{
                 edtStr = edtStr.replace(",", "").replace("$", "");
                 retValue = Double.parseDouble(edtStr);
             }
         }catch(Exception e){
             // Crash happens when we capture the editing, and the first letter is - or .
-            retValue = 0.0;
+            retValue = -1.0;
         }
 
         return retValue;

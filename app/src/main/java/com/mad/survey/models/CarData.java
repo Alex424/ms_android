@@ -16,41 +16,41 @@ public class CarData extends BaseData implements Serializable {
     private String carNumber = "";
     private String jobType = "";
     private String weightScale = "KG";
-    private double capacityWeight = 0;
+    private double capacityWeight = -1;
     private int capacityNumberPersons = 0;
     private String installNumber = "";
     private String description = "";
     private String doorsCoinciding = "";
     private int numberOfOpenings = 0;
     private String floorMarkings = "";
-    private double frontDoorOpeningHeight = 0,frontDoorSlideJambWidth = 0,frontDoorStrikeJambWidth = 0;
-    private double rearDoorOpeningHeight = 0,rearDoorSlideJambWidth = 0 , rearDoorStrikeJambWidth = 0;
-    private double handRailHeightFromFloor = 0,handRailDistanceFromWall = 0,handRailDistanceFromReturn = 0;
+    private double frontDoorOpeningHeight = -1,frontDoorSlideJambWidth = -1,frontDoorStrikeJambWidth = -1;
+    private double rearDoorOpeningHeight = -1,rearDoorSlideJambWidth = -1 , rearDoorStrikeJambWidth = -1;
+    private double handRailHeightFromFloor = -1,handRailDistanceFromWall = -1,handRailDistanceFromReturn = -1;
     private int isThereHandRail = 0, isThereRearDoor = 0 , isThereCDI = 0 , isThereSPI = 0;
     private String notes = "";
     private int numberOfCops = 0;
     private  List<CopData> copsList = new ArrayList<>();
     //-------------CDI--------------
     private String mountCDI = "";
-    private int numberPerCabCDI = 0;
-    private double coverWidthCDI = 0;
-    private double coverHeightCDI = 0;
-    private double depthCDI = 0;
-    private double coverScrewCenterWidthCDI = 0;
-    private double coverScrewCenterHeightCDI = 0;
+    private int numberPerCabCDI = -1;
+    private double coverWidthCDI = -1;
+    private double coverHeightCDI = -1;
+    private double depthCDI = -1;
+    private double coverScrewCenterWidthCDI = -1;
+    private double coverScrewCenterHeightCDI = -1;
     private List<PhotoData> cdiPhotosList = new ArrayList<>();
     private String notesCDI = "";
     //---------------------
     //--------------SeparatePi---
     private String mountSPI = "";
     private int numberPerCabSPI = 0;
-    private double coverWidthSPI = 0;
-    private double coverHeightSPI = 0;
-    private double depthSPI = 0;
-    private double coverScrewCenterWidthSPI = 0;
-    private double coverScrewCenterHeightSPI = 0;
-    private double spaceAvailableWidthSPI = 0;
-    private double spaceAvailableHeightSPI = 0;
+    private double coverWidthSPI = -1;
+    private double coverHeightSPI = -1;
+    private double depthSPI = -1;
+    private double coverScrewCenterWidthSPI = -1;
+    private double coverScrewCenterHeightSPI = -1;
+    private double spaceAvailableWidthSPI = -1;
+    private double spaceAvailableHeightSPI = -1;
     private List<PhotoData> spiPhotosList = new ArrayList<>();
     private String notesSPI = "";
 
@@ -570,24 +570,24 @@ public class CarData extends BaseData implements Serializable {
             summaryJSON.put(0, getJSON("car_number", getCarNumber()));
             summaryJSON.put(1, getJSON("job_type",getJobType()));
             summaryJSON.put(2, getJSON("weight_scale", getWeightScale()));
-            summaryJSON.put(3, getJSON("capacity_weight", getCapacityWeight()+""));
+            summaryJSON.put(3, getJSON("capacity_weight", getDoubleForJSON(getCapacityWeight())));
             summaryJSON.put(4, getJSON("capacity_number_persons", getCapacityNumberPersons()+""));
             summaryJSON.put(5, getJSON("install_number", getInstallNumber()));
             summaryJSON.put(6, getJSON("description", getDescription()));
             summaryJSON.put(7, getJSON("doors_coinciding", getDoorsCoinciding()));
             summaryJSON.put(8, getJSON("number_of_openings", getNumberOfOpenings()+""));
             summaryJSON.put(9, getJSON("floor_markings", getFloorMarkings()));
-            summaryJSON.put(10, getJSON("front_door_opening_height", getFrontDoorOpeningHeight()+""));
-            summaryJSON.put(11, getJSON("front_door_slide_jamb_width", getFrontDoorSlideJambWidth()+""));
-            summaryJSON.put(12, getJSON("front_door_strike_jamb_width", getFrontDoorStrikeJambWidth()+""));
+            summaryJSON.put(10, getJSON("front_door_opening_height", getDoubleForJSON(getFrontDoorOpeningHeight())));
+            summaryJSON.put(11, getJSON("front_door_slide_jamb_width", getDoubleForJSON(getFrontDoorSlideJambWidth())));
+            summaryJSON.put(12, getJSON("front_door_strike_jamb_width", getDoubleForJSON(getFrontDoorStrikeJambWidth())));
             summaryJSON.put(13, getJSON("is_there_rear_door", getIsThereRearDoor()==1?"yes":"no"));
-            summaryJSON.put(14, getJSON("rear_door_opening_height", getRearDoorOpeningHeight()+""));
-            summaryJSON.put(15, getJSON("rear_door_slide_jamb_width", getRearDoorSlideJambWidth()+""));
-            summaryJSON.put(16, getJSON("rear_door_strike_jamb_width", getRearDoorStrikeJambWidth()+""));
+            summaryJSON.put(14, getJSON("rear_door_opening_height", getDoubleForJSON(getRearDoorOpeningHeight())));
+            summaryJSON.put(15, getJSON("rear_door_slide_jamb_width", getDoubleForJSON(getRearDoorSlideJambWidth())));
+            summaryJSON.put(16, getJSON("rear_door_strike_jamb_width", getDoubleForJSON(getRearDoorStrikeJambWidth())));
             summaryJSON.put(17, getJSON("is_there_hand_rail",getIsThereHandRail()==1?"yes":"no"));
-            summaryJSON.put(18, getJSON("hand_rail_height_from_floor", getHandRailHeightFromFloor()+""));
-            summaryJSON.put(19, getJSON("hand_rail_distance_from_wall", getHandRailDistanceFromWall()+""));
-            summaryJSON.put(20, getJSON("hand_rail_distance_from_return", getHandRailDistanceFromReturn()+""));
+            summaryJSON.put(18, getJSON("hand_rail_height_from_floor", getDoubleForJSON(getHandRailHeightFromFloor())));
+            summaryJSON.put(19, getJSON("hand_rail_distance_from_wall", getDoubleForJSON(getHandRailDistanceFromWall())));
+            summaryJSON.put(20, getJSON("hand_rail_distance_from_return", getDoubleForJSON(getHandRailDistanceFromReturn())));
             summaryJSON.put(21, getJSON("notes", getNotes()));
 
             int i;
@@ -612,11 +612,11 @@ public class CarData extends BaseData implements Serializable {
             if(getIsThereCDI() == 1) {
                 cdaJSON.put(0, getJSON("mount", getMountCDI()));
                 cdaJSON.put(1, getJSON("number_per_cab", getNumberPerCabCDI() + ""));
-                cdaJSON.put(2, getJSON("cover_width", getCoverWidthCDI() + ""));
-                cdaJSON.put(3, getJSON("cover_height", getCoverHeightCDI() + ""));
-                cdaJSON.put(4, getJSON("depth", getDepthCDI() + ""));
-                cdaJSON.put(5, getJSON("cover_screw_center_width", getCoverScrewCenterWidthCDI() + ""));
-                cdaJSON.put(6, getJSON("cover_screw_center_height", getCoverScrewCenterHeightCDI() + ""));
+                cdaJSON.put(2, getJSON("cover_width", getDoubleForJSON(getCoverWidthCDI())));
+                cdaJSON.put(3, getJSON("cover_height", getDoubleForJSON(getCoverHeightCDI())));
+                cdaJSON.put(4, getJSON("depth", getDoubleForJSON(getDepthCDI())));
+                cdaJSON.put(5, getJSON("cover_screw_center_width", getDoubleForJSON(getCoverScrewCenterWidthCDI())));
+                cdaJSON.put(6, getJSON("cover_screw_center_height", getDoubleForJSON(getCoverScrewCenterHeightCDI())));
                 cdaJSON.put(7, getJSON("notes", getNotesCDI()));
 
                 for (i = 0; i < getCdiPhotosList().size(); i++) {
@@ -630,13 +630,13 @@ public class CarData extends BaseData implements Serializable {
             if(getIsThereSPI() == 1) {
                 separatePIJSON.put(0, getJSON("mount", getMountSPI()));
                 separatePIJSON.put(1, getJSON("number_per_cab", getNumberPerCabSPI() + ""));
-                separatePIJSON.put(2, getJSON("cover_width", getCoverWidthSPI() + ""));
-                separatePIJSON.put(3, getJSON("cover_height", getCoverHeightSPI() + ""));
-                separatePIJSON.put(4, getJSON("depth", getDepthSPI() + ""));
-                separatePIJSON.put(5, getJSON("cover_screw_center_width", getCoverScrewCenterWidthSPI() + ""));
-                separatePIJSON.put(6, getJSON("cover_screw_center_height", getCoverScrewCenterHeightSPI() + ""));
-                separatePIJSON.put(7, getJSON("space_available_width", getSpaceAvailableWidthSPI() + ""));
-                separatePIJSON.put(8, getJSON("space_available_height", getSpaceAvailableHeightSPI() + ""));
+                separatePIJSON.put(2, getJSON("cover_width", getDoubleForJSON(getCoverWidthSPI())));
+                separatePIJSON.put(3, getJSON("cover_height", getDoubleForJSON(getCoverHeightSPI())));
+                separatePIJSON.put(4, getJSON("depth", getDoubleForJSON(getDepthSPI())));
+                separatePIJSON.put(5, getJSON("cover_screw_center_width", getDoubleForJSON(getCoverScrewCenterWidthSPI())));
+                separatePIJSON.put(6, getJSON("cover_screw_center_height", getDoubleForJSON(getCoverScrewCenterHeightSPI())));
+                separatePIJSON.put(7, getJSON("space_available_width", getDoubleForJSON(getSpaceAvailableWidthSPI())));
+                separatePIJSON.put(8, getJSON("space_available_height", getDoubleForJSON(getSpaceAvailableHeightSPI())));
                 separatePIJSON.put(9, getJSON("notes", getNotesSPI()));
 
                 for (i = 0; i < getSpiPhotosList().size(); i++) {

@@ -18,7 +18,7 @@ public class LobbyData implements Serializable {
 	private String location = "";
 	private int lobbyNum = 0;
 	private int visibility = 0;
-	private double panelWidth = 0,panelHeight = 0 , screwCenterWidth = 0 , screwCenterHeight = 0;
+	private double panelWidth = -1,panelHeight = -1 , screwCenterWidth = -1 , screwCenterHeight = -1;
 	private String specialFeature = "",specialCommunicationOption = "";
 	private String notes = "";
 	private List<PhotoData> photosList = new ArrayList<>();
@@ -172,15 +172,20 @@ public class LobbyData implements Serializable {
 
 		return jsonObject;
 	}
+
+	public String getDoubleForJSON(double value){
+		return value < 0? "":(value + "");
+	}
+
 	public JSONArray getPostJSON(){
 		JSONArray jsonArray = new JSONArray();
 		try {
 			jsonArray.put(0, getJSON("panel_location", getLocation()));
 			jsonArray.put(1, getJSON("elevator_visibility", getVisibility()== GlobalConstant.LOBBY_ELEVATORS_VISIBLE?"YES":"NO"));
-			jsonArray.put(2, getJSON("panel_width", getPanelWidth()+""));
-			jsonArray.put(3, getJSON("panel_height", getPanelHeight()+""));
-			jsonArray.put(4, getJSON("screw_center_width", getScrewCenterWidth()+""));
-			jsonArray.put(5, getJSON("screw_center_height", getScrewCenterHeight()+""));
+			jsonArray.put(2, getJSON("panel_width", getDoubleForJSON(getPanelWidth())));
+			jsonArray.put(3, getJSON("panel_height", getDoubleForJSON(getPanelHeight())));
+			jsonArray.put(4, getJSON("screw_center_width", getDoubleForJSON(getScrewCenterWidth())));
+			jsonArray.put(5, getJSON("screw_center_height", getDoubleForJSON(getScrewCenterHeight())));
 			jsonArray.put(6, getJSON("feature", getSpecialFeature()));
 			jsonArray.put(7, getJSON("integral_communication", getSpecialCommunicationOption()));
 			jsonArray.put(8, getJSON("notes", getNotes()));

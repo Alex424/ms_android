@@ -80,15 +80,15 @@ public class InteriorCarSlamPostTypeCFragment extends BaseFragment implements Vi
             txtCarNumber.setText(getString(R.string.car_number_n_title, MADSurveyApp.getInstance().getInteriorCarNum()+1, bankData.getNumOfInteriorCar(),MADSurveyApp.getInstance().getInteriorCarData().getCarDescription()));
         }
         InteriorCarDoorData interiorCarDoorData = MADSurveyApp.getInstance().getInteriorCarDoorData();
-        if(interiorCarDoorData.getSlamPostMeasurementsA()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsA()>=0)
             edtA.setText(interiorCarDoorData.getSlamPostMeasurementsA()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsB()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsB()>=0)
             edtB.setText(interiorCarDoorData.getSlamPostMeasurementsB()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsC()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsC()>=0)
             edtC.setText(interiorCarDoorData.getSlamPostMeasurementsC()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsG()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsG()>=0)
             edtG.setText(interiorCarDoorData.getSlamPostMeasurementsG()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsH()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsH()>=0)
             edtH.setText(interiorCarDoorData.getSlamPostMeasurementsH()+"");
     }
 
@@ -100,27 +100,27 @@ public class InteriorCarSlamPostTypeCFragment extends BaseFragment implements Vi
         double G = ConversionUtils.getDoubleFromEditText(edtG);
         double H = ConversionUtils.getDoubleFromEditText(edtH);
 
-        if(A <= 0){
+        if(A < 0){
             edtA.requestFocus();
             showToast(getString(R.string.valid_msg_input_A), Toast.LENGTH_SHORT);
             return;
         }
-        if(B <= 0){
+        if(B < 0){
             edtB.requestFocus();
             showToast(getString(R.string.valid_msg_input_B), Toast.LENGTH_SHORT);
             return;
         }
-        if(C <= 0){
+        if(C < 0){
             edtC.requestFocus();
             showToast(getString(R.string.valid_msg_input_C), Toast.LENGTH_SHORT);
             return;
         }
-        if(G <= 0){
+        if(G < 0){
             edtG.requestFocus();
             showToast(getString(R.string.valid_msg_input_G), Toast.LENGTH_SHORT);
             return;
         }
-        if(H <= 0){
+        if(H < 0){
             edtH.requestFocus();
             showToast(getString(R.string.valid_msg_input_H), Toast.LENGTH_SHORT);
             return;

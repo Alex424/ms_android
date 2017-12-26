@@ -133,8 +133,27 @@ public class InteriorCarDoorDataHandler extends AbstractDataSource<InteriorCarDo
 		}
 	}
 
+	public InteriorCarDoorData insertNewInteriorCarDoorWithStartWallTypeAndNotes(int projectId,int interiorCarId, int doorStyle, String wallType, String notes){
+		// Check if the InteriorCarDoor exists or not
+		List<InteriorCarDoorData> interiorCarDoorsList = getAll("projectId = " + projectId + " AND interiorCarId = " + interiorCarId + " AND doorStyle = " + doorStyle , null, null, null, null);
+		if (interiorCarDoorsList.size() > 0){
+			return null;
+		}else{
+			InteriorCarDoorData interiorCarDoorData = new InteriorCarDoorData();
+			interiorCarDoorData.setProjectId(projectId);
+			interiorCarDoorData.setInteriorCarId(interiorCarId);
+			interiorCarDoorData.setDoorStyle(doorStyle);
+			interiorCarDoorData.setWallType(wallType);
+			interiorCarDoorData.setNotes(notes);
+
+			long nId = insert(interiorCarDoorData);
+			interiorCarDoorData.setId((int) nId);
+			return interiorCarDoorData;
+		}
+	}
+
 	public InteriorCarDoorData get(int interiorCarId , int doorType) {
-		Cursor cursor = mDatabase.query(TABLE_NAME, null, "interiorCarId= " + interiorCarId + " AND doorType = " + doorType, null, null, null, null);
+		Cursor cursor = mDatabase.query(TABLE_NAME, null, "interiorCarId= " + interiorCarId + " AND doorStyle = " + doorType, null, null, null, null);
 
 		if(cursor!=null && cursor.moveToFirst()) {
 			InteriorCarDoorData data = generateObjectFromCursor(cursor);

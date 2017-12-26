@@ -89,15 +89,15 @@ public class InteriorCarTransomProfile2sFragment extends BaseFragment implements
         double colonnade = interiorCarDoorData.getTransomProfileColonnade();
         double colonnade2 = interiorCarDoorData.getTransomProfileColonnade2();
 
-        if(height>0)
+        if(height>=0)
             edtHeight.setText(height+"");
-        if(depth>0)
+        if(depth>=0)
             edtDepth.setText(depth+"");
-        if(returnR>0)
+        if(returnR>=0)
             edtReturn.setText(returnR+"");
-        if(colonnade>0)
+        if(colonnade>=0)
             edtColonnade.setText(colonnade + "");
-        if(colonnade2>0)
+        if(colonnade2>=0)
             edtColonnade2.setText(colonnade2 + "");
     }
 
@@ -108,27 +108,27 @@ public class InteriorCarTransomProfile2sFragment extends BaseFragment implements
         double colonnade = ConversionUtils.getDoubleFromEditText(edtColonnade);
         double colonnade2 = ConversionUtils.getDoubleFromEditText(edtColonnade2);
 
-        if(height<=0){
+        if(height<0){
             edtHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(depth<=0){
+        if(depth<0){
             edtDepth.requestFocus();
             showToast(getString(R.string.valid_msg_input_depth), Toast.LENGTH_SHORT);
             return;
         }
-        if(returnR<=0){
+        if(returnR<0){
             edtReturn.requestFocus();
             showToast(getString(R.string.valid_msg_input_return), Toast.LENGTH_SHORT);
             return;
         }
-        if(colonnade<=0){
+        if(colonnade<0){
             edtColonnade.requestFocus();
             showToast(getString(R.string.valid_msg_input_colonnade), Toast.LENGTH_SHORT);
             return;
         }
-        if(colonnade2<=0){
+        if(colonnade2<0){
             edtColonnade2.requestFocus();
             showToast(getString(R.string.valid_msg_input_colonnade2), Toast.LENGTH_SHORT);
             return;

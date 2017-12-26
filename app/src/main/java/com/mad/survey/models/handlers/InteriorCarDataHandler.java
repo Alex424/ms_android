@@ -114,7 +114,7 @@ public class InteriorCarDataHandler extends AbstractDataSource<InteriorCarData> 
 
 	public InteriorCarData insertNewInteriorCarWithDescription(int projectId, int bankNum , int InteriorCarNum, String description){
 		// Check if the InteriorCar exists or not
-		List<InteriorCarData> InteriorCarsList = getAll("projectId = " + projectId + " AND bankId = " + bankNum + " AND InteriorCarNum = " + InteriorCarNum , null, null, null, null);
+		List<InteriorCarData> InteriorCarsList = getAll("projectId = " + projectId + " AND bankId = " + bankNum + " AND InteriorCarNum = " + InteriorCarNum, null, null, null, null);
 		if (InteriorCarsList.size() > 0){
 			return null;
 		}else{
@@ -148,6 +148,20 @@ public class InteriorCarDataHandler extends AbstractDataSource<InteriorCarData> 
 			cursor.close();
 		}
 		return dataList;
+	}
+
+	public InteriorCarData getPreviousCarDataForSameAsLast(int projectId, int bankNum){
+		List<InteriorCarData> InteriorCarsList = getAll("projectId = " + projectId + " AND bankId = " + bankNum  , null, null, null, "id asc");
+		if (InteriorCarsList.size() > 1){
+			return InteriorCarsList.get(InteriorCarsList.size() - 2);
+		}
+
+		return null;
+	}
+
+	public int getInteriorCarCountInBank(int projectId, int bankNum){
+		List<InteriorCarData> InteriorCarsList = getAll("projectId = " + projectId + " AND bankId = " + bankNum  , null, null, null, "id asc");
+		return InteriorCarsList.size();
 	}
 
 	public int getAllCnt(int projectId) {

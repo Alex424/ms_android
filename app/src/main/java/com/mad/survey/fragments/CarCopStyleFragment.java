@@ -105,19 +105,19 @@ public class CarCopStyleFragment extends BaseFragment implements View.OnClickLis
         MADSurveyApp.getInstance().getCopData().setOptions(style);
         MADSurveyApp.getInstance().getCopData().setReturnHinging(hingeSide);
         if(style.equals(GlobalConstant.COP_STYLE_APPLIED)) {
-            MADSurveyApp.getInstance().getCopData().setSwingPanelHeight(0.0);
-            MADSurveyApp.getInstance().getCopData().setSwingPanelWidth(0.0);
-            MADSurveyApp.getInstance().getCopData().setCoverAff(0.0);
+            MADSurveyApp.getInstance().getCopData().setSwingPanelHeight(-1);
+            MADSurveyApp.getInstance().getCopData().setSwingPanelWidth(-1);
+            //MADSurveyApp.getInstance().getCopData().setCoverAff(-1);
             copDataHandler.update(MADSurveyApp.getInstance().getCopData());
             ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_CAR_COP_APPLIED_MEASUREMENTS, "car_cop_applied_measurements");
         }
         else if(style.equals((GlobalConstant.COP_STYLE_SWING))) {
-            MADSurveyApp.getInstance().getCopData().setReturnPanelWidth(0.0);
-            MADSurveyApp.getInstance().getCopData().setReturnPanelHeight(0.0);
-            MADSurveyApp.getInstance().getCopData().setCoverWidth(0.0);
-            MADSurveyApp.getInstance().getCopData().setCoverHeight(0.0);
-            MADSurveyApp.getInstance().getCopData().setCoverToOpening(0.0);
-            MADSurveyApp.getInstance().getCopData().setCoverAff(0.0);
+            MADSurveyApp.getInstance().getCopData().setReturnPanelWidth(-1);
+            MADSurveyApp.getInstance().getCopData().setReturnPanelHeight(-1);
+            MADSurveyApp.getInstance().getCopData().setCoverWidth(-1);
+            MADSurveyApp.getInstance().getCopData().setCoverHeight(-1);
+            MADSurveyApp.getInstance().getCopData().setCoverToOpening(-1);
+            //MADSurveyApp.getInstance().getCopData().setCoverAff(-1);
             copDataHandler.update(MADSurveyApp.getInstance().getCopData());
             ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_CAR_COP_SWING_MEASUREMENTS, "car_cop_swing_measurements");
         }

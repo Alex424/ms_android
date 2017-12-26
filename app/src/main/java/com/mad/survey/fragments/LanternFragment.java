@@ -86,6 +86,17 @@ public class LanternFragment extends BaseFragment implements View.OnClickListene
     }
 
     private void goToLanternCapturing(){
+        MADSurveyApp.getInstance().setLanternData(null);
+
+        ProjectData projectData = MADSurveyApp.getInstance().getProjectData();
+        LanternData lanternData = lanternDataHandler.get(projectData.getId(),
+                MADSurveyApp.getInstance().getBankNum(),
+                MADSurveyApp.getInstance().getLanternNum(),
+                MADSurveyApp.getInstance().getFloorDescriptor());
+        if (lanternData != null){
+            lanternDataHandler.delete(lanternData);
+        }
+
         ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_LANTERN_DESCRIPTION, "lantern_desc");
     }
 

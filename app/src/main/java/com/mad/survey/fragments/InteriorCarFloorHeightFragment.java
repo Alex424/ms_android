@@ -74,13 +74,13 @@ public class InteriorCarFloorHeightFragment extends BaseFragment implements View
         }
         InteriorCarData interiorCarData = MADSurveyApp.getInstance().getInteriorCarData();
 
-        if(interiorCarData.getCarFloorHeight()>0)
+        if(interiorCarData.getCarFloorHeight()>=0)
             edtFloorHeight.setText(interiorCarData.getCarFloorHeight()+"");
     }
 
     private void goToNext(){
         double floorHeight = ConversionUtils.getDoubleFromEditText(edtFloorHeight);
-        if(floorHeight<=0){
+        if(floorHeight<0){
             edtFloorHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_floor_height), Toast.LENGTH_SHORT);
             return;

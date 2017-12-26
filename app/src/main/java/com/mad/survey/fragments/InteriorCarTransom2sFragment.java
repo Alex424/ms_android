@@ -92,17 +92,17 @@ public class InteriorCarTransom2sFragment extends BaseFragment implements View.O
         double centerRight = interiorCarDoorData.getTransomMeasurementsCenterRight();
         double right = interiorCarDoorData.getTransomMeasurementsRight();
 
-        if(height>0)
+        if(height>=0)
             edtHeight.setText(height+"");
-        if(width>0)
+        if(width>=0)
             edtWidth.setText(width+"");
-        if(left>0)
+        if(left>=0)
             edtLeft.setText(left+"");
-        if(centerLeft>0)
+        if(centerLeft>=0)
             edtCenterLeft.setText(centerLeft+"");
-        if(centerRight>0)
+        if(centerRight>=0)
             edtCenterRight.setText(centerRight+"");
-        if(right>0)
+        if(right>=0)
             edtRight.setText(right+"");
     }
 
@@ -113,32 +113,32 @@ public class InteriorCarTransom2sFragment extends BaseFragment implements View.O
         double centerLeft = ConversionUtils.getDoubleFromEditText(edtCenterLeft);
         double centerRight = ConversionUtils.getDoubleFromEditText(edtCenterRight);
         double right = ConversionUtils.getDoubleFromEditText(edtRight);
-        if(height<=0){
+        if(height<0){
             edtHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(width<=0){
+        if(width<0){
             edtWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(left<=0){
+        if(left<0){
             edtLeft.requestFocus();
             showToast(getString(R.string.valid_msg_input_left), Toast.LENGTH_SHORT);
             return;
         }
-        if(centerLeft<=0){
+        if(centerLeft<0){
             edtCenterLeft.requestFocus();
             showToast(getString(R.string.valid_msg_input_center_left), Toast.LENGTH_SHORT);
             return;
         }
-        if(centerRight<=0){
+        if(centerRight<0){
             edtCenterRight.requestFocus();
             showToast(getString(R.string.valid_msg_input_center_right), Toast.LENGTH_SHORT);
             return;
         }
-        if(right<=0){
+        if(right<0){
             edtRight.requestFocus();
             showToast(getString(R.string.valid_msg_input_right), Toast.LENGTH_SHORT);
             return;

@@ -87,13 +87,13 @@ public class InteriorCarTransomProfile1sFragment extends BaseFragment implements
         double returnR = interiorCarDoorData.getTransomProfileReturn();
         double colonnade = interiorCarDoorData.getTransomProfileColonnade();
 
-        if(height>0)
+        if(height>=0)
             edtHeight.setText(height+"");
-        if(depth>0)
+        if(depth>=0)
             edtDepth.setText(depth+"");
-        if(returnR>0)
+        if(returnR>=0)
             edtReturn.setText(returnR+"");
-        if(colonnade>0)
+        if(colonnade>=0)
             edtColonnade.setText(colonnade + "");
 
     }
@@ -104,22 +104,22 @@ public class InteriorCarTransomProfile1sFragment extends BaseFragment implements
         double returnR = ConversionUtils.getDoubleFromEditText(edtReturn);
         double colonnade = ConversionUtils.getDoubleFromEditText(edtColonnade);
 
-        if(height<=0){
+        if(height<0){
             edtHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(depth<=0){
+        if(depth<0){
             edtDepth.requestFocus();
             showToast(getString(R.string.valid_msg_input_depth), Toast.LENGTH_SHORT);
             return;
         }
-        if(returnR<=0){
+        if(returnR<0){
             edtReturn.requestFocus();
             showToast(getString(R.string.valid_msg_input_return), Toast.LENGTH_SHORT);
             return;
         }
-        if(colonnade<=0){
+        if(colonnade<0){
             edtColonnade.requestFocus();
             showToast(getString(R.string.valid_msg_input_colonnade), Toast.LENGTH_SHORT);
             return;

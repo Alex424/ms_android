@@ -72,4 +72,8 @@ public class BaseData implements Serializable {
 
 		return jsonObject;
 	}
+
+	public String getDoubleForJSON(double value){
+		return value < 0? "":(value + "");
+	}
 }

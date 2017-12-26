@@ -143,9 +143,13 @@
     <string name="floor_n_identifier_edit_title">Floor - %1$s</string>
 
     <string name="hall_entrance">Hall Entrance</string>
+    <string name="hall_entrance_copy">This Hall Station is:</string>
+    <string name="hall_entrance_same_as_desc">an existing Hall Entrance</string>
+    <string name="hall_entrance_number_identifier">Hall Entrances (Number - Identifier)</string>
     <string name="hall_entrance_door_type">Hall Entrance Door Type</string>
     <string name="hall_entrance_door_opening_direction">Hall Entrance Door opening direction from inside looking at the door</string>
     <string name="hall_entrances">Hall Entrances</string>
+    <string name="hall_entrance_skip_rest">Hall Entrances Skip Rest</string>
     <string name="hall_lanterns">Hall Lanterns</string>
     <string name="hall_stations">Hall Stations</string>
     <string name="hall_stations_number_identifier">Hall Stations (Number - Identifier)</string>
@@ -200,6 +204,7 @@
     <string name="help_title_car_interior">Car Interior</string>
     <string name="help_title_car_interior_ceiling">Car Interior Ceiling</string>
     <string name="help_title_car_interior_measurements">Car Interior Measurements</string>
+    <string name="help_title_wall_type">Wall Type</string>
     <string name="help_title_touch">Pinch to zoom in &amp; out</string>
     <string name="help_title_hall_entrance">Hall Entrance Measurements</string>
 
@@ -209,6 +214,9 @@
     <string name="instruction_select_bank_for_edit">Add a new bank or select one of existing banks you would like to add an item into.</string>
     <string name="instruction_car_interior_backdoor">Now you will go through for the back door information screens.</string>
 
+    <string name="interior_car_copy_desc">This Car Interior is:</string>
+    <string name="interior_car_same_as_desc">an existing Car Interior</string>
+    <string name="interior_car_number_identifier">Interior Cars (Number - Identifier)</string>
     <string name="interior_car_weight">Car Weight</string>
     <string name="interior_car_flooring">Car Interior Flooring</string>
     <string name="interior_car_ceramic">Ceramic</string>
@@ -221,6 +229,10 @@
     <string name="interior_car_ceiling">Car Interior Ceiling</string>
     <string name="interior_car_ceiling_exhaust_fan">Exhaust Fan</string>
     <string name="interior_car_ceiling_exhaust_fan_location">Exhaust Fan Location</string>
+    <string name="interior_car_ceiling_exhaust_to_left_wall">Exhaust to left wall</string>
+    <string name="interior_car_ceiling_exhaust_to_back_wall">Exhaust to back wall</string>
+    <string name="interior_car_ceiling_exhaust_width">Exhaust width</string>
+    <string name="interior_car_ceiling_exhaust_length">Exhaust length</string>
     <string name="interior_car_ceiling_frame_type">Type of Ceiling frame</string>
     <string name="interior_car_ceiling_mounted">Ceiling Mounted</string>
     <string name="interior_car_ceiling_wall_mounted">Wall Mounted</string>
@@ -229,6 +241,10 @@
     <string name="interior_car_ceiling_mounting_welded">Welded</string>
     <string name="interior_car_ceiling_mounting_other">Other?</string>
     <string name="interior_car_ceiling_escape_hatch_location">Escape Hatch Location</string>
+    <string name="interior_car_ceiling_escape_hatch_to_left_wall">Escape Hatch to left wall</string>
+    <string name="interior_car_ceiling_escape_hatch_to_back_wall">Escape Hatch to back wall</string>
+    <string name="interior_car_ceiling_escape_hatch_width">Escape Hatch width</string>
+    <string name="interior_car_ceiling_escape_hatch_length">Escape Hatch length</string>
     <string name="interior_car_type">Car Type</string>
     <string name="interior_type_of_car">Type of Car</string>
     <string name="interior_car_type_hydraulic">Hydraulic</string>
@@ -236,11 +252,17 @@
     <string name="interior_car_structure">Car Structure</string>
     <string name="interior_car_structure_bird_cage">Bird Cage</string>
     <string name="interior_car_structure_tbd">TBD</string>
+    <string name="interior_car_front_wall_type">Car Interior Front Wall Type</string>
+    <string name="interior_car_front_wall_type_3_piece">3 piece</string>
+    <string name="interior_car_front_wall_type_5_piece">5 piece</string>
+    <string name="interior_car_front_wall_type_hybrid">Hybrid</string>
     <string name="interior_car_front_opening">Car Interior Front Opening</string>
     <string name="interior_car_center_opening">Center Opening</string>
     <string name="interior_car_measurements">Car Interior Measurements</string>
     <string name="interior_car_width">Width</string>
     <string name="interior_car_height">Height</string>
+    <string name="interior_car_return_hoist_way">Return hoist way</string>
+    <string name="interior_car_return_wall">Return wall</string>
     <string name="interior_car_side_wall_main_width">Side Wall Main Width</string>
     <string name="interior_car_side_wall_aux_width">Side Wall Aux Width</string>
     <string name="interior_car_door_opening_width">Door Opening Width</string>
@@ -268,6 +290,13 @@
     <string name="interior_car_door_opening_to_right">Slide     s Open to Right</string>
     <string name="interior_car_front_transom_measurements">Car Interior Front TRANSOM Measurements</string>
     <string name="interior_car_front_transom_profile">Car Interior Front TRANSOM Profile</string>
+    <string name="interior_car_front_l_transom">Car Interior Front L-TRANSOM</string>
+    <string name="interior_car_front_header">Car Interior Front Header</string>
+    <string name="interior_car_front">Car Interior Front </string>
+    <string name="interior_car_flat_front">Flat Front</string>
+    <string name="interior_car_throat1">Throat</string>
+    <string name="interior_car_left1">Left:</string>
+    <string name="interior_car_right1">Right:</string>
     <string name="interior_car_left">Left</string>
     <string name="interior_car_right">Right</string>
     <string name="interior_car_center_left">Center Left</string>
@@ -286,7 +315,7 @@
     <string name="interior_car_aux_cop_return">Car Interior Front\nAUX COP Front Return</string>
     <string name="interior_car_notes">Notes Cab Interior</string>
     <string name="interior_car_notes_desc">Please enter any special notes or comments about this Elevator Cab Interior</string>
-    <string name="interior_car_rear_wall">Car Interior Real Wall</string>
+    <string name="interior_car_rear_wall">Car Interior Rear Wall</string>
     <string name="interior_car_front_return_only">Front Return</string>
     <string name="interior_car_hall_front_return_measurements">Car Hall Front Return Measurements</string>
     <string name="interior_car_hall_transom_measurements_center">Car Hall Transom Measurements Center</string>
@@ -474,6 +503,13 @@
     <string name="valid_msg_input_escape_hatch_location">Please input Escape Hatch Location!</string>
     <string name="valid_msg_input_width">Please input Width!</string>
     <string name="valid_msg_input_height">Please input Height!</string>
+    <string name="valid_msg_input_return_hoist_way">Please input Return hoist way!</string>
+    <string name="valid_msg_input_return_wall">Please input Return wall!</string>
+    <string name="valid_msg_input_left_width">Please input Left Width!</string>
+    <string name="valid_msg_input_left_height">Please input Left Height!</string>
+    <string name="valid_msg_input_right_width">Please input Right Width!</string>
+    <string name="valid_msg_input_right_height">Please input Right Height!</string>
+
     <string name="valid_msg_input_side_wall_main_width">Please input Side Wall Main Width!</string>
     <string name="valid_msg_input_side_wall_aux_width">Please input Side Wall Aux Width!</string>
     <string name="valid_msg_input_door_opening_width">Please input Door Opening Width!</string>
@@ -518,6 +554,7 @@
 
 
 
+    <string name="valid_msg_input_wall_type">Please choose wall type!</string>
 
 
     <string name="err_msg_image_upload_failure">Image upload failure! Please try again later.</string>
@@ -553,6 +590,9 @@
     <string name="sub_title_car_center_return_measurements">Center Front Return Measurements</string>
     <string name="sub_title_car_flooring">Car Interior Flooring</string>
     <string name="sub_title_main_cop_return">Main COP Front Return</string>
+    <string name="sub_title_car_interior_l_transom">L-Transom</string>
+    <string name="sub_title_car_interior_header">Header</string>
+    <string name="sub_title_car_interior_flat_front">Flat Front</string>
     <string name="sub_title_car_single_side_measurements">Single Side Measurements</string>
     <string name="sub_title_car_single_side_return_measurements">Single Side Front Return Measurements</string>
     <string name="sub_title_car_slam_post_type_measurements">Front Door Slam Post Measurements</string>
@@ -561,6 +601,8 @@
     <string name="sub_title_hall_lantern">Hall Lantern</string>
     <string name="sub_title_lobby">Lobby Panel</string>
     <string name="sub_title_project_details">Project Details</string>
+    <string name="sub_title_car_interior_exhaust_fan_location">Exhaust Fan Location</string>
+    <string name="sub_title_car_interior_escape_hatch_location">Exhaust Hatch Location</string>
 
     <string name="submit_email_report_desc">Email Report To Me</string>
 </resources>

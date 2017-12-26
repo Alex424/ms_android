@@ -114,38 +114,38 @@ public class LanternReviewFragment extends BaseFragment implements View.OnClickL
         double spaceAvailableHeigth = ConversionUtils.getDoubleFromEditText(edtSpaceAvailableHeight);
         double spaceAvailableWidth = ConversionUtils.getDoubleFromEditText(edtSpaceAvailableWidth);
         //--------------------you have to modify this code--------------------
-        if (width <= 0){
+        if (width < 0){
             edtCoverWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_width), Toast.LENGTH_SHORT);
             return;
         }
-        if (height <= 0){
+        if (height < 0){
             edtCoverHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_height), Toast.LENGTH_SHORT);
             return;
         }
 
-        if (depth <= 0){
+        if (depth < 0){
             edtCoverDepth.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_depth), Toast.LENGTH_SHORT);
             return;
         }
-        if (screwWidth <= 0){
+        if (screwWidth < 0){
             edtScrewCenterWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_screw_width), Toast.LENGTH_SHORT);
             return;
         }
-        if (screwHeight <= 0){
+        if (screwHeight < 0){
             edtScrewCenterHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_screw_height), Toast.LENGTH_SHORT);
             return;
         }
-        if (spaceAvailableWidth <= 0){
+        if (spaceAvailableWidth < 0){
             edtSpaceAvailableWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_space_available_width), Toast.LENGTH_SHORT);
             return;
         }
-        if (spaceAvailableHeigth <= 0){
+        if (spaceAvailableHeigth < 0){
             edtSpaceAvailableHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_space_available_height), Toast.LENGTH_SHORT);
             return;

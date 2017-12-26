@@ -70,13 +70,13 @@ public class LobbyMeasurementsFragment extends BaseFragment implements View.OnCl
         if(numLobbyPanels>0)
             txtSubTitle.setText(getString(R.string.lobby_panel_n_title, currentLobby+1, numLobbyPanels));
 
-        if(lobbyData.getPanelWidth() > 0)
+        if(lobbyData.getPanelWidth() >= 0)
             edtPanelWidth.setText(lobbyData.getPanelWidth() + "");
-        if(lobbyData.getPanelHeight() > 0)
+        if(lobbyData.getPanelHeight() >= 0)
             edtPanelHeight.setText(lobbyData.getPanelHeight() + "");
-        if(lobbyData.getScrewCenterWidth() > 0)
+        if(lobbyData.getScrewCenterWidth() >= 0)
             edtScrewCenterWidth.setText(lobbyData.getScrewCenterWidth() + "");
-        if(lobbyData.getScrewCenterHeight() > 0)
+        if(lobbyData.getScrewCenterHeight() >= 0)
             edtScrewCenterHeight.setText(lobbyData.getScrewCenterHeight() + "");
     }
 
@@ -86,22 +86,22 @@ public class LobbyMeasurementsFragment extends BaseFragment implements View.OnCl
         double panelHeight = ConversionUtils.getDoubleFromEditText(edtPanelHeight);
         double screwCenterWidth = ConversionUtils.getDoubleFromEditText(edtScrewCenterWidth);
         double screwCenterHeight = ConversionUtils.getDoubleFromEditText(edtScrewCenterHeight);
-        if (panelWidth <= 0){
+        if (panelWidth < 0){
             edtPanelWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_panel_width), Toast.LENGTH_SHORT);
             return;
         }
-        if (panelHeight <= 0){
+        if (panelHeight < 0){
             edtPanelHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_panel_height), Toast.LENGTH_SHORT);
             return;
         }
-        if (screwCenterWidth <= 0){
+        if (screwCenterWidth < 0){
             edtScrewCenterWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_screw_center_width), Toast.LENGTH_SHORT);
             return;
         }
-        if (screwCenterHeight <= 0){
+        if (screwCenterHeight < 0){
             edtScrewCenterHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_screw_center_height), Toast.LENGTH_SHORT);
             return;

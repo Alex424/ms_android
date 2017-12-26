@@ -15,6 +15,7 @@ import com.mad.survey.activities.BaseActivity;
 import com.mad.survey.dialogs.MadCommonAlertDialog;
 import com.mad.survey.listeners.OnFragmentResumedListener;
 import com.mad.survey.models.BankData;
+import com.mad.survey.models.HallEntranceData;
 import com.mad.survey.models.ProjectData;
 import com.mad.survey.utils.Utils;
 
@@ -152,7 +153,14 @@ public class HallEntranceFloorDescriptionFragment extends BaseFragment implement
             MADSurveyApp.getInstance().setHallEntranceCarNum(0);
         }
 
-        ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_HALL_ENTRANCE_DOOR_TYPE, "hall_entrance_door_type");
+        // check if one hall entrance is already added in this bank
+        List<HallEntranceData> dataList = hallEntranceDataHandler.getAllHallEntrances(projectData.getId(),bankData.getBankNum());
+        if (dataList.size() > 0){
+            ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_HALL_ENTRANCE_COPY, "hall_entrance_copy");
+        }else{
+            ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_HALL_ENTRANCE_DOOR_TYPE, "hall_entrance_door_type");
+        }
+
 
     }
 

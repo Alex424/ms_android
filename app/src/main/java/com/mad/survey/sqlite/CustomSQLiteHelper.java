@@ -19,7 +19,7 @@ import com.mad.survey.models.handlers.ProjectDataHandler;
 public class CustomSQLiteHelper extends SQLiteOpenHelper {
  
     // Database Version
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 12;
     // Database Name
     private static final String DATABASE_NAME = "MADSurvey";
  
@@ -88,10 +88,10 @@ public class CustomSQLiteHelper extends SQLiteOpenHelper {
                 "projectId INTEGER NOT NULL DEFAULT 0, " +
                 "lobbyNum INTEGER NOT NULL DEFAULT 0, " +
                 "visibility INTEGER NOT NULL DEFAULT 0, " +
-                "panelWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "panelHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "screwCenterWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "screwCenterHeight DOUBLE NOT NULL DEFAULT 0, " +
+                "panelWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "panelHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "screwCenterWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "screwCenterHeight DOUBLE NOT NULL DEFAULT -1, " +
                 "specialFeature TEXT NOT NULL DEFAULT '', " +
                 "specialCommunicationOption TEXT NOT NULL DEFAULT '', " +
                 "notes TEXT NOT NULL DEFAULT '', " +
@@ -110,11 +110,11 @@ public class CustomSQLiteHelper extends SQLiteOpenHelper {
                 "description TEXT NOT NULL DEFAULT '', " +
                 "mount TEXT NOT NULL DEFAULT '', " +
                 "wallFinish TEXT NOT NULL DEFAULT '', " +
-                "width DOUBLE NOT NULL DEFAULT 0, " +
-                "height DOUBLE NOT NULL DEFAULT 0, " +
-                "screwCenterWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "screwCenterHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "affValue DOUBLE NOT NULL DEFAULT 0, " +
+                "width DOUBLE NOT NULL DEFAULT -1, " +
+                "height DOUBLE NOT NULL DEFAULT -1, " +
+                "screwCenterWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "screwCenterHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "affValue DOUBLE NOT NULL DEFAULT -1, " +
                 "notes TEXT NOT NULL DEFAULT '', " +
                 "sameAs TEXT NOT NULL DEFAULT '',"+
                 "uuid TEXT NOT NULL DEFAULT '')";
@@ -132,15 +132,15 @@ public class CustomSQLiteHelper extends SQLiteOpenHelper {
                 "description TEXT NOT NULL DEFAULT '', " +
                 "mount TEXT NOT NULL DEFAULT '', " +
                 "wallFinish TEXT NOT NULL DEFAULT '', " +
-                "width DOUBLE NOT NULL DEFAULT 0, " +
-                "height DOUBLE NOT NULL DEFAULT 0, " +
-                "depth DOUBLE NOT NULL DEFAULT 0, " +
+                "width DOUBLE NOT NULL DEFAULT -1, " +
+                "height DOUBLE NOT NULL DEFAULT -1, " +
+                "depth DOUBLE NOT NULL DEFAULT -1, " +
                 "quantity INTEGER NOT NULL DEFAULT 0, " +
-                "screwCenterWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "screwCenterHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "spaceAvailableWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "spaceAvailableHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "affValue DOUBLE NOT NULL DEFAULT 0, " +
+                "screwCenterWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "screwCenterHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "spaceAvailableWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "spaceAvailableHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "affValue DOUBLE NOT NULL DEFAULT -1, " +
                 "notes TEXT NOT NULL DEFAULT '', " +
                 "sameAs TEXT NOT NULL DEFAULT ''," +
                 "uuid TEXT NOT NULL DEFAULT '')";
@@ -153,7 +153,7 @@ public class CustomSQLiteHelper extends SQLiteOpenHelper {
                 "carNum INTEGER NOT NULL DEFAULT 0, " +
                 "carNumber TEXT NOT NULL DEFAULT '', " +
                 "weightScale TEXT NOT NULL DEFAULT '', " +
-                "capacityWeight DOUBLE NOT NULL DEFAULT 0, " +
+                "capacityWeight DOUBLE NOT NULL DEFAULT -1, " +
                 "capacityNumberPersons INTEGER NOT NULL DEFAULT 0, " +
                 "installNumber TEXT NOT NULL DEFAULT '', " +
                 "description TEXT NOT NULL DEFAULT '', " +
@@ -161,9 +161,9 @@ public class CustomSQLiteHelper extends SQLiteOpenHelper {
                 "numberOfOpenings INTEGER NOT NULL DEFAULT 0, " +
                 "numberOfCops INTEGER NOT NULL DEFAULT 0, " +
                 "floorMarkings TEXT NOT NULL DEFAULT '', " +
-                "frontDoorOpeningHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "frontDoorSlideJambWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "frontDoorStrikeJambWidth DOUBLE NOT NULL DEFAULT 0, " +
+                "frontDoorOpeningHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "frontDoorSlideJambWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "frontDoorStrikeJambWidth DOUBLE NOT NULL DEFAULT -1, " +
                 "rearDoorOpeningHeight DOUBLE , " +
                 "rearDoorSlideJambWidth DOUBLE , " +
                 "rearDoorStrikeJambWidth DOUBLE , " +
@@ -176,21 +176,21 @@ public class CustomSQLiteHelper extends SQLiteOpenHelper {
                 "isThereSPI INTEGER NOT NULL DEFAULT 0, " +
                 "mountCDI TEXT NOT NULL DEFAULT '', " +
                 "numberPerCabCDI INTEGER NOT NULL DEFAULT 0, " +
-                "coverWidthCDI DOUBLE NOT NULL DEFAULT 0, " +
-                "coverHeightCDI DOUBLE NOT NULL DEFAULT 0, " +
-                "depthCDI DOUBLE NOT NULL DEFAULT 0, " +
-                "coverScrewCenterWidthCDI DOUBLE NOT NULL DEFAULT 0, " +
-                "coverScrewCenterHeightCDI DOUBLE NOT NULL DEFAULT 0, " +
+                "coverWidthCDI DOUBLE NOT NULL DEFAULT -1, " +
+                "coverHeightCDI DOUBLE NOT NULL DEFAULT -1, " +
+                "depthCDI DOUBLE NOT NULL DEFAULT -1, " +
+                "coverScrewCenterWidthCDI DOUBLE NOT NULL DEFAULT -1, " +
+                "coverScrewCenterHeightCDI DOUBLE NOT NULL DEFAULT -1, " +
                 "notesCDI TEXT NOT NULL DEFAULT '', " +
                 "mountSPI TEXT NOT NULL DEFAULT '', " +
                 "numberPerCabSPI INTEGER NOT NULL DEFAULT 0, " +
-                "coverWidthSPI DOUBLE NOT NULL DEFAULT 0, " +
-                "coverHeightSPI DOUBLE NOT NULL DEFAULT 0, " +
-                "depthSPI DOUBLE NOT NULL DEFAULT 0, " +
-                "coverScrewCenterWidthSPI DOUBLE NOT NULL DEFAULT 0, " +
-                "coverScrewCenterHeightSPI DOUBLE NOT NULL DEFAULT 0, " +
-                "spaceAvailableWidthSPI DOUBLE NOT NULL DEFAULT 0, " +
-                "spaceAvailableHeightSPI DOUBLE NOT NULL DEFAULT 0, " +
+                "coverWidthSPI DOUBLE NOT NULL DEFAULT -1, " +
+                "coverHeightSPI DOUBLE NOT NULL DEFAULT -1, " +
+                "depthSPI DOUBLE NOT NULL DEFAULT -1, " +
+                "coverScrewCenterWidthSPI DOUBLE NOT NULL DEFAULT -1, " +
+                "coverScrewCenterHeightSPI DOUBLE NOT NULL DEFAULT -1, " +
+                "spaceAvailableWidthSPI DOUBLE NOT NULL DEFAULT -1, " +
+                "spaceAvailableHeightSPI DOUBLE NOT NULL DEFAULT -1, " +
                 "notesSPI TEXT NOT NULL DEFAULT '', " +
                 "notes TEXT NOT NULL DEFAULT '', " +
                 "uuid TEXT NOT NULL DEFAULT '')";
@@ -201,80 +201,92 @@ public class CustomSQLiteHelper extends SQLiteOpenHelper {
                 "projectId INTEGER NOT NULL DEFAULT 0, " +
                 "interiorCarId INTEGER NOT NULL DEFAULT 0, " +
                 "doorStyle INTEGER NOT NULL DEFAULT 0, " +
+                "walltype TEXT NOT NULL DEFAULT '', " +
                 "centerOpening INTEGER NOT NULL DEFAULT 0, " +
-                "width DOUBLE NOT NULL DEFAULT 0, " +
-                "height DOUBLE NOT NULL DEFAULT 0, " +
-                "sideWallMainWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "sideWallAuxWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "doorOpeningWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "doorOpeningHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "returnSideWallDepth DOUBLE NOT NULL DEFAULT 0, " +
-                "slamSideWallDepth DOUBLE NOT NULL DEFAULT 0, " +
-                "slideWallWidth DOUBLE NOT NULL DEFAULT 0, " +
+                "width DOUBLE NOT NULL DEFAULT -1, " +
+                "height DOUBLE NOT NULL DEFAULT -1, " +
+                "sideWallMainWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "sideWallAuxWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "doorOpeningWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "doorOpeningHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "returnSideWallDepth DOUBLE NOT NULL DEFAULT -1, " +
+                "slamSideWallDepth DOUBLE NOT NULL DEFAULT -1, " +
+                "slideWallWidth DOUBLE NOT NULL DEFAULT -1, " +
                 "typeOfSlamPost TEXT NOT NULL DEFAULT '', " +
                 "otherSlamPost TEXT NOT NULL DEFAULT '', " +
-                "slamPostMeasurementsA DOUBLE NOT NULL DEFAULT 0, " +
-                "slamPostMeasurementsB DOUBLE NOT NULL DEFAULT 0, " +
-                "slamPostMeasurementsC DOUBLE NOT NULL DEFAULT 0, " +
-                "slamPostMeasurementsD DOUBLE NOT NULL DEFAULT 0, " +
-                "slamPostMeasurementsE DOUBLE NOT NULL DEFAULT 0, " +
-                "slamPostMeasurementsF DOUBLE NOT NULL DEFAULT 0, " +
-                "slamPostMeasurementsG DOUBLE NOT NULL DEFAULT 0, " +
-                "slamPostMeasurementsH DOUBLE NOT NULL DEFAULT 0, " +
+                "slamPostMeasurementsA DOUBLE NOT NULL DEFAULT -1, " +
+                "slamPostMeasurementsB DOUBLE NOT NULL DEFAULT -1, " +
+                "slamPostMeasurementsC DOUBLE NOT NULL DEFAULT -1, " +
+                "slamPostMeasurementsD DOUBLE NOT NULL DEFAULT -1, " +
+                "slamPostMeasurementsE DOUBLE NOT NULL DEFAULT -1, " +
+                "slamPostMeasurementsF DOUBLE NOT NULL DEFAULT -1, " +
+                "slamPostMeasurementsG DOUBLE NOT NULL DEFAULT -1, " +
+                "slamPostMeasurementsH DOUBLE NOT NULL DEFAULT -1, " +
                 "typeOfFrontReturn TEXT NOT NULL DEFAULT '', " +
-                "leftSideA DOUBLE NOT NULL DEFAULT 0, " +
-                "leftSideB DOUBLE NOT NULL DEFAULT 0, " +
-                "leftSideC DOUBLE NOT NULL DEFAULT 0, " +
-                "leftSideD DOUBLE NOT NULL DEFAULT 0, " +
-                "leftSideE DOUBLE NOT NULL DEFAULT 0, " +
+                "leftSideA DOUBLE NOT NULL DEFAULT -1, " +
+                "leftSideB DOUBLE NOT NULL DEFAULT -1, " +
+                "leftSideC DOUBLE NOT NULL DEFAULT -1, " +
+                "leftSideD DOUBLE NOT NULL DEFAULT -1, " +
+                "leftSideE DOUBLE NOT NULL DEFAULT -1, " +
 
-                "leftSideATypeB DOUBLE NOT NULL DEFAULT 0, " +
-                "leftSideBTypeB DOUBLE NOT NULL DEFAULT 0, " +
-                "leftSideCTypeB DOUBLE NOT NULL DEFAULT 0, " +
+                "leftSideATypeB DOUBLE NOT NULL DEFAULT -1, " +
+                "leftSideBTypeB DOUBLE NOT NULL DEFAULT -1, " +
+                "leftSideCTypeB DOUBLE NOT NULL DEFAULT -1, " +
 
-                "rightSideA DOUBLE NOT NULL DEFAULT 0, " +
-                "rightSideB DOUBLE NOT NULL DEFAULT 0, " +
-                "rightSideC DOUBLE NOT NULL DEFAULT 0, " +
-                "rightSideD DOUBLE NOT NULL DEFAULT 0, " +
-                "rightSideE DOUBLE NOT NULL DEFAULT 0, " +
+                "rightSideA DOUBLE NOT NULL DEFAULT -1, " +
+                "rightSideB DOUBLE NOT NULL DEFAULT -1, " +
+                "rightSideC DOUBLE NOT NULL DEFAULT -1, " +
+                "rightSideD DOUBLE NOT NULL DEFAULT -1, " +
+                "rightSideE DOUBLE NOT NULL DEFAULT -1, " +
 
-                "rightSideATypeB DOUBLE NOT NULL DEFAULT 0, " +
-                "rightSideBTypeB DOUBLE NOT NULL DEFAULT 0, " +
-                "rightSideCTypeB DOUBLE NOT NULL DEFAULT 0, " +
+                "rightSideATypeB DOUBLE NOT NULL DEFAULT -1, " +
+                "rightSideBTypeB DOUBLE NOT NULL DEFAULT -1, " +
+                "rightSideCTypeB DOUBLE NOT NULL DEFAULT -1, " +
 
-                "frontReturnMeasurementsHeight DOUBLE NOT NULL DEFAULT 0, " +
+                "frontReturnMeasurementsHeight DOUBLE NOT NULL DEFAULT -1, " +
                 "otherFrontReturnMeasurements TEXT NOT NULL DEFAULT '', " +
                 "carDoorType INTEGER NOT NULL DEFAULT 0, " +
                 "carDoorOpeningDirection INTEGER NOT NULL DEFAULT 0, " +
-                "transomMeasurementsHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsLeft DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsCenterLeft DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsCenterRight DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsRight DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsCenter DOUBLE NOT NULL DEFAULT 0, " +
-                "transomProfileHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "transomProfileDepth DOUBLE NOT NULL DEFAULT 0, " +
-                "transomProfileReturn DOUBLE NOT NULL DEFAULT 0, " +
-                "transomProfileColonnade DOUBLE NOT NULL DEFAULT 0, " +
-                "transomProfileColonnade2 DOUBLE NOT NULL DEFAULT 0, " +
+                "transomMeasurementsHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsLeft DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsCenterLeft DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsCenterRight DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsRight DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsCenter DOUBLE NOT NULL DEFAULT -1, " +
+                "transomProfileHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "transomProfileDepth DOUBLE NOT NULL DEFAULT -1, " +
+                "transomProfileReturn DOUBLE NOT NULL DEFAULT -1, " +
+                "transomProfileColonnade DOUBLE NOT NULL DEFAULT -1, " +
+                "transomProfileColonnade2 DOUBLE NOT NULL DEFAULT -1, " +
+                "lTransomWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "lTransomHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "headerReturnHoistWay DOUBLE NOT NULL DEFAULT -1, " +
+                "headerThroat DOUBLE NOT NULL DEFAULT -1, " +
+                "headerWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "headerHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "headerReturnWall DOUBLE NOT NULL DEFAULT -1, " +
+                "flatFrontLeftWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "flatFrontLeftHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "flatFrontRightWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "flatFrontRightHeight DOUBLE NOT NULL DEFAULT -1, " +
                 "isThereNewCop TEXT NOT NULL DEFAULT '', " +
-                "mainCopWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "mainCopHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "mainCopLeft DOUBLE NOT NULL DEFAULT 0, " +
-                "mainCopRight DOUBLE NOT NULL DEFAULT 0, " +
-                "mainCopTop DOUBLE NOT NULL DEFAULT 0, " +
-                "mainCopBottom DOUBLE NOT NULL DEFAULT 0, " +
-                "mainCopThroat DOUBLE NOT NULL DEFAULT 0, " +
-                "mainCopReturn DOUBLE NOT NULL DEFAULT 0, " +
-                "auxCopWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "auxCopHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "auxCopLeft DOUBLE NOT NULL DEFAULT 0, " +
-                "auxCopRight DOUBLE NOT NULL DEFAULT 0, " +
-                "auxCopTop DOUBLE NOT NULL DEFAULT 0, " +
-                "auxCopBottom DOUBLE NOT NULL DEFAULT 0, " +
-                "auxCopThroat DOUBLE NOT NULL DEFAULT 0, " +
-                "auxCopReturn DOUBLE NOT NULL DEFAULT 0, " +
+                "mainCopWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "mainCopHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "mainCopLeft DOUBLE NOT NULL DEFAULT -1, " +
+                "mainCopRight DOUBLE NOT NULL DEFAULT -1, " +
+                "mainCopTop DOUBLE NOT NULL DEFAULT -1, " +
+                "mainCopBottom DOUBLE NOT NULL DEFAULT -1, " +
+                "mainCopThroat DOUBLE NOT NULL DEFAULT -1, " +
+                "mainCopReturn DOUBLE NOT NULL DEFAULT -1, " +
+                "auxCopWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "auxCopHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "auxCopLeft DOUBLE NOT NULL DEFAULT -1, " +
+                "auxCopRight DOUBLE NOT NULL DEFAULT -1, " +
+                "auxCopTop DOUBLE NOT NULL DEFAULT -1, " +
+                "auxCopBottom DOUBLE NOT NULL DEFAULT -1, " +
+                "auxCopThroat DOUBLE NOT NULL DEFAULT -1, " +
+                "auxCopReturn DOUBLE NOT NULL DEFAULT -1, " +
                 "notes TEXT NOT NULL DEFAULT '', " +
                 "uuid TEXT NOT NULL DEFAULT '')";
 
@@ -291,24 +303,32 @@ public class CustomSQLiteHelper extends SQLiteOpenHelper {
                 "carCapacity TEXT NOT NULL DEFAULT '', " +
                 "weightScale TEXT NOT NULL DEFAULT '', " +
                 "numberOfPeople TEXT NOT NULL DEFAULT '', " +
-                "carWeight DOUBLE NOT NULL DEFAULT 0, " +
+                "carWeight DOUBLE NOT NULL DEFAULT -1, " +
                 "isThereBackDoor INTEGER NOT NULL DEFAULT 0, " +
                 "carFlooring TEXT NOT NULL DEFAULT '', " +
                 "carTiller INTEGER NOT NULL DEFAULT 0, " +
-                "carFloorHeight DOUBLE NOT NULL DEFAULT 0, " +
+                "carFloorHeight DOUBLE NOT NULL DEFAULT -1, " +
                 "isThereExhaustFan INTEGER NOT NULL DEFAULT 0, " +
                 "exhaustFanLocation TEXT NOT NULL DEFAULT '', " +
+                "exToLeftWall DOUBLE NOT NULL DEFAULT -1, " +
+                "exToBackWall DOUBLE NOT NULL DEFAULT -1, " +
+                "exWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "exLength DOUBLE NOT NULL DEFAULT -1, " +
                 "typeOfCeilingFrame TEXT NOT NULL DEFAULT '', " +
-                "mount DOUBLE NOT NULL DEFAULT 0, " +
+                "mount DOUBLE NOT NULL DEFAULT -1, " +
                 "escapeHatchLocation TEXT NOT NULL DEFAULT '', " +
+                "haToLeftWall DOUBLE NOT NULL DEFAULT -1, " +
+                "haToBackWall DOUBLE NOT NULL DEFAULT -1, " +
+                "haWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "haLength DOUBLE NOT NULL DEFAULT -1, " +
                 "typeOfCar TEXT NOT NULL DEFAULT '', " +
                 "birdCage TEXT NOT NULL DEFAULT '', " +
 
                 "frontDoorId INTEGER NOT NULL DEFAULT 0, " +
                 "backDoorId INTEGER NOT NULL DEFAULT 0, " +
 
-                "rearWallWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "rearWallHeight DOUBLE NOT NULL DEFAULT 0, " +
+                "rearWallWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "rearWallHeight DOUBLE NOT NULL DEFAULT -1, " +
 
                 "notes TEXT NOT NULL DEFAULT '', " +
                 "uuid TEXT NOT NULL DEFAULT '')";
@@ -324,14 +344,14 @@ public class CustomSQLiteHelper extends SQLiteOpenHelper {
                 "copName TEXT NOT NULL DEFAULT '', " +
                 "options TEXT NOT NULL DEFAULT '', " +
                 "returnHinging TEXT NOT NULL DEFAULT '', " +
-                "returnPanelWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "returnPanelHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "swingPanelWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "swingPanelHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "coverWidth DOUBLE NOT NULL DEFAULT 0, " +
-                "coverHeight DOUBLE NOT NULL DEFAULT 0, " +
-                "coverToOpening DOUBLE NOT NULL DEFAULT 0, " +
-                "coverAff DOUBLE NOT NULL DEFAULT 0, " +
+                "returnPanelWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "returnPanelHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "swingPanelWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "swingPanelHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "coverWidth DOUBLE NOT NULL DEFAULT -1, " +
+                "coverHeight DOUBLE NOT NULL DEFAULT -1, " +
+                "coverToOpening DOUBLE NOT NULL DEFAULT -1, " +
+                "coverAff DOUBLE NOT NULL DEFAULT -1, " +
                 "notes TEXT NOT NULL DEFAULT '', " +
                 "uuid TEXT NOT NULL DEFAULT '')";
         db.execSQL(CREATE_COP_TABLE);
@@ -346,24 +366,24 @@ public class CustomSQLiteHelper extends SQLiteOpenHelper {
                 "floorDescription TEXT NOT NULL DEFAULT '', " +
                 "doorType INTEGER NOT NULL DEFAULT 0, " +
                 "direction INTEGER NOT NULL DEFAULT 0, " +
-                "leftSideA DOUBLE NOT NULL DEFAULT 0, " +
-                "leftSideB DOUBLE NOT NULL DEFAULT 0, " +
-                "leftSideC DOUBLE NOT NULL DEFAULT 0, " +
-                "leftSideD DOUBLE NOT NULL DEFAULT 0, " +
-                "rightSideA DOUBLE NOT NULL DEFAULT 0, " +
-                "rightSideB DOUBLE NOT NULL DEFAULT 0, " +
-                "rightSideC DOUBLE NOT NULL DEFAULT 0, " +
-                "rightSideD DOUBLE NOT NULL DEFAULT 0, " +
-                "height DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsA DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsB DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsC DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsD DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsE DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsF DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsG DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsH DOUBLE NOT NULL DEFAULT 0, " +
-                "transomMeasurementsI DOUBLE NOT NULL DEFAULT 0, " +
+                "leftSideA DOUBLE NOT NULL DEFAULT -1, " +
+                "leftSideB DOUBLE NOT NULL DEFAULT -1, " +
+                "leftSideC DOUBLE NOT NULL DEFAULT -1, " +
+                "leftSideD DOUBLE NOT NULL DEFAULT -1, " +
+                "rightSideA DOUBLE NOT NULL DEFAULT -1, " +
+                "rightSideB DOUBLE NOT NULL DEFAULT -1, " +
+                "rightSideC DOUBLE NOT NULL DEFAULT -1, " +
+                "rightSideD DOUBLE NOT NULL DEFAULT -1, " +
+                "height DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsA DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsB DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsC DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsD DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsE DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsF DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsG DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsH DOUBLE NOT NULL DEFAULT -1, " +
+                "transomMeasurementsI DOUBLE NOT NULL DEFAULT -1, " +
                 "notes TEXT NOT NULL DEFAULT '')";
 
         db.execSQL(CREATE_HALL_ENTRANCE_TABLE);

@@ -103,19 +103,19 @@ public class HallEntranceTransomMeasurements1sFragment extends BaseFragment impl
         double F = hallEntranceData.getTransomMeasurementsF();
         double G = hallEntranceData.getTransomMeasurementsG();
 
-        if(A>0)
+        if(A>=0)
             edtA.setText(A+"");
-        if(B>0)
+        if(B>=0)
             edtB.setText(B+"");
-        if(C>0)
+        if(C>=0)
             edtC.setText(C+"");
-        if(D>0)
+        if(D>=0)
             edtD.setText(D+"");
-        if(E>0)
+        if(E>=0)
             edtE.setText(E+"");
-        if(F>0)
+        if(F>=0)
             edtF.setText(F+"");
-        if(G>0)
+        if(G>=0)
             edtG.setText(G+"");
     }
 
@@ -128,37 +128,37 @@ public class HallEntranceTransomMeasurements1sFragment extends BaseFragment impl
         double F = ConversionUtils.getDoubleFromEditText(edtF);
         double G = ConversionUtils.getDoubleFromEditText(edtG);
 
-        if (A <= 0) {
+        if (A < 0) {
             edtA.requestFocus();
             showToast(getString(R.string.valid_msg_input_A), Toast.LENGTH_SHORT);
             return;
         }
-        if (B <= 0) {
+        if (B < 0) {
             edtB.requestFocus();
             showToast(getString(R.string.valid_msg_input_B), Toast.LENGTH_SHORT);
             return;
         }
-        if (C <= 0) {
+        if (C < 0) {
             edtC.requestFocus();
             showToast(getString(R.string.valid_msg_input_C), Toast.LENGTH_SHORT);
             return;
         }
-        if (D <= 0) {
+        if (D < 0) {
             edtD.requestFocus();
             showToast(getString(R.string.valid_msg_input_D), Toast.LENGTH_SHORT);
             return;
         }
-        if (E <= 0) {
+        if (E < 0) {
             edtE.requestFocus();
             showToast(getString(R.string.valid_msg_input_E), Toast.LENGTH_SHORT);
             return;
         }
-        if (F <= 0) {
+        if (F < 0) {
             edtF.requestFocus();
             showToast(getString(R.string.valid_msg_input_F), Toast.LENGTH_SHORT);
             return;
         }
-        if (G <= 0) {
+        if (G < 0) {
             edtG.requestFocus();
             showToast(getString(R.string.valid_msg_input_G), Toast.LENGTH_SHORT);
             return;

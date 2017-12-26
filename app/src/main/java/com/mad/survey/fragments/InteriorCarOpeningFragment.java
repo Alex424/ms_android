@@ -87,7 +87,7 @@ public class InteriorCarOpeningFragment extends BaseFragment implements View.OnC
 
     }
     private void setData(){
-        InteriorCarData interiorCarData = MADSurveyApp.getInstance().getInteriorCarData();
+        /*InteriorCarData interiorCarData = MADSurveyApp.getInstance().getInteriorCarData();
         InteriorCarDoorData interiorCarDoorData = interiorCarDoorDataHandler.insertNewInteriorCarDoor(MADSurveyApp.getInstance().getProjectData().getId(),
                 interiorCarData.getId(),
                 BaseActivity.TEMP_DOOR_STYLE,
@@ -109,18 +109,19 @@ public class InteriorCarOpeningFragment extends BaseFragment implements View.OnC
             interiorCarDoorData1.setCenterOpening(BaseActivity.TEMP_OPENING);
             MADSurveyApp.getInstance().setInteriorCarDoorData(interiorCarDoorData1);
             interiorCarDoorDataHandler.update(interiorCarDoorData1);
-        }
+        }*/
 
+
+        MADSurveyApp.getInstance().getInteriorCarDoorData().setCenterOpening(BaseActivity.TEMP_OPENING);
+        interiorCarDoorDataHandler.update(MADSurveyApp.getInstance().getInteriorCarDoorData());
     }
     private void goToCenterMeasurements(){
         setData();
-        interiorCarDoorDataHandler.update(MADSurveyApp.getInstance().getInteriorCarDoorData());
         ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_CENTER_MEASUREMENTS, "interior_car_center_measurements");
     }
 
     private void goToSingleSideMeasurements(){
         setData();
-        interiorCarDoorDataHandler.update(MADSurveyApp.getInstance().getInteriorCarDoorData());
         ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_SINGLE_SIDE_MEASUREMENTS, "interior_car_single_side_measurements");
     }
 

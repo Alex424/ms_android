@@ -83,9 +83,9 @@ public class InteriorCarLicenseFragment extends BaseFragment implements View.OnC
         }
         InteriorCarData interiorCarData = MADSurveyApp.getInstance().getInteriorCarData();
 
-        if (interiorCarData.getCarCapacity() > 0)
+        if (interiorCarData.getCarCapacity() >= 0)
             edtCarCapacity.setText(interiorCarData.getCarCapacity() + "");
-        if (interiorCarData.getCarWeight() > 0)
+        if (interiorCarData.getCarWeight() >= 0)
             edtCarWeight.setText(interiorCarData.getCarWeight() + "");
         if (interiorCarData.getNumberOfPeople() > 0)
             edtNoOfPeople.setText(interiorCarData.getNumberOfPeople() + "");
@@ -103,7 +103,7 @@ public class InteriorCarLicenseFragment extends BaseFragment implements View.OnC
             showToast(getString(R.string.valid_msg_input_car_install_no), Toast.LENGTH_SHORT);
             return;
         }
-        if (carCapacity <= 0) {
+        if (carCapacity < 0) {
             edtCarCapacity.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_capacity), Toast.LENGTH_SHORT);
             return;
@@ -113,7 +113,7 @@ public class InteriorCarLicenseFragment extends BaseFragment implements View.OnC
             showToast(getString(R.string.valid_msg_input_car_number_people), Toast.LENGTH_SHORT);
             return;
         }
-        if (carWeight <= 0) {
+        if (carWeight < 0) {
             edtCarWeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_weight), Toast.LENGTH_SHORT);
             return;
@@ -128,7 +128,24 @@ public class InteriorCarLicenseFragment extends BaseFragment implements View.OnC
         interiorCarData.setInstallNumber(installNumber);
         MADSurveyApp.getInstance().setInteriorCarData(interiorCarData);
         interiorCarDataHandler.update(interiorCarData);
-        ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_BACKDOOR, "interior_car_backdoor");
+
+        boolean goToInteriorCarCopy = false;
+        if (MADSurveyApp.getInstance().isEditMode()){
+            if (MADSurveyApp.getInstance().isInteriorAddFromEdit()
+                && interiorCarDataHandler.getInteriorCarCountInBank(MADSurveyApp.getInstance().getProjectData().getId(),
+                MADSurveyApp.getInstance().getBankNum()) > 1)
+                goToInteriorCarCopy = true;
+        }else{
+            if (interiorCarDataHandler.getInteriorCarCountInBank(MADSurveyApp.getInstance().getProjectData().getId(),
+                    MADSurveyApp.getInstance().getBankNum()) > 1)
+                goToInteriorCarCopy = true;
+        }
+
+        if (goToInteriorCarCopy) {
+            ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_COPY, "interior_car_copy");
+        }else{
+            ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_BACKDOOR, "interior_car_backdoor");
+        }
     }
 
     CarUnitSelectDialog dlg;

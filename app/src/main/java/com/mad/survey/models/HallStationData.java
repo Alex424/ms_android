@@ -18,9 +18,9 @@ public class HallStationData extends BaseData implements Serializable {
     private String description = "";
     private String mount = "";
     private String wallFinish = "";
-    private double width = 0 , height = 0;
-    private double screwCenterWidth =  0 , screwCenterHeight =  0 ;
-    private double affValue = 0 ;
+    private double width = -1, height = -1;
+    private double screwCenterWidth = -1, screwCenterHeight = -1;
+    private double affValue = -1;
     private String notes = "";
     private String sameAs = "";
     private String uuid = "";
@@ -134,7 +134,6 @@ public class HallStationData extends BaseData implements Serializable {
     }
 
 
-
     public String getDescription() {
         return description;
     }
@@ -144,15 +143,12 @@ public class HallStationData extends BaseData implements Serializable {
     }
 
 
-
-
-
     public ContentValues generateContentValuesFromObject() {
         ContentValues values = new ContentValues();
         values.put("projectId", getProjectId());
         values.put("bankId", getBankId());
         values.put("hallStationNum", getHallStationNum());
-        values.put("floorNum",getFloorNum());
+        values.put("floorNum", getFloorNum());
         values.put("floorNumber", getFloorNumber());
         values.put("description", getDescription());
         values.put("mount", getMount());
@@ -167,8 +163,6 @@ public class HallStationData extends BaseData implements Serializable {
         values.put("uuid", getUuid());
 
 
-
-
         return values;
     }
 
@@ -176,7 +170,7 @@ public class HallStationData extends BaseData implements Serializable {
         super();
         setId(cursor.getInt(cursor.getColumnIndex("id")));
         setProjectId(cursor.getInt(cursor.getColumnIndex("projectId")));
-        if (cursor.getColumnIndex("bankDesc") > 0){
+        if (cursor.getColumnIndex("bankDesc") > 0) {
             setBankDesc(cursor.getString(cursor.getColumnIndex("bankDesc")));
         }
         setBankId(cursor.getInt(cursor.getColumnIndex("bankId")));
@@ -196,31 +190,35 @@ public class HallStationData extends BaseData implements Serializable {
         setUuid(cursor.getString(cursor.getColumnIndex("uuid")));
 
     }
-    public JSONArray getPostJSON(){
+
+    public String getDoubleForJSON(double value){
+        return value < 0? "":(value + "");
+    }
+
+    public JSONArray getPostJSON() {
         JSONArray jsonArray = new JSONArray();
         try {
             jsonArray.put(0, getJSON("floor_number", getFloorNumber()));
             jsonArray.put(1, getJSON("description", getDescription()));
             jsonArray.put(2, getJSON("mount", getMount()));
             jsonArray.put(3, getJSON("wall_finish", getWallFinish()));
-            jsonArray.put(4, getJSON("width", getWidth()+""));
-            jsonArray.put(5, getJSON("height", getHeight()+""));
-            jsonArray.put(6, getJSON("screw_center_width", getScrewCenterWidth()+""));
-            jsonArray.put(7, getJSON("screw_center_height", getScrewCenterHeight()+""));
-            jsonArray.put(8, getJSON("bottom_of_plate_aff", getAffValue()+""));
+            jsonArray.put(4, getJSON("width", getDoubleForJSON(getWidth())));
+            jsonArray.put(5, getJSON("height", getDoubleForJSON(getHeight())));
+            jsonArray.put(6, getJSON("screw_center_width", getDoubleForJSON(getScrewCenterWidth())));
+            jsonArray.put(7, getJSON("screw_center_height", getDoubleForJSON(getScrewCenterHeight())));
+            jsonArray.put(8, getJSON("bottom_of_plate_aff", getDoubleForJSON(getAffValue())));
             //jsonArray.put(9,getJSON("uuid",getUuid()));
             //jsonArray.put(10,getJSON("sameas",getSameAs()));
-            jsonArray.put(9, getJSON("notes",getNotes()));
+            jsonArray.put(9, getJSON("notes", getNotes()));
 
             int i;
-            for (i = 0; i < getPhotosList().size(); i++){
+            for (i = 0; i < getPhotosList().size(); i++) {
                 PhotoData photoData = getPhotosList().get(i);
-                jsonArray.put(i+10, photoData.getPostJSON(i + 1));
+                jsonArray.put(i + 10, photoData.getPostJSON(i + 1));
             }
 
 
-
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

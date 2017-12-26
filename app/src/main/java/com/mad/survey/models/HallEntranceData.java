@@ -19,27 +19,27 @@ public class HallEntranceData extends  BaseData implements Serializable {
     private int doorType = 0;
     private int direction = 0;
 
-    private double leftSideA = 0;
-    private double leftSideB = 0;
-    private double leftSideC = 0;
-    private double leftSideD = 0;
+    private double leftSideA = -1;
+    private double leftSideB = -1;
+    private double leftSideC = -1;
+    private double leftSideD = -1;
 
-    private double rightSideA = 0;
-    private double rightSideB = 0;
-    private double rightSideC = 0;
-    private double rightSideD = 0;
+    private double rightSideA = -1;
+    private double rightSideB = -1;
+    private double rightSideC = -1;
+    private double rightSideD = -1;
 
-    private double height = 0;
+    private double height = -1;
 
-    private double transomMeasurementsA = 0;
-    private double transomMeasurementsB = 0;
-    private double transomMeasurementsC = 0;
-    private double transomMeasurementsD = 0;
-    private double transomMeasurementsE = 0;
-    private double transomMeasurementsF = 0;
-    private double transomMeasurementsG = 0;
-    private double transomMeasurementsH = 0;
-    private double transomMeasurementsI = 0;
+    private double transomMeasurementsA = -1;
+    private double transomMeasurementsB = -1;
+    private double transomMeasurementsC = -1;
+    private double transomMeasurementsD = -1;
+    private double transomMeasurementsE = -1;
+    private double transomMeasurementsF = -1;
+    private double transomMeasurementsG = -1;
+    private double transomMeasurementsH = -1;
+    private double transomMeasurementsI = -1;
 
     private String notes = "";
 
@@ -311,6 +311,11 @@ public class HallEntranceData extends  BaseData implements Serializable {
         setNotes(cursor.getString(cursor.getColumnIndex("notes")));
 
     }
+
+    public String getDoubleForJSON(double value){
+        return value < 0? "":(value + "");
+    }
+
     public JSONArray getPostJSON(){
         JSONArray jsonArray = new JSONArray();
         try {
@@ -338,24 +343,24 @@ public class HallEntranceData extends  BaseData implements Serializable {
 
             }
             jsonArray.put(2, getJSON("direction", getDoorType()!=3?direction:""));
-            jsonArray.put(3, getJSON("left_side_A", getLeftSideA()+""));
-            jsonArray.put(4, getJSON("left_side_B", getLeftSideB()+""));
-            jsonArray.put(5, getJSON("left_side_C", getLeftSideC()+""));
-            jsonArray.put(6, getJSON("left_side_D", getLeftSideD()+""));
-            jsonArray.put(7, getJSON("right_side_A", getRightSideA()+""));
-            jsonArray.put(8, getJSON("right_side_B", getRightSideB()+""));
-            jsonArray.put(9, getJSON("right_side_C", getRightSideC()+""));
-            jsonArray.put(10, getJSON("right_side_D", getRightSideD()+""));
-            jsonArray.put(11, getJSON("height", getHeight()+""));
-            jsonArray.put(12, getJSON("transom_measurements_A", getTransomMeasurementsA()+""));
-            jsonArray.put(13, getJSON("transom_measurements_B", getTransomMeasurementsB()+""));
-            jsonArray.put(14, getJSON("transom_measurements_C", getTransomMeasurementsC()+""));
-            jsonArray.put(15, getJSON("transom_measurements_D", getTransomMeasurementsD()+""));
-            jsonArray.put(16, getJSON("transom_measurements_E", getTransomMeasurementsE()+""));
-            jsonArray.put(17, getJSON("transom_measurements_F", getTransomMeasurementsF()+""));
-            jsonArray.put(18, getJSON("transom_measurements_G", getTransomMeasurementsG()+""));
-            jsonArray.put(19, getJSON("transom_measurements_H", getDoorType()!=2?getTransomMeasurementsH()+"":"0.0"));
-            jsonArray.put(20, getJSON("transom_measurements_I", getDoorType()!=2?getTransomMeasurementsI()+"":"0.0"));
+            jsonArray.put(3, getJSON("left_side_A", getDoubleForJSON(getLeftSideA())));
+            jsonArray.put(4, getJSON("left_side_B", getDoubleForJSON(getLeftSideB())));
+            jsonArray.put(5, getJSON("left_side_C", getDoubleForJSON(getLeftSideC())));
+            jsonArray.put(6, getJSON("left_side_D", getDoubleForJSON(getLeftSideD())));
+            jsonArray.put(7, getJSON("right_side_A", getDoubleForJSON(getRightSideA())));
+            jsonArray.put(8, getJSON("right_side_B", getDoubleForJSON(getRightSideB())));
+            jsonArray.put(9, getJSON("right_side_C", getDoubleForJSON(getRightSideC())));
+            jsonArray.put(10, getJSON("right_side_D", getDoubleForJSON(getRightSideD())));
+            jsonArray.put(11, getJSON("height", getDoubleForJSON(getHeight())));
+            jsonArray.put(12, getJSON("transom_measurements_A", getDoubleForJSON(getTransomMeasurementsA())));
+            jsonArray.put(13, getJSON("transom_measurements_B", getDoubleForJSON(getTransomMeasurementsB())));
+            jsonArray.put(14, getJSON("transom_measurements_C", getDoubleForJSON(getTransomMeasurementsC())));
+            jsonArray.put(15, getJSON("transom_measurements_D", getDoubleForJSON(getTransomMeasurementsD())));
+            jsonArray.put(16, getJSON("transom_measurements_E", getDoubleForJSON(getTransomMeasurementsE())));
+            jsonArray.put(17, getJSON("transom_measurements_F", getDoubleForJSON(getTransomMeasurementsF())));
+            jsonArray.put(18, getJSON("transom_measurements_G", getDoubleForJSON(getTransomMeasurementsG())));
+            jsonArray.put(19, getJSON("transom_measurements_H", getDoorType()!=2?getDoubleForJSON(getTransomMeasurementsH()):""));
+            jsonArray.put(20, getJSON("transom_measurements_I", getDoorType()!=2?getDoubleForJSON(getTransomMeasurementsI()):""));
             jsonArray.put(21, getJSON("notes", getNotes()));
 
             for (int i = 0; i < getPhotosList().size(); i++){

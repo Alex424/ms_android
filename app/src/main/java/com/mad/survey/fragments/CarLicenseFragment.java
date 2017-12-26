@@ -86,7 +86,7 @@ public class CarLicenseFragment extends BaseFragment implements View.OnClickList
         edtInstallationNumber.setText(carData.getInstallNumber());
         if(carData.getCapacityNumberPersons() > 0)
             edtNoOfPeople.setText(carData.getCapacityNumberPersons()+"");
-        if(carData.getCapacityWeight() > 0)
+        if(carData.getCapacityWeight() >= 0)
             edtCarCapacity.setText(carData.getCapacityWeight()+"");
         txtUnit.setText(carData.getWeightScale());
     }
@@ -101,7 +101,7 @@ public class CarLicenseFragment extends BaseFragment implements View.OnClickList
             showToast(getString(R.string.valid_msg_input_car_install_no), Toast.LENGTH_SHORT);
             return;
         }
-        if(carCapacity <= 0){
+        if(carCapacity < 0){
             edtCarCapacity.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_capacity), Toast.LENGTH_SHORT);
             return;

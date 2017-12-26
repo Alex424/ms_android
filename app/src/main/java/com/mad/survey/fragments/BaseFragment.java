@@ -32,6 +32,9 @@ import com.mad.survey.dialogs.HelpPhotoDialog;
 import com.mad.survey.dialogs.SurveyDeleteDialog;
 import com.mad.survey.dialogs.SurveyExitDialog;
 import com.mad.survey.globals.GlobalConstant;
+import com.mad.survey.models.HallEntranceData;
+import com.mad.survey.models.InteriorCarData;
+import com.mad.survey.models.InteriorCarDoorData;
 import com.mad.survey.models.PhotoData;
 import com.mad.survey.models.handlers.BankDataHandler;
 import com.mad.survey.models.handlers.CarDataHandler;
@@ -170,7 +173,7 @@ public class BaseFragment extends Fragment {
 	protected void setBackdoorTitle(View parent){
         doChangeDoorTitleAndDescription((TextView)parent.findViewById(R.id.txtDoorDirection));
         doChangeDoorTitleAndDescription((TextView)parent.findViewById(R.id.txtDoorDescription));
-        doChangeDoorTitleAndDescription((TextView)parent.findViewById(R.id.txtHeaderSubTitle2));
+        doChangeDoorTitleAndDescription((TextView) parent.findViewById(R.id.txtHeaderSubTitle2));
 	}
 
     private void doChangeDoorTitleAndDescription(TextView txtView){
@@ -271,4 +274,69 @@ public class BaseFragment extends Fragment {
 			showHelpDialog(getActivity(), getString(R.string.help_title_lantern_pi), R.drawable.img_help_21_lantern_pi_combo_help, GlobalConstant.HELP_PHOTO_SIZE_RATE);
 		}
 	}
+
+	protected void copySameAsInteriorCarData(InteriorCarData previousInteriorCarData){
+		if (previousInteriorCarData == null) return;
+
+		InteriorCarData currentInteriorCarData = MADSurveyApp.getInstance().getInteriorCarData();
+
+		String desc = currentInteriorCarData.getCarDescription();
+		String installNo = currentInteriorCarData.getInstallNumber();
+		double capacity = currentInteriorCarData.getCarCapacity();
+		int noOfPeople = currentInteriorCarData.getNumberOfPeople();
+		String scale = currentInteriorCarData.getWeightScale();
+		double weight = currentInteriorCarData.getCarWeight();
+
+		int prevId = previousInteriorCarData.getId();
+		previousInteriorCarData.setId(currentInteriorCarData.getId());
+		previousInteriorCarData.setInteriorCarNum(MADSurveyApp.getInstance().getInteriorCarNum());
+		previousInteriorCarData.setCarDescription(desc);
+		previousInteriorCarData.setInstallNumber(installNo);
+		previousInteriorCarData.setCarCapacity(capacity);
+		previousInteriorCarData.setNumberOfPeople(noOfPeople);
+		previousInteriorCarData.setWeightScale(scale);
+		previousInteriorCarData.setCarWeight(weight);
+
+		// we don't copy notes and photos
+		previousInteriorCarData.setNotes("");
+
+		// copy the door data also
+		InteriorCarDoorData frontDoor = interiorCarDoorDataHandler.get(prevId, 1);
+		if (frontDoor != null){
+			frontDoor.setInteriorCarId(currentInteriorCarData.getId());
+			long nId = interiorCarDoorDataHandler.insert(frontDoor);
+			previousInteriorCarData.setFrontDoorId((int)nId);
+		}
+		InteriorCarDoorData backDoor = interiorCarDoorDataHandler.get(prevId, 2);
+		if (backDoor != null){
+			backDoor.setInteriorCarId(currentInteriorCarData.getId());
+			long nId = interiorCarDoorDataHandler.insert(backDoor);
+			previousInteriorCarData.setBackDoorId((int)nId);
+		}
+
+		MADSurveyApp.getInstance().setInteriorCarData(previousInteriorCarData);
+		interiorCarDataHandler.update(previousInteriorCarData);
+
+        // Go to the next screen
+        ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_BACKDOOR, "interior_car_backdoor");
+	}
+
+	public void goForNextBankMeasurements(){
+		// added by alex 2017/11/27
+		// skip surveying all rest hall entrance of the current bank.
+		// just run into measuring next bank
+		// if measurements are done for all banks, just go to submit
+
+		int numBank = MADSurveyApp.getInstance().getProjectData().getNumBanks();
+		int currentBank = MADSurveyApp.getInstance().getBankNum();
+		if(numBank > currentBank + 1){
+			MADSurveyApp.getInstance().setHallEntranceCarNum(0);
+			MADSurveyApp.getInstance().setFloorNum(0);
+			MADSurveyApp.getInstance().setBankNum(currentBank + 1);
+			((BaseActivity) getActivity()).backToSpecificFragment("bank_name");
+		}
+		else
+			((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_PROJECT_ALL_ENTERED, "project_all_entered");
+	}
+
 }

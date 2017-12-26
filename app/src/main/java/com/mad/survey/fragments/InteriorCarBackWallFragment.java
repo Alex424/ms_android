@@ -77,9 +77,9 @@ public class InteriorCarBackWallFragment extends BaseFragment implements View.On
         InteriorCarData interiorCarData = MADSurveyApp.getInstance().getInteriorCarData();
         double height = interiorCarData.getRearWallHeight();
         double width = interiorCarData.getRearWallWidth();
-        if(height > 0)
+        if(height >= 0)
             edtHeight.setText(height+"");
-        if(width > 0)
+        if(width >= 0)
             edtWidth.setText(width+"");
     }
 
@@ -87,12 +87,12 @@ public class InteriorCarBackWallFragment extends BaseFragment implements View.On
         double height = ConversionUtils.getDoubleFromEditText(edtHeight);
         double width = ConversionUtils.getDoubleFromEditText(edtWidth);
 
-        if(height<=0){
+        if(height<0){
             edtHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(width<=0){
+        if(width<0){
             edtWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_width), Toast.LENGTH_SHORT);
             return;

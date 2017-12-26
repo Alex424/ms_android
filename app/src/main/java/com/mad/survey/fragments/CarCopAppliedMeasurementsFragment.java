@@ -84,17 +84,17 @@ public class CarCopAppliedMeasurementsFragment extends BaseFragment implements V
 
         txtCarNumber.setText(getString(R.string.cop_n_title, MADSurveyApp.getInstance().getCopNum() + 1, MADSurveyApp.getInstance().getCarData().getNumberOfCops(), MADSurveyApp.getInstance().getCarData().getCarNumber()));
         CopData copData = MADSurveyApp.getInstance().getCopData();
-        if(copData.getReturnPanelWidth()>0)
+        if(copData.getReturnPanelWidth()>=0)
             edtReturnPanelWidth.setText(copData.getReturnPanelWidth()+"");
-        if(copData.getReturnPanelHeight()>0)
+        if(copData.getReturnPanelHeight()>=0)
             edtReturnPanelHeight.setText(copData.getReturnPanelHeight()+"");
-        if(copData.getCoverWidth()>0)
+        if(copData.getCoverWidth()>=0)
             edtCopWidth.setText(copData.getCoverWidth()+"");
-        if(copData.getCoverHeight()>0)
+        if(copData.getCoverHeight()>=0)
             edtCopHeight.setText(copData.getCoverHeight()+"");
-        if(copData.getCoverToOpening()>0)
+        if(copData.getCoverToOpening()>=0)
             edtCoverToOpening.setText(copData.getCoverToOpening()+"");
-        if(copData.getCoverAff()>0)
+        if(copData.getCoverAff()>=0)
             edtAFFValue.setText(copData.getCoverAff()+"");
 
     }
@@ -108,32 +108,32 @@ public class CarCopAppliedMeasurementsFragment extends BaseFragment implements V
         double coverToOpening = ConversionUtils.getDoubleFromEditText(edtCoverToOpening);
         double affValue = ConversionUtils.getDoubleFromEditText(edtAFFValue);
 
-        if(returnPanelWidth<=0){
+        if(returnPanelWidth<0){
             edtReturnPanelWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_cop_return_panel_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(returnPanelHeight<=0){
+        if(returnPanelHeight<0){
             edtReturnPanelHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_cop_return_panel_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(copWidth<=0){
+        if(copWidth<0){
             edtCopWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_cop_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(copHeight<=0){
+        if(copHeight<0){
             edtCopHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_cop_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(coverToOpening<=0){
+        if(coverToOpening<0){
             edtCoverToOpening.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_cop_cover_to_opening), Toast.LENGTH_SHORT);
             return;
         }
-        if(affValue<=0){
+        if(affValue<0){
             edtAFFValue.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_cop_aff_value), Toast.LENGTH_SHORT);
             return;

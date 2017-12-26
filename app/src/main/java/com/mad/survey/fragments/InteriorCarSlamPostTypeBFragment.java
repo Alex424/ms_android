@@ -87,21 +87,21 @@ public class InteriorCarSlamPostTypeBFragment extends BaseFragment implements Vi
             txtCarNumber.setText(getString(R.string.car_number_n_title, MADSurveyApp.getInstance().getInteriorCarNum()+1, bankData.getNumOfInteriorCar(),MADSurveyApp.getInstance().getInteriorCarData().getCarDescription()));
         }
         InteriorCarDoorData interiorCarDoorData = MADSurveyApp.getInstance().getInteriorCarDoorData();
-        if(interiorCarDoorData.getSlamPostMeasurementsA()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsA()>=0)
             edtA.setText(interiorCarDoorData.getSlamPostMeasurementsA()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsB()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsB()>=0)
             edtB.setText(interiorCarDoorData.getSlamPostMeasurementsB()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsC()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsC()>=0)
             edtC.setText(interiorCarDoorData.getSlamPostMeasurementsC()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsD()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsD()>=0)
             edtD.setText(interiorCarDoorData.getSlamPostMeasurementsD()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsE()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsE()>=0)
             edtE.setText(interiorCarDoorData.getSlamPostMeasurementsE()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsF()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsF()>=0)
             edtF.setText(interiorCarDoorData.getSlamPostMeasurementsF()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsG()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsG()>=0)
             edtG.setText(interiorCarDoorData.getSlamPostMeasurementsG()+"");
-        if(interiorCarDoorData.getSlamPostMeasurementsH()>0)
+        if(interiorCarDoorData.getSlamPostMeasurementsH()>=0)
             edtH.setText(interiorCarDoorData.getSlamPostMeasurementsH()+"");
     }
 
@@ -116,42 +116,42 @@ public class InteriorCarSlamPostTypeBFragment extends BaseFragment implements Vi
         double G = ConversionUtils.getDoubleFromEditText(edtG);
         double H = ConversionUtils.getDoubleFromEditText(edtH);
 
-        if(A <= 0){
+        if(A < 0){
             edtA.requestFocus();
             showToast(getString(R.string.valid_msg_input_A), Toast.LENGTH_SHORT);
             return;
         }
-        if(B <= 0){
+        if(B < 0){
             edtB.requestFocus();
             showToast(getString(R.string.valid_msg_input_B), Toast.LENGTH_SHORT);
             return;
         }
-        if(C <= 0){
+        if(C < 0){
             edtC.requestFocus();
             showToast(getString(R.string.valid_msg_input_C), Toast.LENGTH_SHORT);
             return;
         }
-        if(D <= 0){
+        if(D < 0){
             edtD.requestFocus();
             showToast(getString(R.string.valid_msg_input_D), Toast.LENGTH_SHORT);
             return;
         }
-        if(E <= 0){
+        if(E < 0){
             edtE.requestFocus();
             showToast(getString(R.string.valid_msg_input_E), Toast.LENGTH_SHORT);
             return;
         }
-        if(F <= 0){
+        if(F < 0){
             edtF.requestFocus();
             showToast(getString(R.string.valid_msg_input_F), Toast.LENGTH_SHORT);
             return;
         }
-        if(G <= 0){
+        if(G < 0){
             edtG.requestFocus();
             showToast(getString(R.string.valid_msg_input_G), Toast.LENGTH_SHORT);
             return;
         }
-        if(H <= 0){
+        if(H < 0){
             edtH.requestFocus();
             showToast(getString(R.string.valid_msg_input_H), Toast.LENGTH_SHORT);
             return;

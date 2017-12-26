@@ -91,11 +91,9 @@ public class GlobalConstant {
 	public static final String BIRD_CAGE_TBD = "TBD";
 
 
-
-
-
-
-
+	public static final String WALL_TYPE_3_PIECE = "3 piece";
+	public static final String WALL_TYPE_5_PIECE = "5 piece";
+	public static final String WALL_TYPE_HYBRID = "Hybrid";
 
 
 	public static String getHomeDirPath(){

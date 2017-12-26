@@ -89,19 +89,19 @@ public class CarSeperatePIMeasurementsFragment extends BaseFragment implements V
         CarData carData = MADSurveyApp.getInstance().getCarData();
         if(carData.getNumberPerCabSPI()>0)
             edtQuantityPerCar.setText(carData.getNumberPerCabSPI()+"");
-        if(carData.getDepthSPI()>0)
+        if(carData.getDepthSPI()>=0)
             edtCoverDepth.setText(carData.getDepthSPI()+"");
-        if(carData.getCoverWidthSPI()>0)
+        if(carData.getCoverWidthSPI()>=0)
             edtCoverWidth.setText(carData.getCoverWidthSPI()+"");
-        if(carData.getCoverHeightSPI()>0)
+        if(carData.getCoverHeightSPI()>=0)
             edtCoverHeight.setText(carData.getCoverHeightSPI()+"");
-        if(carData.getCoverScrewCenterWidthSPI()>0)
+        if(carData.getCoverScrewCenterWidthSPI()>=0)
             edtCoverScrewCenterWidth.setText(carData.getCoverScrewCenterWidthSPI()+"");
-        if(carData.getCoverScrewCenterHeightSPI()>0)
+        if(carData.getCoverScrewCenterHeightSPI()>=0)
             edtCoverScrewCenterHeight.setText(carData.getCoverScrewCenterHeightSPI()+"");
-        if(carData.getSpaceAvailableWidthSPI()>0)
+        if(carData.getSpaceAvailableWidthSPI()>=0)
             edtSpaceAvailableWidth.setText(carData.getSpaceAvailableWidthSPI()+"");
-        if(carData.getSpaceAvailableHeightSPI()>0)
+        if(carData.getSpaceAvailableHeightSPI()>=0)
             edtSpaceAvailableHeight.setText(carData.getSpaceAvailableHeightSPI()+"");
     }
 
@@ -121,38 +121,38 @@ public class CarSeperatePIMeasurementsFragment extends BaseFragment implements V
             showToast(getString(R.string.valid_msg_input_quantity_per_car), Toast.LENGTH_SHORT);
             return;
         }
-        if(coverWidth<=0){
+        if(coverWidth<0){
             edtCoverWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(coverHeight<=0){
+        if(coverHeight<0){
             edtCoverHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(coverDepth<=0){
+        if(coverDepth<0){
             edtCoverDepth.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_depth), Toast.LENGTH_SHORT);
             return;
         }
 
-        if(coverScrewCenterWidth<=0){
+        if(coverScrewCenterWidth<0){
             edtCoverScrewCenterWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_screw_center_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(coverScrewCenterHeight<=0){
+        if(coverScrewCenterHeight<0){
             edtCoverScrewCenterHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_screw_center_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(spaceAvailableWidth<=0){
+        if(spaceAvailableWidth<0){
             edtSpaceAvailableWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_space_available_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(spaceAvailableHeight<=0){
+        if(spaceAvailableHeight<0){
             edtSpaceAvailableHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_space_available_height), Toast.LENGTH_SHORT);
             return;

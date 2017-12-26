@@ -15,6 +15,7 @@ import com.mad.survey.activities.BaseActivity;
 import com.mad.survey.globals.GlobalConstant;
 import com.mad.survey.models.BankData;
 import com.mad.survey.models.InteriorCarData;
+import com.mad.survey.utils.ConversionUtils;
 import com.mad.survey.utils.Utils;
 
 public class InteriorCarCeilingExhaustFanLocationFragment extends BaseFragment implements View.OnClickListener {
@@ -22,6 +23,10 @@ public class InteriorCarCeilingExhaustFanLocationFragment extends BaseFragment i
     private TextView txtSubTitle;
     private TextView txtCarNumber;
     private EditText edtExhaustFanLocation;
+    private EditText edtExToLeftWall;
+    private EditText edtExToBackWall;
+    private EditText edtExWidth;
+    private EditText edtExLength;
 
     public static InteriorCarCeilingExhaustFanLocationFragment newInstance(){
         InteriorCarCeilingExhaustFanLocationFragment fragment = new InteriorCarCeilingExhaustFanLocationFragment();
@@ -45,6 +50,10 @@ public class InteriorCarCeilingExhaustFanLocationFragment extends BaseFragment i
         txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         edtExhaustFanLocation = (EditText) parent.findViewById(R.id.edtExhaustFanLocation);
+        edtExToLeftWall = (EditText) parent.findViewById(R.id.edtExToLeftWall);
+        edtExToBackWall = (EditText) parent.findViewById(R.id.edtExToBackWall);
+        edtExWidth = (EditText) parent.findViewById(R.id.edtExWidth);
+        edtExLength = (EditText) parent.findViewById(R.id.edtExLength);
 
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
         parent.findViewById(R.id.btnNext).setOnClickListener(this);
@@ -57,6 +66,8 @@ public class InteriorCarCeilingExhaustFanLocationFragment extends BaseFragment i
                 Utils.showKeyboard(getActivity(), true, edtExhaustFanLocation);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_car_interior_exhaust_fan_location), true, true);
     }
 
     private void updateUIs(){
@@ -71,6 +82,15 @@ public class InteriorCarCeilingExhaustFanLocationFragment extends BaseFragment i
         }
         InteriorCarData interiorCarData = MADSurveyApp.getInstance().getInteriorCarData();
         edtExhaustFanLocation.setText(interiorCarData.getExhaustFanLocation());
+
+        if (interiorCarData.getExToLeftWall() >= 0)
+            edtExToLeftWall.setText(interiorCarData.getExToLeftWall() + "");
+        if (interiorCarData.getExToBackWall() >= 0)
+            edtExToBackWall.setText(interiorCarData.getExToBackWall() + "");
+        if (interiorCarData.getExWidth() >= 0)
+            edtExWidth.setText(interiorCarData.getExWidth() + "");
+        if (interiorCarData.getExLength() >= 0)
+            edtExLength.setText(interiorCarData.getExLength() + "");
     }
 
     private void goToNext(){
@@ -81,6 +101,12 @@ public class InteriorCarCeilingExhaustFanLocationFragment extends BaseFragment i
             return;
         }
         MADSurveyApp.getInstance().getInteriorCarData().setExhaustFanLocation(location);
+
+        MADSurveyApp.getInstance().getInteriorCarData().setExToLeftWall(ConversionUtils.getDoubleFromEditText(edtExToLeftWall));
+        MADSurveyApp.getInstance().getInteriorCarData().setExToBackWall(ConversionUtils.getDoubleFromEditText(edtExToBackWall));
+        MADSurveyApp.getInstance().getInteriorCarData().setExWidth(ConversionUtils.getDoubleFromEditText(edtExWidth));
+        MADSurveyApp.getInstance().getInteriorCarData().setExLength(ConversionUtils.getDoubleFromEditText(edtExLength));
+
         interiorCarDataHandler.update(MADSurveyApp.getInstance().getInteriorCarData());
         ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_CEILING_FRAME_TYPE, "interior_car_ceiling_frame_type");
     }

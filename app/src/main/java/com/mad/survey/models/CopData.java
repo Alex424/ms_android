@@ -15,14 +15,14 @@ public class CopData extends BaseData implements Serializable {
     private String copName = "";
     private String options = "";
     private String returnHinging = "";
-    private double returnPanelWidth = 0;
-    private double returnPanelHeight = 0;
-    private double swingPanelWidth = 0;
-    private double swingPanelHeight = 0;
-    private double coverWidth = 0;
-    private double coverHeight = 0;
-    private double coverToOpening = 0;
-    private double coverAff = 0;
+    private double returnPanelWidth = -1;
+    private double returnPanelHeight = -1;
+    private double swingPanelWidth = -1;
+    private double swingPanelHeight = -1;
+    private double coverWidth = -1;
+    private double coverHeight = -1;
+    private double coverToOpening = -1;
+    private double coverAff = -1;
     private String notes = "";
     private String uuid = "";
 
@@ -199,14 +199,14 @@ public class CopData extends BaseData implements Serializable {
             jsonArray.put(0, getJSON("cop_name", getCopName()));
             jsonArray.put(1, getJSON("options", getOptions()));
             jsonArray.put(2, getJSON("return_hinging", getReturnHinging()));
-            jsonArray.put(3, getJSON("return_panel_width", getOptions().equals("Applied")?getReturnPanelWidth()+"":"0.0"));
-            jsonArray.put(4, getJSON("return_panel_height", getOptions().equals("Applied")?getReturnPanelHeight()+"":"0.0"));
-            jsonArray.put(5, getJSON("cover_width", getOptions().equals("Applied")?getCoverWidth()+"":"0.0"));
-            jsonArray.put(6, getJSON("cover_height", getOptions().equals("Applied")?getCoverHeight()+"":"0.0"));
-            jsonArray.put(7, getJSON("cover_to_opening", getOptions().equals("Applied")?getCoverToOpening()+"":"0.0"));
-            jsonArray.put(8, getJSON("swing_panel_width", getOptions().equals("Swing")?getSwingPanelWidth()+"":"0.0"));
-            jsonArray.put(9, getJSON("swing_panel_height", getOptions().equals("Swing")?getSwingPanelHeight()+"":"0.0"));
-            jsonArray.put(10, getJSON("cover_aff", getCoverAff()+""));
+            jsonArray.put(3, getJSON("return_panel_width", getOptions().equals("Applied")?getDoubleForJSON(getReturnPanelWidth()):""));
+            jsonArray.put(4, getJSON("return_panel_height", getOptions().equals("Applied")?getDoubleForJSON(getReturnPanelHeight()):""));
+            jsonArray.put(5, getJSON("cover_width", getOptions().equals("Applied")?getDoubleForJSON(getCoverWidth()):""));
+            jsonArray.put(6, getJSON("cover_height", getOptions().equals("Applied")?getDoubleForJSON(getCoverHeight()):""));
+            jsonArray.put(7, getJSON("cover_to_opening", getOptions().equals("Applied")?getDoubleForJSON(getCoverToOpening()):""));
+            jsonArray.put(8, getJSON("swing_panel_width", getOptions().equals("Swing")?getDoubleForJSON(getSwingPanelWidth()):""));
+            jsonArray.put(9, getJSON("swing_panel_height", getOptions().equals("Swing")?getDoubleForJSON(getSwingPanelHeight()):""));
+            jsonArray.put(10, getJSON("cover_aff", getDoubleForJSON(getCoverAff())));
             jsonArray.put(11, getJSON("notes", getNotes()));
 
             for (int i = 0; i < getPhotosList().size(); i++){

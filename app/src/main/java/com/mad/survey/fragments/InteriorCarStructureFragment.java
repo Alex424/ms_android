@@ -90,7 +90,7 @@ public class InteriorCarStructureFragment extends BaseFragment implements View.O
 
         MADSurveyApp.getInstance().getInteriorCarData().setBirdCage(birdCage);
         interiorCarDataHandler.update(MADSurveyApp.getInstance().getInteriorCarData());
-        ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_OPENING, "interior_car_opening");
+        ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_WALL_TYPE, "interior_car_wall_type");
     }
 
     @Override

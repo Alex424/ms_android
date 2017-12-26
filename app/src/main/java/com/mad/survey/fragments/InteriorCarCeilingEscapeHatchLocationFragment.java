@@ -16,6 +16,7 @@ import com.mad.survey.globals.GlobalConstant;
 import com.mad.survey.listeners.OnFragmentResumedListener;
 import com.mad.survey.models.BankData;
 import com.mad.survey.models.InteriorCarData;
+import com.mad.survey.utils.ConversionUtils;
 import com.mad.survey.utils.Utils;
 
 public class InteriorCarCeilingEscapeHatchLocationFragment extends BaseFragment implements View.OnClickListener , OnFragmentResumedListener{
@@ -23,6 +24,10 @@ public class InteriorCarCeilingEscapeHatchLocationFragment extends BaseFragment 
     private TextView txtSubTitle;
     private TextView txtCarNumber;
     private EditText edtEscapeHatchLocation;
+    private EditText edtHaToLeftWall;
+    private EditText edtHaToBackWall;
+    private EditText edtHaWidth;
+    private EditText edtHaLength;
 
     public static InteriorCarCeilingEscapeHatchLocationFragment newInstance(){
         InteriorCarCeilingEscapeHatchLocationFragment fragment = new InteriorCarCeilingEscapeHatchLocationFragment();
@@ -46,6 +51,10 @@ public class InteriorCarCeilingEscapeHatchLocationFragment extends BaseFragment 
         txtSubTitle = (TextView) parent.findViewById(R.id.txtSubTitle);
         txtCarNumber = (TextView) parent.findViewById(R.id.txtCarNumber);
         edtEscapeHatchLocation = (EditText) parent.findViewById(R.id.edtEscapeHatchLocation);
+        edtHaToLeftWall = (EditText) parent.findViewById(R.id.edtHatchToLeftWall);
+        edtHaToBackWall = (EditText) parent.findViewById(R.id.edtHatchToBackWall);
+        edtHaWidth = (EditText) parent.findViewById(R.id.edtHatchWidth);
+        edtHaLength = (EditText) parent.findViewById(R.id.edtHatchLength);
 
         parent.findViewById(R.id.btnBack).setOnClickListener(this);
         parent.findViewById(R.id.btnNext).setOnClickListener(this);
@@ -58,6 +67,8 @@ public class InteriorCarCeilingEscapeHatchLocationFragment extends BaseFragment 
                 Utils.showKeyboard(getActivity(), true, edtEscapeHatchLocation);
             }
         });
+
+        setHeaderScrollConfiguration(parent, getString(R.string.sub_title_cab_interior), getString(R.string.sub_title_car_interior_escape_hatch_location), true, true);
     }
 
     private void updateUIs(){
@@ -72,6 +83,15 @@ public class InteriorCarCeilingEscapeHatchLocationFragment extends BaseFragment 
         }
         InteriorCarData interiorCarData = MADSurveyApp.getInstance().getInteriorCarData();
         edtEscapeHatchLocation.setText(interiorCarData.getEscapeHatchLocation());
+
+        if (interiorCarData.getHaToLeftWall() >= 0)
+            edtHaToLeftWall.setText(interiorCarData.getHaToLeftWall() + "");
+        if (interiorCarData.getHaToBackWall() >= 0)
+            edtHaToBackWall.setText(interiorCarData.getHaToBackWall() + "");
+        if (interiorCarData.getHaWidth() >= 0)
+            edtHaWidth.setText(interiorCarData.getHaWidth() + "");
+        if (interiorCarData.getHaLength() >= 0)
+            edtHaLength.setText(interiorCarData.getHaLength() + "");
     }
 
     private void goToNext(){
@@ -82,6 +102,12 @@ public class InteriorCarCeilingEscapeHatchLocationFragment extends BaseFragment 
             return;
         }
         MADSurveyApp.getInstance().getInteriorCarData().setEscapeHatchLocation(escapeHatchLocation);
+
+        MADSurveyApp.getInstance().getInteriorCarData().setHaToLeftWall(ConversionUtils.getDoubleFromEditText(edtHaToLeftWall));
+        MADSurveyApp.getInstance().getInteriorCarData().setHaToBackWall(ConversionUtils.getDoubleFromEditText(edtHaToBackWall));
+        MADSurveyApp.getInstance().getInteriorCarData().setHaWidth(ConversionUtils.getDoubleFromEditText(edtHaWidth));
+        MADSurveyApp.getInstance().getInteriorCarData().setHaLength(ConversionUtils.getDoubleFromEditText(edtHaLength));
+
         interiorCarDataHandler.update(MADSurveyApp.getInstance().getInteriorCarData());
         ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_TYPE, "interior_car_ceiling_frame_type");
     }

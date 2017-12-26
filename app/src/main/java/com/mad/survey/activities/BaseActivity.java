@@ -103,6 +103,8 @@ public class BaseActivity extends AppCompatActivity {
     public static final int FRAGMENT_ID_INTERIOR_CAR_COUNT = 62;
     public static final int FRAGMENT_ID_INTERIOR_CAR_DESCRIPTION = 63;
     public static final int FRAGMENT_ID_INTERIOR_CAR_LICENSE = 64;
+    public static final int FRAGMENT_ID_INTERIOR_CAR_COPY = 300;
+    public static final int FRAGMENT_ID_INTERIOR_CAR_LIST = 301;
     public static final int FRAGMENT_ID_INTERIOR_CAR_BACKDOOR = 65;
     public static final int FRAGMENT_ID_INTERIOR_CAR_FLOORING = 66;
     public static final int FRAGMENT_ID_INTERIOR_CAR_TILLER_COVER = 67;
@@ -113,6 +115,7 @@ public class BaseActivity extends AppCompatActivity {
     public static final int FRAGMENT_ID_INTERIOR_CAR_CEILING_ESCAPE_HATCH_LOCATION = 72;
     public static final int FRAGMENT_ID_INTERIOR_CAR_TYPE = 73;
     public static final int FRAGMENT_ID_INTERIOR_CAR_STRUCTURE = 74;
+    public static final int FRAGMENT_ID_INTERIOR_CAR_WALL_TYPE = 302;
     public static final int FRAGMENT_ID_INTERIOR_CAR_OPENING = 75;
     public static final int FRAGMENT_ID_INTERIOR_CAR_CENTER_MEASUREMENTS = 76;
     public static final int FRAGMENT_ID_INTERIOR_CAR_SINGLE_SIDE_MEASUREMENTS = 77;
@@ -133,12 +136,17 @@ public class BaseActivity extends AppCompatActivity {
     public static final int FRAGMENT_ID_INTERIOR_CAR_TRANSOM_1S = 92;
     public static final int FRAGMENT_ID_INTERIOR_CAR_TRANSOM_PROFILE_2S = 93;
     public static final int FRAGMENT_ID_INTERIOR_CAR_TRANSOM_PROFILE_1S = 94;
+    public static final int FRAGMENT_ID_INTERIOR_CAR_LTRANSOM = 303;
+    public static final int FRAGMENT_ID_INTERIOR_CAR_HEADER = 304;
+    public static final int FRAGMENT_ID_INTERIOR_CAR_FLAT_FRONT = 305;
     public static final int FRAGMENT_ID_INTERIOR_CAR_COP_INSTALLED = 95;
     public static final int FRAGMENT_ID_INTERIOR_CAR_MAINCOP_RETURN = 96;
     public static final int FRAGMENT_ID_INTERIOR_CAR_AUXCOP_RETURN = 97;
     public static final int FRAGMENT_ID_INTERIOR_CAR_NOTES = 98;
     public static final int FRAGMENT_ID_INTERIOR_CAR_BACK_WALL_CLONE = 99;
     public static final int FRAGMENT_ID_INTERIOR_CAR_BACK_WALL = 100;
+    public static final int FRAGMENT_ID_HALL_ENTRANCE_COPY = 310;
+    public static final int FRAGMENT_ID_HALL_ENTRANCE_LIST = 311;
     public static final int FRAGMENT_ID_HALL_ENTRANCE_DOOR_TYPE = 101;
     public static final int FRAGMENT_ID_HALL_ENTRANCE_DOOR_OPENING_DIRECTION = 102;
     public static final int FRAGMENT_ID_HALL_ENTRANCE_FRONT_RETURN_MEASUREMENTS = 103;
@@ -146,6 +154,7 @@ public class BaseActivity extends AppCompatActivity {
     public static final int FRAGMENT_ID_HALL_ENTRANCE_TRANSOM_MEASUREMENTS_2S = 105;
     public static final int FRAGMENT_ID_HALL_ENTRANCE_TRANSOM_MEASUREMENTS_1S = 106;
     public static final int FRAGMENT_ID_HALL_ENTRANCE_NOTES = 107;
+    public static final int FRAGMENT_ID_HALL_ENTRANCE_SKIP = 400;
     public static final int FRAGMENT_ID_PROJECT_ALL_ENTERED = 108;
     public static final int FRAGMENT_ID_HALL_ENTRANCE_FLOOR_IDENTIFIER = 109;
     public static final int FRAGMENT_ID_SUBMIT_PROJECT = 200;
@@ -564,6 +573,12 @@ public class BaseActivity extends AppCompatActivity {
             case FRAGMENT_ID_INTERIOR_CAR_LICENSE:
                 currentFragment = InteriorCarLicenseFragment.newInstance();
                 break;
+            case FRAGMENT_ID_INTERIOR_CAR_COPY:
+                currentFragment = InteriorCarCopyFragment.newInstance();
+                break;
+            case FRAGMENT_ID_INTERIOR_CAR_LIST:
+                currentFragment = InteriorCarsListFragment.newInstance();
+                break;
             case FRAGMENT_ID_INTERIOR_CAR_BACKDOOR:
                 currentFragment = InteriorCarBackdoorFragment.newInstance();
                 break;
@@ -593,6 +608,9 @@ public class BaseActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_ID_INTERIOR_CAR_STRUCTURE:
                 currentFragment = InteriorCarStructureFragment.newInstance();
+                break;
+            case FRAGMENT_ID_INTERIOR_CAR_WALL_TYPE:
+                currentFragment = InteriorCarWallTypeFragment.newInstance();
                 break;
             case FRAGMENT_ID_INTERIOR_CAR_OPENING:
                 currentFragment = InteriorCarOpeningFragment.newInstance();
@@ -654,6 +672,15 @@ public class BaseActivity extends AppCompatActivity {
             case FRAGMENT_ID_INTERIOR_CAR_TRANSOM_PROFILE_1S:
                 currentFragment = InteriorCarTransomProfile1sFragment.newInstance();
                 break;
+            case FRAGMENT_ID_INTERIOR_CAR_LTRANSOM:
+                currentFragment = InteriorCarLTransomFragment.newInstance();
+                break;
+            case FRAGMENT_ID_INTERIOR_CAR_HEADER:
+                currentFragment = InteriorCarHeaderFragment.newInstance();
+                break;
+            case FRAGMENT_ID_INTERIOR_CAR_FLAT_FRONT:
+                currentFragment = InteriorCarFlatFrontFragment.newInstance();
+                break;
             case FRAGMENT_ID_INTERIOR_CAR_COP_INSTALLED:
                 currentFragment = InteriorCarCopInstalledFragment.newInstance();
                 break;
@@ -671,6 +698,12 @@ public class BaseActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_ID_INTERIOR_CAR_BACK_WALL:
                 currentFragment = InteriorCarBackWallFragment.newInstance();
+                break;
+            case FRAGMENT_ID_HALL_ENTRANCE_COPY:
+                currentFragment = HallEntranceCopyFragment.newInstance();
+                break;
+            case FRAGMENT_ID_HALL_ENTRANCE_LIST:
+                currentFragment = HallEntranceListFragment.newInstance();
                 break;
             case FRAGMENT_ID_HALL_ENTRANCE_DOOR_TYPE:
                 currentFragment = HallEntranceDoorTypeFragment.newInstance();
@@ -692,6 +725,9 @@ public class BaseActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_ID_HALL_ENTRANCE_NOTES:
                 currentFragment = HallEntranceNotesFragment.newInstance();
+                break;
+            case FRAGMENT_ID_HALL_ENTRANCE_SKIP:
+                currentFragment = HallEntranceSkipRestFragment.newInstance();
                 break;
             case FRAGMENT_ID_PROJECT_ALL_ENTERED:
                 currentFragment = ProjectAllEnteredFragment.newInstance();

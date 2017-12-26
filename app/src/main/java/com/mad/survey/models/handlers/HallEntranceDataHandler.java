@@ -219,4 +219,13 @@ public class HallEntranceDataHandler extends AbstractDataSource<HallEntranceData
 			cnt = cursor.getInt(cursor.getColumnIndex("carNum"));
 		return cnt;
 	}
+
+	public HallEntranceData getHallEntranceDataForSameAsLast(int projectId,int bankId){
+		List<HallEntranceData> dataList = getAll("projectId = " + projectId + " AND bankId = " + bankId , null, null, null, "id asc");
+		if (dataList.size() > 0){
+			return dataList.get(dataList.size() - 1);
+		}
+
+		return null;
+	}
 }

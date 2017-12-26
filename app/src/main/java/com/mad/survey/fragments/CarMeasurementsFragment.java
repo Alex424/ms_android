@@ -75,11 +75,11 @@ public class CarMeasurementsFragment extends BaseFragment implements View.OnClic
             txtCarNumber.setText(getString(R.string.car_number_n_title, MADSurveyApp.getInstance().getCarNum()+1, bankData.getNumOfCar(),MADSurveyApp.getInstance().getCarData().getCarNumber()));
         }
         CarData carData = MADSurveyApp.getInstance().getCarData();
-        if(carData.getHandRailHeightFromFloor() > 0)
+        if(carData.getHandRailHeightFromFloor() >= 0)
             edtHeightFromFloor.setText(carData.getHandRailHeightFromFloor() + "");
-        if(carData.getHandRailDistanceFromWall() > 0)
+        if(carData.getHandRailDistanceFromWall() >= 0)
             edtDistanceFromWall.setText(carData.getHandRailDistanceFromWall() + "");
-        if(carData.getHandRailDistanceFromReturn() > 0)
+        if(carData.getHandRailDistanceFromReturn() >= 0)
             edtDistanceFromReturn.setText(carData.getHandRailDistanceFromReturn() + "");
     }
 
@@ -88,17 +88,17 @@ public class CarMeasurementsFragment extends BaseFragment implements View.OnClic
         heightFromFloor = ConversionUtils.getDoubleFromEditText(edtHeightFromFloor);
         distanceFromWall = ConversionUtils.getDoubleFromEditText(edtDistanceFromWall);
         distanceFromReturn = ConversionUtils.getDoubleFromEditText(edtDistanceFromReturn);
-        if(heightFromFloor <= 0 ){
+        if(heightFromFloor < 0 ){
             edtHeightFromFloor.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_height_from_floor), Toast.LENGTH_SHORT);
             return;
         }
-        if(distanceFromWall <= 0){
+        if(distanceFromWall < 0){
             edtDistanceFromWall.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_distance_from_wall), Toast.LENGTH_SHORT);
             return;
         }
-        if(distanceFromReturn <= 0){
+        if(distanceFromReturn < 0){
             edtDistanceFromReturn.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_distance_from_return), Toast.LENGTH_SHORT);
             return;

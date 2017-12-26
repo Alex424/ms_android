@@ -76,21 +76,21 @@ public class LanternSameasMeasurementsFragment extends BaseFragment implements V
         }
         double width = MADSurveyApp.getInstance().getLanternData().getSpaceAvailableWidth();
         double height = MADSurveyApp.getInstance().getLanternData().getSpaceAvailableHeight();
-        if(width>0)
+        if(width>=0)
             edtSpaceAvailableWidth.setText(width+"");
-        if(height>0)
+        if(height>=0)
             edtSpaceAvailableHeight.setText(height+"");
     }
 
     private void goToNext(){
         double spaceAvailableWidth = ConversionUtils.getDoubleFromEditText(edtSpaceAvailableWidth);
         double spaceAvailableHeight = ConversionUtils.getDoubleFromEditText(edtSpaceAvailableHeight);
-        if(spaceAvailableWidth <= 0){
+        if(spaceAvailableWidth < 0){
             edtSpaceAvailableWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_spaceAvailable_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(spaceAvailableHeight <= 0){
+        if(spaceAvailableHeight < 0){
             edtSpaceAvailableHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_spaceAvailable_height), Toast.LENGTH_SHORT);
             return;

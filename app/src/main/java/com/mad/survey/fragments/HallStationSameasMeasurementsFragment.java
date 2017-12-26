@@ -81,14 +81,14 @@ public class HallStationSameasMeasurementsFragment extends BaseFragment implemen
         }
 
         if(hallStationData != null){
-            edtAFFValue.setText(hallStationData.getAffValue() + "");
+            edtAFFValue.setText(hallStationData.getAffValue() >= 0? (hallStationData.getAffValue() + ""):"");
         }
 
     }
 
     private void goToNext(){
         double affValue = ConversionUtils.getDoubleFromEditText(edtAFFValue);
-        if(affValue <= 0){
+        if(affValue < 0){
             edtAFFValue.requestFocus();
             showToast(getString(R.string.valid_msg_input_aff_value), Toast.LENGTH_SHORT);
             return;

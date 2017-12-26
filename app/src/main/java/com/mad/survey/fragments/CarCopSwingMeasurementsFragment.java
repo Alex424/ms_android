@@ -77,11 +77,11 @@ public class CarCopSwingMeasurementsFragment extends BaseFragment implements Vie
         }
         txtCarNumber.setText(getString(R.string.cop_n_title, MADSurveyApp.getInstance().getCopNum() + 1, MADSurveyApp.getInstance().getCarData().getNumberOfCops(), MADSurveyApp.getInstance().getCarData().getCarNumber()));
         CopData copData = MADSurveyApp.getInstance().getCopData();
-        if(copData.getSwingPanelHeight()>0)
+        if(copData.getSwingPanelHeight()>=0)
             edtSwingPanelHeight.setText(copData.getSwingPanelHeight()+"");
-        if(copData.getSwingPanelWidth()>0)
+        if(copData.getSwingPanelWidth()>=0)
             edtSwingPanelWidth.setText(copData.getSwingPanelWidth()+"");
-        if(copData.getCoverAff()>0)
+        if(copData.getCoverAff()>=0)
             edtAFFValue.setText(copData.getCoverAff()+"");
 
 
@@ -91,17 +91,17 @@ public class CarCopSwingMeasurementsFragment extends BaseFragment implements Vie
         double swingPanelHeight = ConversionUtils.getDoubleFromEditText(edtSwingPanelHeight);
         double swingPanelWidth = ConversionUtils.getDoubleFromEditText(edtSwingPanelWidth);
         double affValue = ConversionUtils.getDoubleFromEditText(edtAFFValue);
-        if(swingPanelWidth<=0){
+        if(swingPanelWidth<0){
             edtSwingPanelWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_cop_swing_panel_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(swingPanelHeight<=0){
+        if(swingPanelHeight<0){
             edtSwingPanelHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_cop_swing_panel_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(affValue<=0){
+        if(affValue<0){
             edtAFFValue.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_cop_aff_value), Toast.LENGTH_SHORT);
             return;

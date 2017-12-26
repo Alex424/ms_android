@@ -88,18 +88,18 @@ public class InteriorCarSingleSideReturnMeasurementsBFragment extends BaseFragme
 
         double height = interiorCarDoorData.getFrontReturnMeasurementsHeight();
 
-        if(A>0){
+        if(A>=0){
             edtA.setText(A+"");
         }
-        if(B>0){
+        if(B>=0){
             edtB.setText(B+"");
         }
-        if(C>0){
+        if(C>=0){
             edtC.setText(C+"");
         }
 
 
-        if(height>0){
+        if(height>=0){
             edtHeight.setText(height+"");
         }
     }
@@ -111,23 +111,23 @@ public class InteriorCarSingleSideReturnMeasurementsBFragment extends BaseFragme
 
         double height = ConversionUtils.getDoubleFromEditText(edtHeight);
 
-        if(A<=0){
+        if(A<0){
             edtA.requestFocus();
             showToast(getString(R.string.valid_msg_input_A), Toast.LENGTH_SHORT);
             return;
         }
-        if(B<=0){
+        if(B<0){
             edtB.requestFocus();
             showToast(getString(R.string.valid_msg_input_B), Toast.LENGTH_SHORT);
             return;
         }
-        if(C<=0){
+        if(C<0){
             edtC.requestFocus();
             showToast(getString(R.string.valid_msg_input_C), Toast.LENGTH_SHORT);
             return;
         }
 
-        if(height<=0){
+        if(height<0){
             edtHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_height), Toast.LENGTH_SHORT);
             return;

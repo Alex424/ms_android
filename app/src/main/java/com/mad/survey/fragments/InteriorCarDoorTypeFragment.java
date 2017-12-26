@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.mad.survey.MADSurveyApp;
 import com.mad.survey.R;
 import com.mad.survey.activities.BaseActivity;
+import com.mad.survey.globals.GlobalConstant;
 import com.mad.survey.listeners.OnFragmentResumedListener;
 import com.mad.survey.models.BankData;
 import com.mad.survey.models.InteriorCarDoorData;
@@ -77,12 +78,16 @@ public class InteriorCarDoorTypeFragment extends BaseFragment implements View.On
         MADSurveyApp.getInstance().getInteriorCarDoorData().setCarDoorType(BaseActivity.TEMP_DOOR_TYPE);
         interiorCarDoorDataHandler.update(MADSurveyApp.getInstance().getInteriorCarDoorData());
         if(BaseActivity.TEMP_OPENING == 2)
-            ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_DOOR_OPENING_DIRECTION, "interior_car_center_measurements");
+            ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_DOOR_OPENING_DIRECTION, "interior_car_opening_direction");
         else {
-            if (BaseActivity.TEMP_DOOR_TYPE == 1) {
-                ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_TRANSOM_2S, "interior_car_transom_2s");
-            }else if (BaseActivity.TEMP_DOOR_TYPE == 2){
-                ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_TRANSOM_1S, "interior_car_transom_1s");
+            if (MADSurveyApp.getInstance().getInteriorCarDoorData().getWallType().equals(GlobalConstant.WALL_TYPE_5_PIECE)){
+                ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_LTRANSOM, "interior_car_l_transom");
+            }else{
+                if (BaseActivity.TEMP_DOOR_TYPE == 1) {
+                    ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_TRANSOM_2S, "interior_car_transom_2s");
+                }else if (BaseActivity.TEMP_DOOR_TYPE == 2){
+                    ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_TRANSOM_1S, "interior_car_transom_1s");
+                }
             }
         }
     }

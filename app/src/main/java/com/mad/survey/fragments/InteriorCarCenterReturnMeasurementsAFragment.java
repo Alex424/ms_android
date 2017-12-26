@@ -111,39 +111,39 @@ public class InteriorCarCenterReturnMeasurementsAFragment extends BaseFragment i
 
         double height = interiorCarDoorData.getFrontReturnMeasurementsHeight();
 
-        if(LA>0){
+        if(LA>=0){
             edtLA.setText(LA+"");
         }
-        if(LB>0){
+        if(LB>=0){
             edtLB.setText(LB+"");
         }
-        if(LC>0){
+        if(LC>=0){
             edtLC.setText(LC+"");
         }
-        if(LD>0){
+        if(LD>=0){
             edtLD.setText(LD+"");
         }
-        if(LE>0){
+        if(LE>=0){
             edtLE.setText(LE+"");
         }
 
-        if(RA>0){
+        if(RA>=0){
             edtRA.setText(RA+"");
         }
-        if(RB>0){
+        if(RB>=0){
             edtRB.setText(RB+"");
         }
-        if(RC>0){
+        if(RC>=0){
             edtRC.setText(RC+"");
         }
-        if(RD>0){
+        if(RD>=0){
             edtRD.setText(RD+"");
         }
-        if(RE>0){
+        if(RE>=0){
             edtRE.setText(RE+"");
         }
 
-        if(height>0){
+        if(height>=0){
             edtHeight.setText(height+"");
         }
     }
@@ -163,58 +163,58 @@ public class InteriorCarCenterReturnMeasurementsAFragment extends BaseFragment i
 
         double height = ConversionUtils.getDoubleFromEditText(edtHeight);
 
-        if(LA<=0){
+        if(LA<0){
             edtLA.requestFocus();
             showToast(getString(R.string.valid_msg_input_LA), Toast.LENGTH_SHORT);
             return;
         }
-        if(LB<=0){
+        if(LB<0){
             edtLB.requestFocus();
             showToast(getString(R.string.valid_msg_input_LB), Toast.LENGTH_SHORT);
             return;
         }
-        if(LC<=0){
+        if(LC<0){
             edtLC.requestFocus();
             showToast(getString(R.string.valid_msg_input_LC), Toast.LENGTH_SHORT);
             return;
         }
-        if(LD<=0){
+        if(LD<0){
             edtLD.requestFocus();
             showToast(getString(R.string.valid_msg_input_LD), Toast.LENGTH_SHORT);
             return;
         }
-        if(LE<=0){
+        if(LE<0){
             edtLE.requestFocus();
             showToast(getString(R.string.valid_msg_input_LE), Toast.LENGTH_SHORT);
             return;
         }
 
-        if(RA<=0){
+        if(RA<0){
             edtRA.requestFocus();
             showToast(getString(R.string.valid_msg_input_RA), Toast.LENGTH_SHORT);
             return;
         }
-        if(RB<=0){
+        if(RB<0){
             edtRB.requestFocus();
             showToast(getString(R.string.valid_msg_input_RB), Toast.LENGTH_SHORT);
             return;
         }
-        if(RC<=0){
+        if(RC<0){
             edtRC.requestFocus();
             showToast(getString(R.string.valid_msg_input_RC), Toast.LENGTH_SHORT);
             return;
         }
-        if(RD<=0){
+        if(RD<0){
             edtRD.requestFocus();
             showToast(getString(R.string.valid_msg_input_RD), Toast.LENGTH_SHORT);
             return;
         }
-        if(RE<=0){
+        if(RE<0){
             edtRE.requestFocus();
             showToast(getString(R.string.valid_msg_input_RE), Toast.LENGTH_SHORT);
             return;
         }
-        if(height<=0){
+        if(height<0){
             edtHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_height), Toast.LENGTH_SHORT);
             return;

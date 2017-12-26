@@ -105,22 +105,22 @@ public class CarDoorMeasurementsFragment extends BaseFragment implements View.On
             edtBackStrikeJambWidth.setVisibility(View.VISIBLE);
             btnCopyFromFrontDoor.setVisibility(View.VISIBLE);
             txtBackDoor.setVisibility(View.VISIBLE);
-            if(carData.getRearDoorSlideJambWidth()>0)
+            if(carData.getRearDoorSlideJambWidth()>=0)
                 edtBackReturnJambWidth.setText(carData.getRearDoorSlideJambWidth() + "");
-            if(carData.getRearDoorStrikeJambWidth()>0)
+            if(carData.getRearDoorStrikeJambWidth()>=0)
                 edtBackStrikeJambWidth.setText(carData.getRearDoorStrikeJambWidth() + "");
-            if(carData.getRearDoorOpeningHeight()>0)
+            if(carData.getRearDoorOpeningHeight()>=0)
                 edtBackOpeningHeight.setText(carData.getRearDoorOpeningHeight()+"");
 
 
             edtFrontStrikeJambWidth.setNextFocusDownId(R.id.edtBackOpeningHeight);
             edtBackStrikeJambWidth.setImeOptions(EditorInfo.IME_ACTION_DONE);
         }
-        if(carData.getFrontDoorOpeningHeight()>0)
+        if(carData.getFrontDoorOpeningHeight()>=0)
             edtFrontOpeningHeight.setText(carData.getFrontDoorOpeningHeight() + "");
-        if(carData.getFrontDoorSlideJambWidth()>0)
+        if(carData.getFrontDoorSlideJambWidth()>=0)
             edtFrontReturnJambWidth.setText(carData.getFrontDoorSlideJambWidth() + "");
-        if(carData.getFrontDoorStrikeJambWidth()>0)
+        if(carData.getFrontDoorStrikeJambWidth()>=0)
             edtFrontStrikeJambWidth.setText(carData.getFrontDoorStrikeJambWidth() + "");
     }
 
@@ -130,17 +130,17 @@ public class CarDoorMeasurementsFragment extends BaseFragment implements View.On
         frontDoorOpeningHeight = ConversionUtils.getDoubleFromEditText(edtFrontOpeningHeight);
         frontDoorReturnJambWidth = ConversionUtils.getDoubleFromEditText(edtFrontReturnJambWidth);
         frontDoorStrikeJambWidth = ConversionUtils.getDoubleFromEditText(edtFrontStrikeJambWidth);
-        if(frontDoorOpeningHeight <= 0){
+        if(frontDoorOpeningHeight < 0){
             edtFrontOpeningHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_front_door_opening_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(frontDoorReturnJambWidth <= 0){
+        if(frontDoorReturnJambWidth < 0){
             edtFrontReturnJambWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_front_door_return_jamb_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(frontDoorStrikeJambWidth <= 0){
+        if(frontDoorStrikeJambWidth < 0){
             edtFrontStrikeJambWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_car_front_door_strike_jamb_width), Toast.LENGTH_SHORT);
             return;
@@ -150,17 +150,17 @@ public class CarDoorMeasurementsFragment extends BaseFragment implements View.On
             backDoorReturnJambWidth = ConversionUtils.getDoubleFromEditText(edtBackReturnJambWidth);
             backDoorStrikeJambWidth = ConversionUtils.getDoubleFromEditText(edtBackStrikeJambWidth);
 
-            if(backDoorOpeningHeight <= 0){
+            if(backDoorOpeningHeight < 0){
                 edtBackOpeningHeight.requestFocus();
                 showToast(getString(R.string.valid_msg_input_car_back_door_opening_height), Toast.LENGTH_SHORT);
                 return;
             }
-            if(backDoorReturnJambWidth <= 0){
+            if(backDoorReturnJambWidth < 0){
                 edtBackReturnJambWidth.requestFocus();
                 showToast(getString(R.string.valid_msg_input_car_back_door_return_jamb_width), Toast.LENGTH_SHORT);
                 return;
             }
-            if(backDoorStrikeJambWidth <= 0){
+            if(backDoorStrikeJambWidth < 0){
                 edtBackStrikeJambWidth.requestFocus();
                 showToast(getString(R.string.valid_msg_input_car_back_door_strike_jamb_width), Toast.LENGTH_SHORT);
                 return;

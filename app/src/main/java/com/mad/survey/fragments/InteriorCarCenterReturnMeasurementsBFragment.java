@@ -99,27 +99,27 @@ public class InteriorCarCenterReturnMeasurementsBFragment extends BaseFragment i
 
         double height = interiorCarDoorData.getFrontReturnMeasurementsHeight();
 
-        if(LA>0){
+        if(LA>=0){
             edtLA.setText(LA+"");
         }
-        if(LB>0){
+        if(LB>=0){
             edtLB.setText(LB+"");
         }
-        if(LC>0){
+        if(LC>=0){
             edtLC.setText(LC+"");
         }
 
-        if(RA>0){
+        if(RA>=0){
             edtRA.setText(RA+"");
         }
-        if(RB>0){
+        if(RB>=0){
             edtRB.setText(RB+"");
         }
-        if(RC>0){
+        if(RC>=0){
             edtRC.setText(RC+"");
         }
 
-        if(height>0){
+        if(height>=0){
             edtHeight.setText(height+"");
         }
     }
@@ -135,40 +135,40 @@ public class InteriorCarCenterReturnMeasurementsBFragment extends BaseFragment i
 
         double height = ConversionUtils.getDoubleFromEditText(edtHeight);
 
-        if(LA<=0){
+        if(LA<0){
             edtLA.requestFocus();
             showToast(getString(R.string.valid_msg_input_LA), Toast.LENGTH_SHORT);
             return;
         }
-        if(LB<=0){
+        if(LB<0){
             edtLB.requestFocus();
             showToast(getString(R.string.valid_msg_input_LB), Toast.LENGTH_SHORT);
             return;
         }
-        if(LC<=0){
+        if(LC<0){
             edtLC.requestFocus();
             showToast(getString(R.string.valid_msg_input_LC), Toast.LENGTH_SHORT);
             return;
         }
 
 
-        if(RA<=0){
+        if(RA<0){
             edtRA.requestFocus();
             showToast(getString(R.string.valid_msg_input_RA), Toast.LENGTH_SHORT);
             return;
         }
-        if(RB<=0){
+        if(RB<0){
             edtRB.requestFocus();
             showToast(getString(R.string.valid_msg_input_RB), Toast.LENGTH_SHORT);
             return;
         }
-        if(RC<=0){
+        if(RC<0){
             edtRC.requestFocus();
             showToast(getString(R.string.valid_msg_input_RC), Toast.LENGTH_SHORT);
             return;
         }
 
-        if(height<=0){
+        if(height<0){
             edtHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_height), Toast.LENGTH_SHORT);
             return;

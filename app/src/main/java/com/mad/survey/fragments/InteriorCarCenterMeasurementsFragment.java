@@ -91,17 +91,17 @@ public class InteriorCarCenterMeasurementsFragment extends BaseFragment implemen
 
         InteriorCarDoorData interiorCarDoorData = MADSurveyApp.getInstance().getInteriorCarDoorData();
 
-        if(interiorCarDoorData.getWidth()>0)
+        if(interiorCarDoorData.getWidth()>=0)
             edtWidth.setText(interiorCarDoorData.getWidth()+"");
-        if(interiorCarDoorData.getHeight()>0)
+        if(interiorCarDoorData.getHeight()>=0)
             edtHeight.setText(interiorCarDoorData.getHeight()+"");
-        if(interiorCarDoorData.getSideWallAuxWidth()>0)
+        if(interiorCarDoorData.getSideWallAuxWidth()>=0)
             edtSideWallAuxWidth.setText(interiorCarDoorData.getSideWallAuxWidth()+"");
-        if(interiorCarDoorData.getSideWallMainWidth()>0)
+        if(interiorCarDoorData.getSideWallMainWidth()>=0)
             edtSideWallMainWidth.setText(interiorCarDoorData.getSideWallMainWidth()+"");
-        if(interiorCarDoorData.getDoorOpeningWidth()>0)
+        if(interiorCarDoorData.getDoorOpeningWidth()>=0)
             edtDoorOpeningWidth.setText(interiorCarDoorData.getDoorOpeningWidth()+"");
-        if(interiorCarDoorData.getDoorOpeningHeight()>0)
+        if(interiorCarDoorData.getDoorOpeningHeight()>=0)
             edtDoorOpeningHeight.setText(interiorCarDoorData.getDoorOpeningHeight()+"");
 
     }
@@ -113,33 +113,33 @@ public class InteriorCarCenterMeasurementsFragment extends BaseFragment implemen
         double sideWallMainWidth = ConversionUtils.getDoubleFromEditText(edtSideWallMainWidth);
         double doorOpeningWidth = ConversionUtils.getDoubleFromEditText(edtDoorOpeningWidth);
         double doorOpeningHeight = ConversionUtils.getDoubleFromEditText(edtDoorOpeningHeight);
-        if(width<=0){
+        if(width<0){
             edtWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(height<=0){
+        if(height<0){
             edtHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(sideWallMainWidth<=0){
+        if(sideWallMainWidth<0){
             edtSideWallMainWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_side_wall_main_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(sideWallAuxWidth<=0){
+        if(sideWallAuxWidth<0){
             edtSideWallAuxWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_side_wall_aux_width), Toast.LENGTH_SHORT);
             return;
         }
 
-        if(doorOpeningHeight<=0){
+        if(doorOpeningHeight<0){
             edtDoorOpeningHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_door_opening_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(doorOpeningWidth<=0){
+        if(doorOpeningWidth<0){
             edtDoorOpeningWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_door_opening_width), Toast.LENGTH_SHORT);
             return;

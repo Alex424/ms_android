@@ -24,7 +24,7 @@ public class InteriorCarSingleSideMeasurementsFragment extends BaseFragment impl
     private EditText edtHeight;
     private EditText edtReturnSideWallDepth;
     private EditText edtSlamSideWallDepth;
-    private EditText edtSlideWallWidth;
+    //private EditText edtSlideWallWidth;
     private EditText edtDoorOpeningWidth;
     private EditText edtDoorOpeningHeight;
 
@@ -53,7 +53,7 @@ public class InteriorCarSingleSideMeasurementsFragment extends BaseFragment impl
         edtHeight = (EditText) parent.findViewById(R.id.edtHeight);
         edtReturnSideWallDepth = (EditText) parent.findViewById(R.id.edtReturnSideWallDepth);
         edtSlamSideWallDepth = (EditText) parent.findViewById(R.id.edtSlamSideWallDepth);
-        edtSlideWallWidth = (EditText) parent.findViewById(R.id.edtSlideWallWidth);
+        //edtSlideWallWidth = (EditText) parent.findViewById(R.id.edtSlideWallWidth);
         edtDoorOpeningWidth = (EditText) parent.findViewById(R.id.edtDoorOpeningWidth);
         edtDoorOpeningHeight = (EditText) parent.findViewById(R.id.edtDoorOpeningHeight);
 
@@ -69,7 +69,7 @@ public class InteriorCarSingleSideMeasurementsFragment extends BaseFragment impl
         edtHeight.setText("");
         edtReturnSideWallDepth.setText("");
         edtSlamSideWallDepth.setText("");
-        edtSlideWallWidth.setText("");
+        //edtSlideWallWidth.setText("");
         edtDoorOpeningHeight.setText("");
         edtDoorOpeningWidth.setText("");
         BankData bankData = MADSurveyApp.getInstance().getBankData();
@@ -83,19 +83,19 @@ public class InteriorCarSingleSideMeasurementsFragment extends BaseFragment impl
 
         InteriorCarDoorData interiorCarDoorData = MADSurveyApp.getInstance().getInteriorCarDoorData();
 
-        if(interiorCarDoorData.getWidth()>0)
+        if(interiorCarDoorData.getWidth()>=0)
             edtWidth.setText(interiorCarDoorData.getWidth()+"");
-        if(interiorCarDoorData.getHeight()>0)
+        if(interiorCarDoorData.getHeight()>=0)
             edtHeight.setText(interiorCarDoorData.getHeight()+"");
-        if(interiorCarDoorData.getReturnSideWallDepth()>0)
+        if(interiorCarDoorData.getReturnSideWallDepth()>=0)
             edtReturnSideWallDepth.setText(interiorCarDoorData.getReturnSideWallDepth()+"");
-        if(interiorCarDoorData.getSlamSideWallDepth()>0)
+        if(interiorCarDoorData.getSlamSideWallDepth()>=0)
             edtSlamSideWallDepth.setText(interiorCarDoorData.getSlamSideWallDepth()+"");
-        if(interiorCarDoorData.getSlideWallWidth()>0)
-            edtSlideWallWidth.setText(interiorCarDoorData.getSlideWallWidth()+"");
-        if(interiorCarDoorData.getDoorOpeningWidth()>0)
+        //if(interiorCarDoorData.getSlideWallWidth()>0)
+        //    edtSlideWallWidth.setText(interiorCarDoorData.getSlideWallWidth()+"");
+        if(interiorCarDoorData.getDoorOpeningWidth()>=0)
             edtDoorOpeningWidth.setText(interiorCarDoorData.getDoorOpeningWidth()+"");
-        if(interiorCarDoorData.getDoorOpeningHeight()>0)
+        if(interiorCarDoorData.getDoorOpeningHeight()>=0)
             edtDoorOpeningHeight.setText(interiorCarDoorData.getDoorOpeningHeight()+"");
     }
 
@@ -105,40 +105,40 @@ public class InteriorCarSingleSideMeasurementsFragment extends BaseFragment impl
         double height = ConversionUtils.getDoubleFromEditText(edtHeight);
         double returnSideWallDepth = ConversionUtils.getDoubleFromEditText(edtReturnSideWallDepth);
         double slamSideWallDepth = ConversionUtils.getDoubleFromEditText(edtSlamSideWallDepth);
-        double slideWallWidth = ConversionUtils.getDoubleFromEditText(edtSlideWallWidth);
+        //double slideWallWidth = ConversionUtils.getDoubleFromEditText(edtSlideWallWidth);
         double doorOpeningWidth = ConversionUtils.getDoubleFromEditText(edtDoorOpeningWidth);
         double doorOpeningHeight = ConversionUtils.getDoubleFromEditText(edtDoorOpeningHeight);
-        if(width<=0){
+        if(width<0){
             edtWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(height<=0){
+        if(height<0){
             edtHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_height), Toast.LENGTH_SHORT);
             return;
         }
-        if(returnSideWallDepth<=0){
+        if(returnSideWallDepth<0){
             edtReturnSideWallDepth.requestFocus();
             showToast(getString(R.string.valid_msg_input_return_side_wall_depth), Toast.LENGTH_SHORT);
             return;
         }
-        if(slamSideWallDepth<=0){
+        if(slamSideWallDepth<0){
             edtSlamSideWallDepth.requestFocus();
             showToast(getString(R.string.valid_msg_input_slam_side_wall_depth), Toast.LENGTH_SHORT);
             return;
         }
-        if(slideWallWidth<=0){
+        /*if(slideWallWidth<=0){
             edtSlideWallWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_slide_wall_width), Toast.LENGTH_SHORT);
             return;
-        }
-        if(doorOpeningWidth<=0){
+        }*/
+        if(doorOpeningWidth<0){
             edtDoorOpeningWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_door_opening_width), Toast.LENGTH_SHORT);
             return;
         }
-        if(doorOpeningHeight<=0){
+        if(doorOpeningHeight<0){
             edtDoorOpeningHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_door_opening_height), Toast.LENGTH_SHORT);
             return;
@@ -148,7 +148,7 @@ public class InteriorCarSingleSideMeasurementsFragment extends BaseFragment impl
         MADSurveyApp.getInstance().getInteriorCarDoorData().setHeight(height);
         MADSurveyApp.getInstance().getInteriorCarDoorData().setReturnSideWallDepth(returnSideWallDepth);
         MADSurveyApp.getInstance().getInteriorCarDoorData().setSlamSideWallDepth(slamSideWallDepth);
-        MADSurveyApp.getInstance().getInteriorCarDoorData().setSlideWallWidth(slideWallWidth);
+        //MADSurveyApp.getInstance().getInteriorCarDoorData().setSlideWallWidth(slideWallWidth);
         MADSurveyApp.getInstance().getInteriorCarDoorData().setDoorOpeningWidth(doorOpeningWidth);
         MADSurveyApp.getInstance().getInteriorCarDoorData().setDoorOpeningHeight(doorOpeningHeight);
         interiorCarDoorDataHandler.update(MADSurveyApp.getInstance().getInteriorCarDoorData());

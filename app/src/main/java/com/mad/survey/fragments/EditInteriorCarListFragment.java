@@ -106,10 +106,12 @@ public class EditInteriorCarListFragment extends BaseFragment implements View.On
                 break;
 
             case R.id.layout:
+                MADSurveyApp.getInstance().setIsInteriorAddFromEdit(false);
                 InteriorCarData data = (InteriorCarData)v.getTag();
                 goToNext(data);
                 break;
             case R.id.btnAdd:
+                MADSurveyApp.getInstance().setIsInteriorAddFromEdit(true);
                 ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_EDIT_BANK_LIST, "edit_bank_list", 4);
                 break;
             case R.id.btnDelete:

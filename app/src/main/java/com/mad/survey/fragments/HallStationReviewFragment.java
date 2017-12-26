@@ -105,27 +105,27 @@ public class HallStationReviewFragment extends BaseFragment implements View.OnCl
         double screwHeight = ConversionUtils.getDoubleFromEditText(edtScrewCenterHeight);
         double aff = ConversionUtils.getDoubleFromEditText(edtAFFValue);
         //--------------------you have to modify this code--------------------
-        if (width <= 0){
+        if (width < 0){
             edtCoverWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_width), Toast.LENGTH_SHORT);
             return;
         }
-        if (height <= 0){
+        if (height < 0){
             edtCoverHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_height), Toast.LENGTH_SHORT);
             return;
         }
-        if (screwWidth <= 0){
+        if (screwWidth < 0){
             edtScrewCenterWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_screw_width), Toast.LENGTH_SHORT);
             return;
         }
-        if (screwHeight <= 0){
+        if (screwHeight < 0){
             edtScrewCenterHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_screw_height), Toast.LENGTH_SHORT);
             return;
         }
-        if (aff <= 0){
+        if (aff < 0){
             edtAFFValue.requestFocus();
             showToast(getString(R.string.valid_msg_input_aff_value), Toast.LENGTH_SHORT);
             return;

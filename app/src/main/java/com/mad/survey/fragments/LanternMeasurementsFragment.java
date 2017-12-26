@@ -94,19 +94,19 @@ public class LanternMeasurementsFragment extends BaseFragment implements View.On
             txtFloorIdentifier.setText(getString(R.string.floor_n_identifier_title, MADSurveyApp.getInstance().getFloorNum()+1,projectData.getNumFloors() , MADSurveyApp.getInstance().getFloorDescriptor()));
             txtLanternPINo.setText(getString(R.string.lantern_pi_n_title, MADSurveyApp.getInstance().getLanternNum()+1, MADSurveyApp.getInstance().getLanternCnt()));
         }
-        if(lanternData.getWidth()>0)
+        if(lanternData.getWidth()>=0)
             edtCoverWidth.setText(lanternData.getWidth()+"");
-        if(lanternData.getHeight()>0)
+        if(lanternData.getHeight()>=0)
             edtCoverHeight.setText(lanternData.getHeight()+"");
-        if(lanternData.getScrewCenterHeight()>0)
+        if(lanternData.getScrewCenterHeight()>=0)
             edtScrewCenterHeight.setText(lanternData.getScrewCenterHeight()+"");
-        if(lanternData.getScrewCenterWidth()>0)
+        if(lanternData.getScrewCenterWidth()>=0)
             edtScrewCenterWidth.setText(lanternData.getScrewCenterWidth()+"");
-        if(lanternData.getDepth()>0)
+        if(lanternData.getDepth()>=0)
             edtCoverDepth.setText(lanternData.getDepth()+"");
-        if(lanternData.getSpaceAvailableHeight()>0)
+        if(lanternData.getSpaceAvailableHeight()>=0)
             edtSpaceAvailableHeight.setText(lanternData.getSpaceAvailableHeight()+"");
-        if(lanternData.getSpaceAvailableWidth()>0)
+        if(lanternData.getSpaceAvailableWidth()>=0)
             edtSpaceAvailableWidth.setText(lanternData.getSpaceAvailableHeight()+"");
     }
 
@@ -119,38 +119,38 @@ public class LanternMeasurementsFragment extends BaseFragment implements View.On
         double spaceAvailableHeigth = ConversionUtils.getDoubleFromEditText(edtSpaceAvailableHeight);
         double spaceAvailableWidth = ConversionUtils.getDoubleFromEditText(edtSpaceAvailableWidth);
         //--------------------you have to modify this code--------------------
-        if (width <= 0){
+        if (width < 0){
             edtCoverWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_width), Toast.LENGTH_SHORT);
             return;
         }
-        if (height <= 0){
+        if (height < 0){
             edtCoverHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_height), Toast.LENGTH_SHORT);
             return;
         }
 
-        if (depth <= 0){
+        if (depth < 0){
             edtCoverDepth.requestFocus();
             showToast(getString(R.string.valid_msg_input_cover_depth), Toast.LENGTH_SHORT);
             return;
         }
-        if (screwWidth <= 0){
+        if (screwWidth < 0){
             edtScrewCenterWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_screw_width), Toast.LENGTH_SHORT);
             return;
         }
-        if (screwHeight <= 0){
+        if (screwHeight < 0){
             edtScrewCenterHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_screw_height), Toast.LENGTH_SHORT);
             return;
         }
-        if (spaceAvailableWidth <= 0){
+        if (spaceAvailableWidth < 0){
             edtSpaceAvailableWidth.requestFocus();
             showToast(getString(R.string.valid_msg_input_space_available_width), Toast.LENGTH_SHORT);
             return;
         }
-        if (spaceAvailableHeigth <= 0){
+        if (spaceAvailableHeigth < 0){
             edtSpaceAvailableHeight.requestFocus();
             showToast(getString(R.string.valid_msg_input_space_available_height), Toast.LENGTH_SHORT);
             return;

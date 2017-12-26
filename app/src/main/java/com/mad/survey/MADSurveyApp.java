@@ -48,6 +48,7 @@ public class MADSurveyApp extends Application {
 	private String floorDescriptor = "";
 	private boolean isEditMode = false;
 
+	private boolean isInteriorAddFromEdit = false;
 
 	public int getHallEntranceCarNum() {
 		return hallEntranceCarNum;
@@ -135,6 +136,14 @@ public class MADSurveyApp extends Application {
 
 	public void setIsEditMode(boolean isEditMode) {
 		this.isEditMode = isEditMode;
+	}
+
+	public boolean isInteriorAddFromEdit() {
+		return isInteriorAddFromEdit;
+	}
+
+	public void setIsInteriorAddFromEdit(boolean isInteriorAddFromEdit) {
+		this.isInteriorAddFromEdit = isInteriorAddFromEdit;
 	}
 
 	public int getLanternNum() {

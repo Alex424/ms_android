@@ -6,7 +6,7 @@
     android:clickable="true"
     android:orientation="vertical">
 
-    <include layout="@layout/view_common_header" />
+    <include layout="@layout/view_common_scroll_header" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,6 +14,7 @@
         android:layout_weight="1">
 
         <ScrollView
+            android:id="@+id/contentScroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -50,24 +51,31 @@
                     android:paddingRight="@dimen/common_content_horizontal_padding"
                     android:paddingTop="@dimen/dp_8">
 
-                    <TextView
-                        android:id="@+id/txtCarNumber"
+                    <LinearLayout
+                        android:id="@+id/layoutPromptTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:text="Car 1 of N - Car Number"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/sp_20" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_5"
-                        android:gravity="center_vertical"
-                        android:text="@string/interior_car_ceiling"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/sp_18" />
+                        <TextView
+                            android:id="@+id/txtCarNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Car 1 of N - Car Number"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_20" />
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_5"
+                            android:gravity="center_vertical"
+                            android:text="@string/interior_car_ceiling"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_18" />
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <View
@@ -99,14 +107,165 @@
                         android:layout_marginTop="@dimen/dp_8"
                         android:background="@drawable/bg_editbox_round"
                         android:gravity="center_vertical"
-                        android:imeOptions="actionDone"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:nextFocusDown="@+id/edtCarWeight"
+                        android:nextFocusDown="@+id/edtHatchToLeftWall"
                         android:paddingLeft="@dimen/dp_10"
                         android:paddingRight="@dimen/dp_10"
                         android:textColor="@color/common_grey_text_color"
                         android:textSize="@dimen/sp_18" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/dp_15"
+                    android:paddingLeft="@dimen/common_content_horizontal_padding"
+                    android:paddingRight="@dimen/common_content_horizontal_padding"
+                    android:paddingTop="@dimen/dp_10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/interior_car_ceiling_escape_hatch_to_left_wall"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_18" />
+
+                        <EditText
+                            android:id="@+id/edtHatchToLeftWall"
+                            android:layout_width="@dimen/dimen_120"
+                            android:layout_height="@dimen/edit_box_height_small"
+                            android:background="@drawable/bg_editbox_round"
+                            android:gravity="center_vertical"
+                            android:inputType="numberDecimal"
+                            android:maxLines="1"
+                            android:nextFocusDown="@+id/edtHatchToBackWall"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:paddingRight="@dimen/dp_10"
+                            android:singleLine="true"
+                            android:textColor="@color/common_grey_text_color"
+                            android:textSize="@dimen/sp_18" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/interior_car_ceiling_escape_hatch_to_back_wall"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_18" />
+
+                        <EditText
+                            android:id="@+id/edtHatchToBackWall"
+                            android:layout_width="@dimen/dimen_120"
+                            android:layout_height="@dimen/edit_box_height_small"
+                            android:background="@drawable/bg_editbox_round"
+                            android:gravity="center_vertical"
+                            android:inputType="numberDecimal"
+                            android:maxLines="1"
+                            android:nextFocusDown="@+id/edtHatchWidth"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:paddingRight="@dimen/dp_10"
+                            android:singleLine="true"
+                            android:textColor="@color/common_grey_text_color"
+                            android:textSize="@dimen/sp_18" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/interior_car_ceiling_escape_hatch_width"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_18" />
+
+                        <EditText
+                            android:id="@+id/edtHatchWidth"
+                            android:layout_width="@dimen/dimen_120"
+                            android:layout_height="@dimen/edit_box_height_small"
+                            android:background="@drawable/bg_editbox_round"
+                            android:gravity="center_vertical"
+                            android:inputType="numberDecimal"
+                            android:maxLines="1"
+                            android:nextFocusDown="@+id/edtHatchLength"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:paddingRight="@dimen/dp_10"
+                            android:singleLine="true"
+                            android:textColor="@color/common_grey_text_color"
+                            android:textSize="@dimen/sp_18" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/interior_car_ceiling_escape_hatch_length"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_18" />
+
+                        <EditText
+                            android:id="@+id/edtHatchLength"
+                            android:layout_width="@dimen/dimen_120"
+                            android:layout_height="@dimen/edit_box_height_small"
+                            android:background="@drawable/bg_editbox_round"
+                            android:gravity="center_vertical"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:paddingRight="@dimen/dp_10"
+                            android:singleLine="true"
+                            android:textColor="@color/common_grey_text_color"
+                            android:textSize="@dimen/sp_18" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

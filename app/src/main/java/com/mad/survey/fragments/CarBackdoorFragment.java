@@ -75,9 +75,9 @@ public class CarBackdoorFragment extends BaseFragment implements View.OnClickLis
 
     private void goToNext(int yes){
         if(yes == 2){
-            MADSurveyApp.getInstance().getCarData().setRearDoorOpeningHeight(0.0);
-            MADSurveyApp.getInstance().getCarData().setRearDoorSlideJambWidth(0.0);
-            MADSurveyApp.getInstance().getCarData().setRearDoorStrikeJambWidth(0.0);
+            MADSurveyApp.getInstance().getCarData().setRearDoorOpeningHeight(-1);
+            MADSurveyApp.getInstance().getCarData().setRearDoorSlideJambWidth(-1);
+            MADSurveyApp.getInstance().getCarData().setRearDoorStrikeJambWidth(-1);
         }
         MADSurveyApp.getInstance().getCarData().setIsThereRearDoor(yes);
         carDataHandler.update(MADSurveyApp.getInstance().getCarData());

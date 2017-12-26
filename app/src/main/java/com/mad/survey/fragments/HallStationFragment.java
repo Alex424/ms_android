@@ -87,6 +87,17 @@ public class HallStationFragment extends BaseFragment implements View.OnClickLis
     }
 
     private void goToHallStationCapturing(){
+        MADSurveyApp.getInstance().setHallStationData(null);
+
+        ProjectData projectData = MADSurveyApp.getInstance().getProjectData();
+        HallStationData hallStationData = hallStationDataHandler.get(projectData.getId(),
+                MADSurveyApp.getInstance().getBankNum(),
+                MADSurveyApp.getInstance().getHallStationNum(),
+                MADSurveyApp.getInstance().getFloorDescriptor());
+        if (hallStationData != null){
+            hallStationDataHandler.delete(hallStationData);
+        }
+
         ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_HALLSTATION_DESCRIPTION, "hallstation_description");
     }
 

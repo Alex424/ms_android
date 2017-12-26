@@ -69,7 +69,7 @@ public class InteriorCarBackWallCloneFragment extends BaseFragment implements Vi
         //set TEMP_DOOR_STYLE = BACK_DOOR
         BaseActivity.TEMP_DOOR_STYLE = 2;
         //-------------------------------
-        ((BaseActivity) getActivity()).backToSpecificFragment("interior_car_opening");
+        ((BaseActivity) getActivity()).backToSpecificFragment("interior_car_wall_type");
     }
 
     private void onClickSameAs(){
@@ -85,7 +85,7 @@ public class InteriorCarBackWallCloneFragment extends BaseFragment implements Vi
             //////////////////////////
             interiorCarDataHandler.update(MADSurveyApp.getInstance().getInteriorCarData());
         }
-        ((BaseActivity) getActivity()).backToSpecificFragment("interior_car_opening");
+        ((BaseActivity) getActivity()).backToSpecificFragment("interior_car_wall_type");
     }
 
 
