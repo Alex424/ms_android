@@ -412,7 +412,7 @@ public class ProjectPhotosFragment extends BaseFragment implements View.OnClickL
                             // Just go through the existing backdoor data, not going to unique/same as front door screen
                             BaseActivity.TEMP_DOOR_STYLE_EDIT = 100;
                             BaseActivity.TEMP_DOOR_STYLE = 2;
-                            ((BaseActivity) getActivity()).backToSpecificFragment("interior_car_opening");
+                            ((BaseActivity) getActivity()).backToSpecificFragment("interior_car_wall_type");
                         }else{
                             ((BaseActivity) getActivity()).replaceFragment(nextFragmentId, nextFragmentTag);
                         }
@@ -426,39 +426,37 @@ public class ProjectPhotosFragment extends BaseFragment implements View.OnClickL
                     ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_INTERIOR_CAR_BACK_WALL, "interior_car_back_wall");
         }
         else if(photoType == GlobalConstant.PROJECT_PHOTO_TYPE_HALL_ENTRANCE){
+
             if(MADSurveyApp.getInstance().isEditMode()){
                 ((BaseActivity) getActivity()).backToSpecificFragment("edit_hall_entrance_list");
             }
             else{
+
+                //came same codes and logic from the project photos fragment
                 int numHallEntrance = MADSurveyApp.getInstance().getBankData().getNumOfCar();
                 int currentHallEntrance = MADSurveyApp.getInstance().getHallEntranceCarNum();
                 if(numHallEntrance > currentHallEntrance + 1 ){
-                    MADSurveyApp.getInstance().setHallEntranceCarNum(currentHallEntrance + 1);
-                    ((BaseActivity) getActivity()).backToSpecificFragment("hall_entrance_door_type");
+                    if (currentHallEntrance == 0) {
+                        MADSurveyApp.getInstance().setHallEntranceCarNum(currentHallEntrance + 1);
+                        ((BaseActivity) getActivity()).backToSpecificFragment("hall_entrance_floor_description");
+                        ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_HALL_ENTRANCE_COPY, "hall_entrance_copy");
+                    }
+                    else {
+                        MADSurveyApp.getInstance().setHallEntranceCarNum(currentHallEntrance + 1);
+                        ((BaseActivity) getActivity()).backToSpecificFragment("hall_entrance_copy");
+                    }
                 }
                 else{
                     int numFloor = MADSurveyApp.getInstance().getProjectData().getNumFloors();
                     int currentFloor = MADSurveyApp.getInstance().getFloorNum();
                     if(numFloor > currentFloor + 1){
-                        MADSurveyApp.getInstance().setHallEntranceCarNum(0);
-                        MADSurveyApp.getInstance().setFloorNum(currentFloor + 1);
-                        ((BaseActivity) getActivity()).backToSpecificFragment("hall_entrance_floor_description");
+                        ((BaseActivity) getActivity()).replaceFragment(BaseActivity.FRAGMENT_ID_HALL_ENTRANCE_SKIP, "hall_entrance_skip");
                     }
                     else{
-                        int numBank = MADSurveyApp.getInstance().getProjectData().getNumBanks();
-                        int currentBank = MADSurveyApp.getInstance().getBankNum();
-                        if(numBank > currentBank + 1){
-                            MADSurveyApp.getInstance().setHallEntranceCarNum(0);
-                            MADSurveyApp.getInstance().setFloorNum(0);
-                            MADSurveyApp.getInstance().setBankNum(currentBank + 1);
-                            ((BaseActivity) getActivity()).backToSpecificFragment("bank_name");
-                        }
-                        else
-                            ((BaseActivity) getActivity()).replaceFragment(nextFragmentId, nextFragmentTag);
+                        goForNextBankMeasurements();
                     }
                 }
             }
-
         }
 
         else {
